@@ -1,0 +1,667 @@
+{"message":"Logging initialized at debug level","level":"debug"}
+{"level":"error","message":"Uncaught exception encountered:server is not defined","stack":"ReferenceError: server is not defined\n    at Object.<anonymous> (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/src/server.ts:55:16)\n    at Module._compile (internal/modules/cjs/loader.js:701:30)\n    at Module.m._compile (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/ts-node/src/index.ts:530:23)\n    at Module._extensions..js (internal/modules/cjs/loader.js:712:10)\n    at Object.require.extensions.(anonymous function) [as .ts] (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/ts-node/src/index.ts:533:12)\n    at Module.load (internal/modules/cjs/loader.js:600:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:539:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:531:3)\n    at Module.require (internal/modules/cjs/loader.js:637:17)\n    at require (internal/modules/cjs/helpers.js:22:18)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"App is running at http://localhost:3000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:3000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"level":"error"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":"Calling endpoint","level":"info"}
+{"level":"error"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":"Calling endpoint","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":"Calling endpoint","level":"info"}
+{"message":{},"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":"Calling endpoint","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"client_id":"","origen_id":"","destino_id":"","servicio_id":"","transportista_id":"","vehiculo_id":"","conductor_id":"","empresa":{"nombre":"","ruc":"","direccion":"","ciudad":"","provincia":""},"contacto":{"nombre":"","apellido":"","celular":""}},"level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","ruc":"","direccion":"","ciudad":"","provincia":""},"level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"level":"info"}
+{"level":"error","message":"Uncaught exception encountered:Cannot read property 'FieldValue' of undefined","stack":"TypeError: Cannot read property 'FieldValue' of undefined\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/decorators/timestamp.js:25:36\n    at Function.FieldUtils.process (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/utils/FieldUtils.js:67:20)\n    at serialize (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/decorators/timestamp.js:21:33)\n    at Object.field.serialize (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/decorators/timestamp.js:69:20)\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/utils/FirestoreSerializer.js:27:41\n    at Map.forEach (<anonymous>)\n    at Function.FirestoreSerializer.serialize (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/utils/FirestoreSerializer.js:24:16)\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/Collection.js:156:50\n    at new Promise (<anonymous>)\n    at Collection.create (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/Collection.js:155:16)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"level":"error"}
+{"level":"error","message":"Uncaught exception encountered:_this.sharedClientState.clearQueryState is not a function","stack":"TypeError: _this.sharedClientState.clearQueryState is not a function\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/core/sync_engine.ts:334:36"}
+{"level":"error","message":"Uncaught exception encountered:_this.sharedClientState.clearQueryState is not a function","stack":"TypeError: _this.sharedClientState.clearQueryState is not a function\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/core/sync_engine.ts:334:36"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"level":"error"}
+{"level":"error","message":"Uncaught exception encountered:_this.sharedClientState.clearQueryState is not a function","stack":"TypeError: _this.sharedClientState.clearQueryState is not a function\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/core/sync_engine.ts:334:36"}
+{"level":"error","message":"Uncaught exception encountered:_this.sharedClientState.clearQueryState is not a function","stack":"TypeError: _this.sharedClientState.clearQueryState is not a function\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/core/sync_engine.ts:334:36"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"diagnosticText":"\u001b[96msrc/lib/initializers/firestorm.ts\u001b[0m:\u001b[93m9\u001b[0m:\u001b[93m19\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2686: \u001b[0m'firebase' refers to a UMD global, but the current file is a module. Consider adding an import instead.\n\n\u001b[7m9\u001b[0m const firestore = firebase.initializeApp(config).firestore();\n\u001b[7m \u001b[0m \u001b[91m                  ~~~~~~~~\u001b[0m\n","diagnosticCodes":[2686],"level":"error","message":"Uncaught exception encountered:⨯ Unable to compile TypeScript:\n\u001b[96msrc/lib/initializers/firestorm.ts\u001b[0m:\u001b[93m9\u001b[0m:\u001b[93m19\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2686: \u001b[0m'firebase' refers to a UMD global, but the current file is a module. Consider adding an import instead.\n\n\u001b[7m9\u001b[0m const firestore = firebase.initializeApp(config).firestore();\n\u001b[7m \u001b[0m \u001b[91m                  ~~~~~~~~\u001b[0m\n","stack":"TSError: ⨯ Unable to compile TypeScript:\n\u001b[96msrc/lib/initializers/firestorm.ts\u001b[0m:\u001b[93m9\u001b[0m:\u001b[93m19\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2686: \u001b[0m'firebase' refers to a UMD global, but the current file is a module. Consider adding an import instead.\n\n\u001b[7m9\u001b[0m const firestore = firebase.initializeApp(config).firestore();\n\u001b[7m \u001b[0m \u001b[91m                  ~~~~~~~~\u001b[0m\n\n    at createTSError (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/ts-node/src/index.ts:293:12)\n    at reportTSError (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/ts-node/src/index.ts:297:19)\n    at getOutput (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/ts-node/src/index.ts:399:34)\n    at Object.compile (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/ts-node/src/index.ts:457:32)\n    at Module.m._compile (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/ts-node/src/index.ts:530:43)\n    at Module._extensions..js (internal/modules/cjs/loader.js:712:10)\n    at Object.require.extensions.(anonymous function) [as .ts] (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/ts-node/src/index.ts:533:12)\n    at Module.load (internal/modules/cjs/loader.js:600:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:539:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:531:3)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"code":"invalid-argument","name":"FirebaseError","level":"error"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"level":"error"}
+{"level":"error","message":"Uncaught exception encountered:_this.sharedClientState.clearQueryState is not a function","stack":"TypeError: _this.sharedClientState.clearQueryState is not a function\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/core/sync_engine.ts:334:36"}
+{"level":"error","message":"Uncaught exception encountered:_this.sharedClientState.clearQueryState is not a function","stack":"TypeError: _this.sharedClientState.clearQueryState is not a function\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/core/sync_engine.ts:334:36"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"Kanguro Cargo","identificacion":"1000000","direccion":"Avenida Galo Plaza Lasso","ciudad":"Quito","nombreContacto":"Juan ","celular":"0999999"},"level":"info"}
+{"level":"error"}
+{"level":"error","message":"Uncaught exception encountered:Converting circular structure to JSON","stack":"TypeError: Converting circular structure to JSON\n    at JSON.stringify (<anonymous>)\n    at stringify (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/express/lib/response.js:1123:12)\n    at ServerResponse.json (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/express/lib/response.js:260:14)\n    at firebase_firestorm_1.Collection.create.then (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/src/controllers/client.ts:33:40)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"Kanguro Cargo","identificacion":"1000000000","direccion":"Avenida Galo Plaza Lasso","ciudad":"Quito","nombreContacto":"Sebastian","celular":"009999999"},"level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"Kanguro Cargo","identificacion":"iowjqe","direccion":"Generando","ciudad":"Quito","nombreContacto":"qewo","celular":"ijwqe"},"level":"info"}
+{"message":"POST:/api/bodega","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"Tablita del Tartaro","identificacion":"10000000000","direccion":"Miravalle 3 Queretaro","ciudad":"Quito","nombreContacto":"Ricardo","celular":"09871016222"},"level":"info"}
+{"message":"POST:/api/bodega","level":"info"}
+{"code":"invalid-argument","name":"FirebaseError","level":"error"}
+{"code":"invalid-argument","name":"FirebaseError","level":"error","message":"Uncaught exception encountered:Function CollectionReference.doc() requires its first argument to be of type non-empty string, but it was: undefined","stack":"FirebaseError: Function CollectionReference.doc() requires its first argument to be of type non-empty string, but it was: undefined\n    at new FirestoreError (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/util/error.ts:166:5)\n    at validateType (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/util/input_validation.ts:336:11)\n    at validateArgType (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/util/input_validation.ts:154:3)\n    at CollectionReference.doc (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/api/database.ts:2297:5)\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/Collection.js:118:27\n    at new Promise (<anonymous>)\n    at Collection.get (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/firebase-firestorm/lib/Collection.js:117:16)\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/src/controllers/bodegas.ts:42:29\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/src/controllers/bodegas.ts:8:71"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/cliente","level":"info"}
+{"message":{"nombre":"","identificacion":"","direccion":"","ciudad":"","nombreContacto":"","celular":""},"level":"info"}
+{"code":"permission-denied","name":"FirebaseError","level":"error","message":"Uncaught exception encountered:7 PERMISSION_DENIED: Missing or insufficient permissions.","stack":"FirebaseError: 7 PERMISSION_DENIED: Missing or insufficient permissions.\n    at new FirestoreError (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/util/error.ts:166:5)\n    at ClientDuplexStream.<anonymous> (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/@firebase/firestore/src/platform_node/grpc_connection.ts:240:13)\n    at ClientDuplexStream.emit (events.js:189:13)\n    at ClientDuplexStream._emitStatusIfDone (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/grpc/src/client.js:234:12)\n    at ClientDuplexStream._receiveStatus (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/grpc/src/client.js:211:8)\n    at Object.onReceiveStatus (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/grpc/src/client_interceptors.js:1311:15)\n    at InterceptingListener._callNext (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/grpc/src/client_interceptors.js:568:42)\n    at InterceptingListener.onReceiveStatus (/Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/grpc/src/client_interceptors.js:618:8)\n    at /Users/sebastianalvarado/Development/KanguroCargo/kanguro_application/node_modules/grpc/src/client_interceptors.js:1127:18"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"diagnosticText":"\u001b[96msrc/lib/initializers/firestorm.ts\u001b[0m:\u001b[93m1\u001b[0m:\u001b[93m27\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2307: \u001b[0mCannot find module 'firebase'.\n\n\u001b[7m1\u001b[0m import * as firebase from 'firebase';\n\u001b[7m \u001b[0m \u001b[91m                          ~~~~~~~~~~\u001b[0m\n\u001b[96msrc/lib/initializers/firestorm.ts\u001b[0m:\u001b[93m2\u001b[0m:\u001b[93m28\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2307: \u001b[0mCannot find module 'firebase-firestorm'.\n\n\u001b[7m2\u001b[0m import * as firestorm from 'firebase-firestorm';\n\u001b[7m \u001b[0m \u001b[91m                           ~~~~~~~~~~~~~~~~~~~~\u001b[0m\n","diagnosticCodes":[2307,2307],"level":"error","message":"Uncaught exception encountered:⨯ Unable to compile TypeScript:\n\u001b[96msrc/lib/initializers/firestorm.ts\u001b[0m:\u001b[93m1\u001b[0m:\u001b[93m27\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2307: \u001b[0mCannot find module 'firebase'.\n\n\u001b[7m1\u001b[0m import * as firebase from 'firebase';\n\u001b[7m \u001b[0m \u001b[91m                          ~~~~~~~~~~\u001b[0m\n\u001b[96msrc/lib/initializers/firestorm.ts\u001b[0m:\u001b[93m2\u001b[0m:\u001b[93m28\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2307: \u001b[0mCannot find module 'firebase-firestorm'.\n\n\u001b[7m2\u001b[0m import * as firestorm from 'firebase-firestorm';\n\u001b[7m \u001b[0m \u001b[91m                           ~~~~~~~~~~~~~~~~~~~~\u001b[0m\n","stack":"TSError: ⨯ Unable to compile TypeScript:\n\u001b[96msrc/lib/initializers/firestorm.ts\u001b[0m:\u001b[93m1\u001b[0m:\u001b[93m27\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2307: \u001b[0mCannot find module 'firebase'.\n\n\u001b[7m1\u001b[0m import * as firebase from 'firebase';\n\u001b[7m \u001b[0m \u001b[91m                          ~~~~~~~~~~\u001b[0m\n\u001b[96msrc/lib/initializers/firestorm.ts\u001b[0m:\u001b[93m2\u001b[0m:\u001b[93m28\u001b[0m - \u001b[91merror\u001b[0m\u001b[90m TS2307: \u001b[0mCannot find module 'firebase-firestorm'.\n\n\u001b[7m2\u001b[0m import * as firestorm from 'firebase-firestorm';\n\u001b[7m \u001b[0m \u001b[91m                           ~~~~~~~~~~~~~~~~~~~~\u001b[0m\n\n    at createTSError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/ts-node/src/index.ts:293:12)\n    at reportTSError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/ts-node/src/index.ts:297:19)\n    at getOutput (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/ts-node/src/index.ts:399:34)\n    at Object.compile (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/ts-node/src/index.ts:457:32)\n    at Module.m._compile (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/ts-node/src/index.ts:530:43)\n    at Module._extensions..js (internal/modules/cjs/loader.js:712:10)\n    at Object.require.extensions.(anonymous function) [as .ts] (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/ts-node/src/index.ts:533:12)\n    at Module.load (internal/modules/cjs/loader.js:600:32)\n    at tryModuleLoad (internal/modules/cjs/loader.js:539:12)\n    at Function.Module._load (internal/modules/cjs/loader.js:531:3)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"connect ECONNREFUSED 127.0.0.1:80","name":"Error","stack":"Error: connect ECONNREFUSED 127.0.0.1:80\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)","config":{"url":"undefined/device/esl/getList","method":"post","data":"{}","headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json;charset=utf-8","User-Agent":"axios/0.19.2","Content-Length":2},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1},"code":"ECONNREFUSED"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"connect ECONNREFUSED 127.0.0.1:80","name":"Error","stack":"Error: connect ECONNREFUSED 127.0.0.1:80\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1097:14)","config":{"url":"undefined/device/esl/getList","method":"post","data":"{}","headers":{"Accept":"application/json, text/plain, */*","Content-Type":"application/json;charset=utf-8","User-Agent":"axios/0.19.2","Content-Length":2},"transformRequest":[null],"transformResponse":[null],"timeout":0,"xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN","maxContentLength":-1},"code":"ECONNREFUSED"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env.example file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env.example file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env.example file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"level":"error"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/tags","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-staging-cluster-kg1fe.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"queryTxt","hostname":"voom-staging-cluster-kg1fe.mongodb.net","level":"error","message":"Uncaught exception encountered:queryTxt ETIMEOUT voom-staging-cluster-kg1fe.mongodb.net","stack":"Error: queryTxt ETIMEOUT voom-staging-cluster-kg1fe.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Uncaught exception encountered:getaddrinfo ENOTFOUND voom-staging-cluster-kg1fe.mongodb.net","name":"MongooseServerSelectionError","reason":{"type":"Single","setName":null,"maxSetVersion":null,"maxElectionId":null,"servers":{},"stale":false,"compatible":true,"compatibilityError":null,"logicalSessionTimeoutMinutes":null,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"commonWireVersion":null},"level":"error","stack":"MongooseServerSelectionError: getaddrinfo ENOTFOUND voom-staging-cluster-kg1fe.mongodb.net\n    at new MongooseServerSelectionError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/serverSelection.js:22:11)\n    at NativeConnection.Connection.openUri (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:808:32)\n    at Mongoose.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/index.js:333:15)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:18:39\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:4:12)\n    at Object.initDatabase (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:6:33)\n    at Object.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:24:11)\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:4:12)\n    at Object.startServer (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:32:12)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/index.ts:6:5"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Uncaught exception encountered:getaddrinfo ENOTFOUND voom-platform-staging-kg1fe.gcp.mongodb.net","name":"MongooseServerSelectionError","reason":{"type":"Single","setName":null,"maxSetVersion":null,"maxElectionId":null,"servers":{},"stale":false,"compatible":true,"compatibilityError":null,"logicalSessionTimeoutMinutes":null,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"commonWireVersion":null},"level":"error","stack":"MongooseServerSelectionError: getaddrinfo ENOTFOUND voom-platform-staging-kg1fe.gcp.mongodb.net\n    at new MongooseServerSelectionError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/serverSelection.js:22:11)\n    at NativeConnection.Connection.openUri (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:808:32)\n    at Mongoose.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/index.js:333:15)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:18:39\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:4:12)\n    at Object.initDatabase (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:6:33)\n    at Object.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:24:11)\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:4:12)\n    at Object.startServer (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:32:12)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/index.ts:6:5"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Uncaught exception encountered:connection <monitor> to 34.71.218.126:27017 closed","name":"MongooseServerSelectionError","reason":{"type":"ReplicaSetNoPrimary","setName":null,"maxSetVersion":null,"maxElectionId":null,"servers":{},"stale":false,"compatible":true,"compatibilityError":null,"logicalSessionTimeoutMinutes":null,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"commonWireVersion":null},"level":"error","stack":"MongooseServerSelectionError: connection <monitor> to 34.71.218.126:27017 closed\n    at new MongooseServerSelectionError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/serverSelection.js:22:11)\n    at NativeConnection.Connection.openUri (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:808:32)\n    at Mongoose.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/index.js:333:15)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:18:39\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:4:12)\n    at Object.initDatabase (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:6:33)\n    at Object.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:24:11)\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:4:12)\n    at Object.startServer (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:32:12)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/index.ts:6:5"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"name":"MongoNetworkError","level":"error","message":"Uncaught exception encountered:failed to connect to server [voom-platform-staging-shard-00-00-kg1fe.gcp.mongodb.net:27017] on first connect [MongoNetworkError: connection 5 to voom-platform-staging-shard-00-00-kg1fe.gcp.mongodb.net:27017 closed\n    at TLSSocket.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connection.js:372:9)\n    at Object.onceWrapper (events.js:418:26)\n    at TLSSocket.emit (events.js:311:20)\n    at net.js:668:12\n    at TCP.done (_tls_wrap.js:556:7) {\n  name: 'MongoNetworkError',\n  [Symbol(mongoErrorContextSymbol)]: {}\n}]","stack":"MongoNetworkError: failed to connect to server [voom-platform-staging-shard-00-00-kg1fe.gcp.mongodb.net:27017] on first connect [MongoNetworkError: connection 5 to voom-platform-staging-shard-00-00-kg1fe.gcp.mongodb.net:27017 closed\n    at TLSSocket.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connection.js:372:9)\n    at Object.onceWrapper (events.js:418:26)\n    at TLSSocket.emit (events.js:311:20)\n    at net.js:668:12\n    at TCP.done (_tls_wrap.js:556:7) {\n  name: 'MongoNetworkError',\n  [Symbol(mongoErrorContextSymbol)]: {}\n}]\n    at Pool.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/topologies/server.js:438:11)\n    at Pool.emit (events.js:311:20)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/pool.js:561:14\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/pool.js:1008:9\n    at callback (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:97:5)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:124:7\n    at _callback (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:349:5)\n    at Connection.errorHandler (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:365:5)\n    at Object.onceWrapper (events.js:418:26)\n    at Connection.emit (events.js:311:20)\n    at TLSSocket.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connection.js:370:12)\n    at Object.onceWrapper (events.js:418:26)\n    at TLSSocket.emit (events.js:311:20)\n    at net.js:668:12\n    at TCP.done (_tls_wrap.js:556:7)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"queryTxt","hostname":"voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:queryTxt ETIMEOUT voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: queryTxt ETIMEOUT voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"name":"MongoParseError","level":"error","message":"Uncaught exception encountered:Ports not accepted with 'mongodb+srv' URIs","stack":"MongoParseError: Ports not accepted with 'mongodb+srv' URIs\n    at parseSrvConnectionString (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/uri_parser.js:50:21)\n    at parseConnectionString (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/uri_parser.js:556:12)\n    at connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/operations/connect.js:297:3)\n    at ConnectOperation.execute (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/operations/connect.js:208:5)\n    at executeOperation (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/operations/execute_operation.js:81:17)\n    at MongoClient.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/mongo_client.js:219:10)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:709:12\n    at new Promise (<anonymous>)\n    at NativeConnection.Connection.openUri (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:706:19)\n    at Mongoose.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/index.js:333:15)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:18:39\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:4:12)\n    at Object.initDatabase (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:6:33)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"name":"MongoNetworkError","level":"error","message":"Uncaught exception encountered:failed to connect to server [192.168.100.1:27017] on first connect [Error: connect ECONNREFUSED 192.168.100.1:27017\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1137:16) {\n  name: 'MongoNetworkError',\n  [Symbol(mongoErrorContextSymbol)]: {}\n}]","stack":"MongoNetworkError: failed to connect to server [192.168.100.1:27017] on first connect [Error: connect ECONNREFUSED 192.168.100.1:27017\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1137:16) {\n  name: 'MongoNetworkError',\n  [Symbol(mongoErrorContextSymbol)]: {}\n}]\n    at Pool.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/topologies/server.js:438:11)\n    at Pool.emit (events.js:311:20)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/pool.js:561:14\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/pool.js:994:11\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:31:7\n    at callback (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:264:5)\n    at Socket.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:294:7)\n    at Object.onceWrapper (events.js:418:26)\n    at Socket.emit (events.js:311:20)\n    at emitErrorNT (internal/streams/destroy.js:92:8)\n    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Uncaught exception encountered:connect ECONNREFUSED 192.168.100.1:27017","name":"MongooseServerSelectionError","reason":{"type":"Single","setName":null,"maxSetVersion":null,"maxElectionId":null,"servers":{},"stale":false,"compatible":true,"compatibilityError":null,"logicalSessionTimeoutMinutes":null,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"commonWireVersion":null},"level":"error","stack":"MongooseServerSelectionError: connect ECONNREFUSED 192.168.100.1:27017\n    at new MongooseServerSelectionError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/serverSelection.js:22:11)\n    at NativeConnection.Connection.openUri (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:808:32)\n    at Mongoose.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/index.js:333:15)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:18:39\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:4:12)\n    at Object.initDatabase (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:6:33)\n    at Object.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:24:11)\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:4:12)\n    at Object.startServer (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:32:12)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/index.ts:6:5"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Uncaught exception encountered:connection <monitor> to 34.71.143.190:27017 closed","name":"MongooseServerSelectionError","reason":{"type":"Single","setName":null,"maxSetVersion":null,"maxElectionId":null,"servers":{},"stale":false,"compatible":true,"compatibilityError":null,"logicalSessionTimeoutMinutes":null,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"commonWireVersion":null},"level":"error","stack":"MongooseServerSelectionError: connection <monitor> to 34.71.143.190:27017 closed\n    at new MongooseServerSelectionError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/serverSelection.js:22:11)\n    at NativeConnection.Connection.openUri (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:808:32)\n    at Mongoose.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/index.js:333:15)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:18:39\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:4:12)\n    at Object.initDatabase (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:6:33)\n    at Object.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:24:11)\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:4:12)\n    at Object.startServer (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:32:12)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/index.ts:6:5"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Uncaught exception encountered:connection <monitor> to 34.71.143.190:27017 closed","name":"MongooseServerSelectionError","reason":{"type":"Single","setName":null,"maxSetVersion":null,"maxElectionId":null,"servers":{},"stale":false,"compatible":true,"compatibilityError":null,"logicalSessionTimeoutMinutes":null,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"commonWireVersion":null},"level":"error","stack":"MongooseServerSelectionError: connection <monitor> to 34.71.143.190:27017 closed\n    at new MongooseServerSelectionError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/serverSelection.js:22:11)\n    at NativeConnection.Connection.openUri (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:808:32)\n    at Mongoose.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/index.js:333:15)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:18:39\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:4:12)\n    at Object.initDatabase (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:6:33)\n    at Object.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:24:11)\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:4:12)\n    at Object.startServer (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:32:12)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/index.ts:6:5"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"name":"MongoNetworkError","level":"error","message":"Uncaught exception encountered:failed to connect to server [34.71.143.190:27017] on first connect [Error: read ECONNRESET\n    at TCP.onStreamRead (internal/stream_base_commons.js:205:27) {\n  name: 'MongoNetworkError',\n  [Symbol(mongoErrorContextSymbol)]: {}\n}]","stack":"MongoNetworkError: failed to connect to server [34.71.143.190:27017] on first connect [Error: read ECONNRESET\n    at TCP.onStreamRead (internal/stream_base_commons.js:205:27) {\n  name: 'MongoNetworkError',\n  [Symbol(mongoErrorContextSymbol)]: {}\n}]\n    at Pool.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/topologies/server.js:438:11)\n    at Pool.emit (events.js:311:20)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/pool.js:561:14\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/pool.js:994:11\n    at callback (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:97:5)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:124:7\n    at _callback (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:349:5)\n    at Connection.errorHandler (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connect.js:365:5)\n    at Object.onceWrapper (events.js:418:26)\n    at Connection.emit (events.js:311:20)\n    at Socket.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongodb/lib/core/connection/connection.js:340:10)\n    at Object.onceWrapper (events.js:418:26)\n    at Socket.emit (events.js:311:20)\n    at emitErrorNT (internal/streams/destroy.js:92:8)\n    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"queryTxt","hostname":"voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:queryTxt ETIMEOUT voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: queryTxt ETIMEOUT voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Uncaught exception encountered:connection <monitor> to 34.71.218.126:27017 closed","name":"MongooseServerSelectionError","reason":{"type":"ReplicaSetNoPrimary","setName":null,"maxSetVersion":null,"maxElectionId":null,"servers":{},"stale":false,"compatible":true,"compatibilityError":null,"logicalSessionTimeoutMinutes":null,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"commonWireVersion":null},"level":"error","stack":"MongooseServerSelectionError: connection <monitor> to 34.71.218.126:27017 closed\n    at new MongooseServerSelectionError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/serverSelection.js:22:11)\n    at NativeConnection.Connection.openUri (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:808:32)\n    at Mongoose.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/index.js:333:15)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:18:39\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:4:12)\n    at Object.initDatabase (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:6:33)\n    at Object.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:24:11)\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:4:12)\n    at Object.startServer (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:32:12)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/index.ts:6:5"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"queryTxt","hostname":"voom-platform-staging-kg1fe.gcp.mongodb.net","level":"error","message":"Uncaught exception encountered:queryTxt ETIMEOUT voom-platform-staging-kg1fe.gcp.mongodb.net","stack":"Error: queryTxt ETIMEOUT voom-platform-staging-kg1fe.gcp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:206:19)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Uncaught exception encountered:connect ECONNREFUSED 127.0.0.1:27017","name":"MongooseServerSelectionError","reason":{"type":"Single","setName":null,"maxSetVersion":null,"maxElectionId":null,"servers":{},"stale":false,"compatible":true,"compatibilityError":null,"logicalSessionTimeoutMinutes":null,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"commonWireVersion":null},"level":"error","stack":"MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at new MongooseServerSelectionError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/serverSelection.js:22:11)\n    at NativeConnection.Connection.openUri (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/connection.js:808:32)\n    at Mongoose.connect (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/index.js:333:15)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:18:39\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:4:12)\n    at Object.initDatabase (/Users/sebastianalvarado/Development/Voom/platform-api/src/initializers/mongo.ts:6:33)\n    at Object.<anonymous> (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:24:11)\n    at Generator.next (<anonymous>)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:4:12)\n    at Object.startServer (/Users/sebastianalvarado/Development/Voom/platform-api/src/server.ts:32:12)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/index.ts:6:5"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/templates","level":"info"}
+{"errors":{"templateColor":{"message":"Path `templateColor` is required.","name":"ValidatorError","properties":{"message":"Path `templateColor` is required.","type":"required","path":"templateColor"},"kind":"required","path":"templateColor"}},"_message":"Template validation failed","message":"Uncaught exception encountered:Template validation failed: templateColor: Path `templateColor` is required.","name":"ValidationError","level":"error","stack":"ValidationError: Template validation failed: templateColor: Path `templateColor` is required.\n    at new ValidationError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/validation.js:31:11)\n    at model.Document.invalidate (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2524:32)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2373:17\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/schematype.js:1099:9\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)"}
+{"errors":{"templateColor":{"message":"Path `templateColor` is required.","name":"ValidatorError","properties":{"message":"Path `templateColor` is required.","type":"required","path":"templateColor"},"kind":"required","path":"templateColor"}},"_message":"Template validation failed","message":"Uncaught exception encountered:Template validation failed: templateColor: Path `templateColor` is required.","name":"ValidationError","level":"error","stack":"ValidationError: Template validation failed: templateColor: Path `templateColor` is required.\n    at new ValidationError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/validation.js:31:11)\n    at model.Document.invalidate (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2524:32)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2373:17\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/schematype.js:1099:9\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)"}
+{"errors":{"templateColor":{"message":"Path `templateColor` is required.","name":"ValidatorError","properties":{"message":"Path `templateColor` is required.","type":"required","path":"templateColor"},"kind":"required","path":"templateColor"}},"_message":"Template validation failed","message":"Uncaught exception encountered:Template validation failed: templateColor: Path `templateColor` is required.","name":"ValidationError","level":"error","stack":"ValidationError: Template validation failed: templateColor: Path `templateColor` is required.\n    at new ValidationError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/validation.js:31:11)\n    at model.Document.invalidate (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2524:32)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2373:17\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/schematype.js:1099:9\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)"}
+{"errors":{"templateColor":{"message":"Path `templateColor` is required.","name":"ValidatorError","properties":{"message":"Path `templateColor` is required.","type":"required","path":"templateColor"},"kind":"required","path":"templateColor"}},"_message":"Template validation failed","message":"Uncaught exception encountered:Template validation failed: templateColor: Path `templateColor` is required.","name":"ValidationError","level":"error","stack":"ValidationError: Template validation failed: templateColor: Path `templateColor` is required.\n    at new ValidationError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/validation.js:31:11)\n    at model.Document.invalidate (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2524:32)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2373:17\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/schematype.js:1099:9\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)"}
+{"errors":{"templateColor":{"message":"Path `templateColor` is required.","name":"ValidatorError","properties":{"message":"Path `templateColor` is required.","type":"required","path":"templateColor"},"kind":"required","path":"templateColor"}},"_message":"Template validation failed","message":"Uncaught exception encountered:Template validation failed: templateColor: Path `templateColor` is required.","name":"ValidationError","level":"error","stack":"ValidationError: Template validation failed: templateColor: Path `templateColor` is required.\n    at new ValidationError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/validation.js:31:11)\n    at model.Document.invalidate (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2524:32)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2373:17\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/schematype.js:1099:9\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)"}
+{"errors":{"templateColor":{"message":"Path `templateColor` is required.","name":"ValidatorError","properties":{"message":"Path `templateColor` is required.","type":"required","path":"templateColor"},"kind":"required","path":"templateColor"}},"_message":"Template validation failed","message":"Uncaught exception encountered:Template validation failed: templateColor: Path `templateColor` is required.","name":"ValidationError","level":"error","stack":"ValidationError: Template validation failed: templateColor: Path `templateColor` is required.\n    at new ValidationError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/validation.js:31:11)\n    at model.Document.invalidate (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2524:32)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2373:17\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/schematype.js:1099:9\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)"}
+{"errors":{"templateColor":{"message":"Path `templateColor` is required.","name":"ValidatorError","properties":{"message":"Path `templateColor` is required.","type":"required","path":"templateColor"},"kind":"required","path":"templateColor"}},"_message":"Template validation failed","message":"Uncaught exception encountered:Template validation failed: templateColor: Path `templateColor` is required.","name":"ValidationError","level":"error","stack":"ValidationError: Template validation failed: templateColor: Path `templateColor` is required.\n    at new ValidationError (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/error/validation.js:31:11)\n    at model.Document.invalidate (/Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2524:32)\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/document.js:2373:17\n    at /Users/sebastianalvarado/Development/Voom/platform-api/node_modules/mongoose/lib/schematype.js:1099:9\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)"}
+{"message":"Timeout exceeded (5000 ms). Process will terminate now.","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/templates","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/templates","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"GET:/api/templates","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
