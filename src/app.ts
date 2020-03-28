@@ -61,12 +61,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 /**
  * Primary app routes.
  */
-// app.get("/account", passportConfig.isAuthenticated, userController.getAccount);
-// app.post("/account/profile", passportConfig.isAuthenticated, userController.postUpdateProfile);
-// app.post("/account/password", passportConfig.isAuthenticated, userController.postUpdatePassword);
-// app.post("/account/delete", passportConfig.isAuthenticated, userController.postDeleteAccount);
-// app.get("/account/unlink/:provider", passportConfig.isAuthenticated, userController.getOauthUnlink);
-
 app.use('/api/tags', tagsController);
 app.use('/api/productos', productosController);
 app.use('/api/templates', templatesController);
@@ -78,10 +72,11 @@ app.use('/api/templates', templatesController);
 //     res.redirect(req.session.returnTo || '/');
 // });
 
+
+
+
 // Serve the static files from React app
 app.use(express.static(path.join(__dirname+'/../client/build/')));
-
-
 /**
  * React Application
  */

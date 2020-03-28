@@ -57,12 +57,13 @@ const doProductBoundEsl = apiWrapper.bind(
   apiWrapper,
   'GET:/api/products/:id/boundEsl',
   async (req: Request, res: Response) => {
-    const { id: product_id } = req.body;
+    const { id: product_id } = req.params;
 
     const eslList = await SunmiClient.getProductBoundEsl({
       shop_id: config.shop_id,
       product_id,
     });
+
     return res.json(eslList);
   }
 );
@@ -105,11 +106,12 @@ const doUpdateProductTemplate = apiWrapper.bind(
 
 const doCreateProduct = apiWrapper.bind(
   apiWrapper,
-  'POST: /api/products/',
+  'POST: /api/productos/',
   validator.body(ProductValidators.CreateProductValidator),
   uploadFile.single('productImage'),
   async (req: ValidatedRequest<CreateProductSchema>, res: Response) => {
 
+    
     // Create the product in our DB
     const product = new Product({
       name: req.body.details.product.name,

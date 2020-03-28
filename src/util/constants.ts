@@ -6,3 +6,40 @@ export enum UnitEnum {
     METRO = 'Metro',
     GRAMOS = 'Gramos',
 }
+
+// TODO: Finish indutry list
+export enum Industries {
+    RESTAURANT = 'Restaurante'
+}
+
+export enum PercentageDiscount {
+    FIFTEEN_PERCENT = 0.15,
+    TWENTY_PERCENT = 0.2,
+    TWENTY_FIVE_PERCENT = 0.25,
+    THIRTY_PERCENT = 0.3,
+    THIRTY_FIVE_PERCENT = 0.35
+}
+
+// TODO: Lista de Bancos de Ecuador completa
+export enum BankOptions {
+    PICHINCHA = 'BANCO PICHINCHA',
+    GUAYAQUIL = 'BANCO GUAYAQUIL'
+}
+
+export enum CountryOptions {
+    ECUADOR = 'ECUADOR',
+    COLOMBIA = 'COLOMBIA'
+};
+
+export enum VoucherOptionsValues {
+    FIVE = 5,
+    TEN = 10,
+    FIFTEEN = 15,
+    TWENTY = 20,
+    TWENTY_FIVE = 25,
+    THIRTY = 30,
+    THIRTY_FIVE = 35,
+    FORTY = 40,
+    FORTY_FIVE = 45,
+    FIFTY = 50
+};
