@@ -10,7 +10,7 @@ import { initDatabase } from './initializers/mongo';
 import logger from './util/logger';
 
 const PROCESS_EXIT_TIMEOUT = 5000;
-
+require('./initializers/firebase');
 moment.locale('es');
 momentTz.tz.setDefault('America/Bogota');
 

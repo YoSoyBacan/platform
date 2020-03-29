@@ -14,7 +14,6 @@ export interface IBusiness extends Document {
   industry: Constants.Industries,
   businessRegisteredAt: Date,
   businessDescription: string,
-
 }
 const BusinessSchema = new Schema({}, {
   timestamps: true
@@ -85,15 +84,15 @@ BusinessSchema.add({
     required: true,
     trim: true
   },
-  images: {
-    type: [String],
+  images: [{
+    type: String,
     required: true
-  },
+  }],
   /* Voucher Options */
-  voucherOptions: {
-    type: [Constants.VoucherOptionsValues],
+  voucherOptions: [{
+    type: Number,
     required: true
-  },
+  }],
   /* Legal Information */
   legalId: {
     type: String,

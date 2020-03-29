@@ -3,7 +3,7 @@ import nanoid from 'nanoid';
 
 import logger from '../util/logger';
 
-enum ResponseCode {
+export enum ResponseCode {
     ERROR_INVALID_INPUT = 0,
     ERROR_FORBIDDEN = 1,
     ERROR_UNKNOWN_RESOURCE = 2,
