@@ -2,19 +2,29 @@ import mongoose, { Document, Schema } from 'mongoose';
 
 import * as Constants from '../util/constants';
 
-
 export interface IBusiness extends Document {
   name: string;
   address: string;
-  country: Constants.CountryOptions,
-  city: string,
-  telephone: string,
-  publicLink: string,
-  businessEmail: string,
-  industry: Constants.Industries,
-  businessRegisteredAt: Date,
-  businessDescription: string,
-
+  country: Constants.CountryOptions;
+  city: string;
+  businessTelephone: string;
+  businessLink: string;
+  businessEmail: string;
+  industry: Constants.Industries;
+  businessRegisteredAt: Date;
+  businessDescription: string;
+  percentageDiscount: Constants.PercentageDiscount;
+  coordinates?: number[];
+  avatarImageUrl: string;
+  images?: string[];
+  voucherOptions: string[];
+  legalId: string;
+  bank: Constants.BankOptions;
+  accountNumer: string;
+  owner: string;
+  vouchers?: string[];
+  transactions?: string[];
+  notifications?:  string[];
 }
 const BusinessSchema = new Schema({}, {
   timestamps: true
@@ -43,12 +53,12 @@ BusinessSchema.add({
     trim: true,
     required: true
   },
-  telephone: {
+  businessTelephone: {
     type: String,
     trim: true,
     required: true
   },
-  publicLink: {
+  businessLink: {
     type: String,
     trim: true,
     required: true
@@ -82,12 +92,11 @@ BusinessSchema.add({
   },
   avatarImageUrl: {
     type: String,
-    required: true,
-    trim: true
+    trim: true,
+    required: true
   },
   images: {
-    type: [String],
-    required: true
+    type: [String]
   },
   /* Voucher Options */
   voucherOptions: {
@@ -106,8 +115,8 @@ BusinessSchema.add({
   },
   accountNumber: {
     type: String,
-    required: true,
-    trim: true
+    trim: true,
+    required: true
   },
   /* Relationships */
   owner: {
