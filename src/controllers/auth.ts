@@ -50,7 +50,11 @@ const doCreateUser  = apiWrapper.bind(
     }
 
     const newUser = new User({
-      ...req.body
+      type: req.body.type,
+      email: req.body.email,
+      phoneNumber: req.body.phoneNumber,
+      countryCode: req.body.countryCode,
+      authMethod: req.body.authMethod
     });
     await newUser.save();
 
