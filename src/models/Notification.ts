@@ -7,10 +7,10 @@ const NotificationSchema = new Schema({}, {
 });
 
 export interface INotification extends Document {
-  type: Constants.NotificationType,
-  title: string,
-  description: string,
-  deliveryMethod: Constants.NotificationDeliveryMethod
+  type: Constants.NotificationType;
+  title: string;
+  description: string;
+  deliveryMethod: Constants.NotificationDeliveryMethod;
 };
 
 NotificationSchema.add({

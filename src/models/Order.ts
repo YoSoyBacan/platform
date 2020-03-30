@@ -12,7 +12,7 @@ export interface IOrder extends Document {
   currency: Constants.Currency;
   token: string;
   /* Relationships */
-  account: string
+  account: string;
   business: string;
   vouchers: string[]
   notification: string;
