@@ -4,7 +4,7 @@ import * as Constants from '../util/constants';
 import { ContainerTypes } from 'express-joi-validation';
 
 export interface IVoucher extends Document {
-    discoutn: Constants.PercentageDiscount;
+    discount: Constants.PercentageDiscount;
     voucherOption: string;
     order: string, 
     transactions?: string[];
