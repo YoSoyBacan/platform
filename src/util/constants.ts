@@ -2,7 +2,7 @@ export const ECUADOR_TAX_RATE = 0.12;
 
 export enum UserType {
     CONSUMER = 'Comprador',
-    BUSINESS = 'Establecimiento'
+    BUSINESS = 'Negocio'
 };
 
 export enum AuthMethods {
