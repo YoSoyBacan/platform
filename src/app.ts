@@ -5,21 +5,15 @@ import lusca from 'lusca';
 import passport from 'passport';
 import path from 'path';
 
+import authController from './controllers/auth';
 import { assignReferenceId } from './controllers/common';
-import productosController from './controllers/productos';
-import tagsController from './controllers/tags';
-import templatesController from './controllers/templates';
 
-// import templatesController from './controllers/templates';
-// Controllers (route handlers)
 
-// API keys and Passport configuration
 // Create Express server
 const app = express();
 
 // Express configuration
 app.set('port', process.env.PORT || 8000);
-// app.set('views', path.join(__dirname, '../views'));
 app.use(compression());
 app.use(assignReferenceId);
 app.use(bodyParser.json());
@@ -36,7 +30,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(flash());
 app.use(lusca.xframe('SAMEORIGIN'));
 app.use(lusca.xssProtection(true));
 app.use((req: Request, res: Response, next: NextFunction) => {
@@ -61,9 +54,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 /**
  * Primary app routes.
  */
-app.use('/api/tags', tagsController);
-app.use('/api/productos', productosController);
-app.use('/api/templates', templatesController);
+app.use('/api/auth', authController);
 /**
  * OAuth authentication routes. (Sign in)
  */

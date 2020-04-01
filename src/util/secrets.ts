@@ -14,7 +14,7 @@ export const ENVIRONMENT = process.env.NODE_ENV;
 // const prod = ENVIRONMENT === 'production'; // Anything else is treated as 'dev'
 
 // export const SESSION_SECRET = process.env['SESSION_SECRET'];
-// export const GOOGLE_APPLICATION_CREDENTIALS = process.env['GOOGLE_APPLICATION_CREDENTIALS'];
+export const GOOGLE_APPLICATION_CREDENTIALS = process.env['GOOGLE_APPLICATION_CREDENTIALS'];
 // export const REDIS_HOST = process.env['REDIS_HOST'];
 // export const REDIS_PORT = process.env['REDIS_PORT'];
 // export const REDIS_PASSWORD = process.env['REDIS_PASSWORD'];
@@ -24,10 +24,10 @@ export const ENVIRONMENT = process.env.NODE_ENV;
 //     process.exit(1);
 // }
 
-// if (!GOOGLE_APPLICATION_CREDENTIALS) {
-//     logger.error('No Firebase GOOGLE_APPLICATION_CREDENTIALS environment variable set, exiting the application');
-//     process.exit(1);
-// }
+if (!GOOGLE_APPLICATION_CREDENTIALS) {
+    logger.error('No Firebase GOOGLE_APPLICATION_CREDENTIALS environment variable set, exiting the application');
+    process.exit(1);
+}
 
 // if (!REDIS_HOST || !REDIS_PORT || !REDIS_PASSWORD) {
 //     logger.error('Missing redis configuration variables REDIS_HOST, REDIS_PORT, REDIS_PASSWORD');

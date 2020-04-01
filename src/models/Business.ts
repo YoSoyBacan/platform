@@ -99,10 +99,10 @@ BusinessSchema.add({
     type: [String]
   },
   /* Voucher Options */
-  voucherOptions: {
-    type: [Constants.VoucherOptionsValues],
+  voucherOptions: [{
+    type: Number,
     required: true
-  },
+  }],
   /* Legal Information */
   legalId: {
     type: String,
