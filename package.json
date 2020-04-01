@@ -27,7 +27,7 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "@types/crypto-js": "^3.1.43",
-    "acorn": "^7.1.0",
+    "acorn": "^7.1.1",
     "async": "^3.1.0",
     "axios": "^0.19.2",
     "bcrypt-nodejs": "^0.0.3",
