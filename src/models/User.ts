@@ -24,11 +24,13 @@ UserSchema.add({
     type: String,
     required: true,
     trim: true,
+    unique: true
   },
   phoneNumber: {
     type: String,
     required: true,
     trim: true,
+    unique: true
   },
   countryCode: {
     type: String,
