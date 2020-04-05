@@ -5,7 +5,7 @@ import { ContainerTypes } from 'express-joi-validation';
 
 export interface IVoucher extends Document {
     discount: Constants.PercentageDiscount;
-    voucherOption: string;
+    amount: Constants.VoucherOptionsValues;
     order: string, 
     transactions?: string[];
     account: string;
@@ -22,12 +22,11 @@ VoucherSchema.add({
         type: Constants.PercentageDiscount,
         required: true
     },
-    /* Relationship */
-    voucherOption: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'VoucherOption',
+    amount: {
+        type: Constants.VoucherOptionsValues,
         required: true
     },
+    /* Relationship */
     order: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Order', 
