@@ -5,7 +5,7 @@ import lusca from 'lusca';
 import passport from 'passport';
 import path from 'path';
 
-import authController from './controllers/auth';
+import authController from './controllers/user';
 import { assignReferenceId } from './controllers/common';
 
 
