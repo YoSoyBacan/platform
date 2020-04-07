@@ -1,17 +1,17 @@
-import { Response, Router } from 'express';
+import { Response, Router, Request } from 'express';
 import { ContainerTypes, createValidator, ValidatedRequest, ValidatedRequestSchema } from 'express-joi-validation';
 
-import { Business } from '../models';
+import { Business, IUser } from '../models';
 import * as Constants from '../util/constants';
 import * as AuthValidators from '../validators/business';
 import { apiWrapper, RequestFailure, ResponseCode } from './common';
+import { APIResponse } from '../lib/responseTypes';
 
 
 const router = Router({ mergeParams: true });
 const validator = createValidator();
 
 // Schemas 
-
 interface CreateBusinessSchema extends ValidatedRequestSchema {
     [ContainerTypes.Body]: {
         name: string, 
@@ -88,5 +88,46 @@ const doCreateBusiness = apiWrapper.bind(
         return res.status(200).json(newBusiness);
     }   
 )
+
+const doGetBusiness = apiWrapper.bind(
+  apiWrapper, 
+  'GET:/api/business/:businessId',
+  async (req: Request, res: Response) => {
+    const business = await Business.findById(req.params.businessId).populate("owner");
+    const user = (business.owner as any) as IUser;
+  
+    const response: APIResponse.BusinessResponse = {
+      data: {
+        informacion_del_negocio: {
+          nombre: business.name, 
+          direccion: business.address,
+          fecha_de_registro: business.businessRegisteredAt,
+          telefono: business.businessTelephone,
+          ciudad: business.city,
+          pais: business.country,
+          email: business.businessEmail,
+          industria: business.industry,
+          link: business.businessLink,
+          avatar: business.avatarImageUrl, 
+          imagenes: business.images,
+          legalId: business.legalId,
+          banco: business.bank,
+          numero_de_cuenta: business.accountNumer
+        },
+        informacion_del_usuario: {
+          nombre: `${user.firstName} ${user.lastName}`,
+          email: user.email,
+          numero: user.phoneNumber,
+          codigo_del_pais: user.countryCode
+        } 
+      }
+    }
+
+    return res.json(response);
+  }
+);
+
 router.post('/', doCreateBusiness);
+router.get('/:businessId', doGetBusiness);
+
 export default router;
