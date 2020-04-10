@@ -1,7 +1,6 @@
 import 'moment/locale/es';
 
 import { ApolloServer } from 'apollo-server-express';
-import errorHandler from 'errorhandler';
 import depthLimit from 'graphql-depth-limit';
 import http from 'http';
 import moment from 'moment';
@@ -16,6 +15,7 @@ const PROCESS_EXIT_TIMEOUT = 5000;
 require('./initializers/firebase');
 moment.locale('es');
 momentTz.tz.setDefault('America/Bogota');
+
 const apolloServer = new ApolloServer({
     schema,
     validationRules: [depthLimit(7)],
@@ -26,16 +26,16 @@ const apolloServer = new ApolloServer({
 /**
  * Error Handler. Provides full stack - remove for production
  */
-app.use(errorHandler);    
+// app.use(errorHandler);    
 
 export async function startServer(withProcess: boolean = true) {
     await initDatabase();
-    // apolloServer.applyMiddleware({ app, path: '/graphql'});
+    apolloServer.applyMiddleware({ app, path: '/graphql' });
     const server = http.createServer(app);
 
     if (withProcess) {
         await server.listen(app.get('port'));
-        logger.info(`App is running at http://localhost:${app.get('port')} in ${app.get('env')} mode`);
+        logger.info(`🚀  App is running at http://localhost:${app.get('port')} in ${app.get('env')} mode`);
     }
     return {
         app,

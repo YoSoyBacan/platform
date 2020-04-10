@@ -1,7 +1,9 @@
 import bodyParser from 'body-parser';
 import compression from 'compression';
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
+import lusca from 'lusca';
 import passport from 'passport';
+import path from 'path';
 
 import authController from './controllers/auth';
 import { assignReferenceId } from './controllers/common';
@@ -11,8 +13,8 @@ import { assignReferenceId } from './controllers/common';
 const app = express();
 
 // Express configuration
-app.set('port', process.env.PORT || 3001);
-app.use(compression);
+app.set('port', process.env.PORT || 8000);
+app.use(compression());
 app.use(assignReferenceId);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,12 +30,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(lusca.xframe('SAMEORIGIN'));
-// app.use(lusca.xssProtection(true));
-// app.use((req: Request, res: Response, next: NextFunction) => {
-//     res.locals.user = req.user;
-//     next();
-// });
+app.use(lusca.xframe('SAMEORIGIN'));
+app.use(lusca.xssProtection(true));
+app.use((req: Request, res: Response, next: NextFunction) => {
+    res.locals.user = req.user;
+    next();
+});
 // app.use((req, res, next) => {
 //     // After successful login, redirect back to the intended page
 //     if (!req.user &&
@@ -52,10 +54,10 @@ app.use(passport.session());
 /**
  * Primary app routes.
  */
+app.get('/ping', (req, res) => {
+    return res.send('Pong');
+})
 app.use('/api/auth', authController);
-app.get('/ping', (req, res ) => {
-    return res.status(200).send('Pong')
-});
 /**
  * OAuth authentication routes. (Sign in)
  */
@@ -68,10 +70,10 @@ app.get('/ping', (req, res ) => {
 
 
 // Serve the static files from React app
-// app.use(express.static(path.join(__dirname+'/../client/build/')));
-// /**
-//  * React Application
-//  */
+app.use(express.static(path.join(__dirname+'/../client/build/')));
+/**
+ * React Application
+ */
 // app.get('*', (req: Request, res: Response) => {
 //     res.sendFile(path.join(__dirname+'/../client/build/'));
 // });
