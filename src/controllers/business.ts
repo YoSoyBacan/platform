@@ -1,5 +1,6 @@
 import { Response, Router, Request } from 'express';
 import { ContainerTypes, createValidator, ValidatedRequest, ValidatedRequestSchema } from 'express-joi-validation';
+import { BitlyClient } from 'bitly';
 
 import { Business, IUser } from '../models';
 import * as Constants from '../util/constants';
@@ -62,7 +63,17 @@ const doCreateBusiness = apiWrapper.bind(
         }
 
     //TODO DANI do a function that creates a link before writing to the db use it with bit.ly
-    
+        const bitly = new BitlyClient(process.env['BITLY_ACCESS_TOKEN'], {});
+        console.log(bitly);
+        let businessBitLink;
+
+        try {
+          let result = await bitly.shorten('https://github.com/tanepiper/node-bitly');
+          businessBitLink = result.link;
+          console.log(`Your shortened bitlink is ${businessBitLink}`);
+        } catch(e) {
+          throw e;
+        }
     
         const newBusiness = new Business({
             name: req.body.name,
@@ -70,6 +81,7 @@ const doCreateBusiness = apiWrapper.bind(
             country: req.body.country, 
             city: req.body.city, 
             businessTelephone: req.body.businessTelephone,
+            businessLink: businessBitLink,
             businessEmail: req.body.businessEmail, 
             industry: req.body.industry,
             businessRegisteredAt: req.body.businessRegisteredAt,
