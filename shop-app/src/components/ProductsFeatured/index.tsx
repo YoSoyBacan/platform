@@ -1,48 +1,34 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
+import './scss/index.scss';
 
-import { Carousel, ProductListItem } from "..";
-import { generateProductUrl, maybe } from "../../core/utils";
-import { TypedFeaturedProductsQuery } from "./queries";
+import * as React from 'react';
 
-import "./scss/index.scss";
+import { Carousel, ProductListItem } from '..';
 
 interface ProductsFeaturedProps {
   title?: string;
+  products: Array<{
+    id: string;
+    name: string;
+    address: string;
+    imageUrls: string[];
+    maxDiscount: number;
+  }>
 }
 
-const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) => {
+const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title, products }) => {
   return (
-    <TypedFeaturedProductsQuery displayError={false}>
-      {({ data }) => {
-        const products = maybe(
-          () => data.shop.homepageCollection.products.edges,
-          []
-        );
-
-        if (products.length) {
-          return (
-            <div className="products-featured">
-              <div className="container">
-                <h3>{title}</h3>
-                <Carousel>
-                  {products.map(({ node: product }) => (
-                    <Link
-                      to={generateProductUrl(product.id, product.name)}
-                      key={product.id}
-                    >
-                      <ProductListItem product={product} />
-                    </Link>
-                  ))}
-                </Carousel>
-              </div>
-            </div>
-          );
-        } else {
-          return null;
-        }
-      }}
-    </TypedFeaturedProductsQuery>
+    <div className="products-featured">
+      <div className="container">
+        <h3>{title}</h3>
+        <Carousel>
+          {products.map(( product ) => (
+            <a>
+              <ProductListItem product={product} />
+            </a>
+          ))}
+        </Carousel>
+      </div>
+    </div>
   );
 };
 

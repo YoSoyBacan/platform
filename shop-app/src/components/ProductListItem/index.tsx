@@ -1,79 +1,106 @@
-import "./scss/index.scss";
+import './scss/index.scss';
 
-import isEqual from "lodash/isEqual";
-import * as React from "react";
+import { Thumbnail } from '@components/molecules';
+import * as React from 'react';
+import { Link } from 'react-router-dom';
 
-import { Thumbnail } from "@components/molecules";
+import { generateProductUrl } from '../../core/utils';
 
-import { TaxedMoney } from "../../@next/components/containers";
-import { BasicProductFields } from "../../views/Product/types/BasicProductFields";
-
-export interface Product extends BasicProductFields {
-  category?: {
-    id: string;
-    name: string;
-  };
-  pricing: {
-    priceRange: {
-      start: {
-        gross: {
-          amount: number;
-          currency: string;
-        };
-        net: {
-          amount: number;
-          currency: string;
-        };
-      };
-    };
-    priceRangeUndiscounted: {
-      start: {
-        gross: {
-          amount: number;
-          currency: string;
-        };
-        net: {
-          amount: number;
-          currency: string;
-        };
-      };
-    };
-  };
-}
 
 interface ProductListItemProps {
-  product: Product;
+  product: {
+    id: string;
+    name: string;
+    address: string;
+    imageUrls: string[];
+    maxDiscount: number;
+  };
 }
 
-const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
-  const { category } = product;
-  const price = product.pricing.priceRange.start;
-  const priceUndiscounted = product.pricing.priceRangeUndiscounted.start;
 
-  const getProductPrice = () => {
-    if (isEqual(price, priceUndiscounted)) {
-      return <TaxedMoney taxedMoney={price} />;
-    } else {
-      return (
-        <>
-          <span className="product-list-item__undiscounted_price">
-            <TaxedMoney taxedMoney={priceUndiscounted} />
-          </span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <TaxedMoney taxedMoney={price} />
-        </>
-      );
+const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
+  const {
+    id,
+    name,
+    address,
+    imageUrls,
+    maxDiscount
+  } = product;
+
+  const [isHovered, setState] = React.useState(false);
+  // const [ isAuthenticated, setAuthenticatedState ] = React.useState(false);
+  // const [ productVariant, setProductVariant ] = React.useState({
+  //   variantId: '',
+  //   quantity: 0,
+  // });
+
+  // const price = product.pricing.priceRange.start;
+  // const priceUndiscounted = product.pricing.priceRangeUndiscounted.start;
+
+  // const getProductPrice = () => {
+  //   if (isEqual(price, priceUndiscounted)) {
+  //     return <TaxedMoney taxedMoney={price} />;
+  //   } else {
+  //     return (
+  //       <>
+  //         <span className="product-list-item__undiscounted_price">
+  //           <TaxedMoney taxedMoney={priceUndiscounted} />
+  //         </span>
+  //         &nbsp;&nbsp;&nbsp;&nbsp;
+  //         <TaxedMoney taxedMoney={price} />
+  //       </>
+  //     );
+  //   }
+  // };
+
+
+  // Check authentication
+  // useAuth((authenticated) => {
+  //   setAuthenticatedState(authenticated);
+  // });
+
+  let secondImage;
+  if (imageUrls && imageUrls.length > 1) {
+    secondImage = {
+      thumbnail: {
+        url: imageUrls[1],
+      },
     }
-  };
+  }
+
+  function getThumbnail(source, id, name) {
+    return(
+      <Link
+      to={generateProductUrl(id, name)}
+      key={id}
+      >
+        <Thumbnail source={source} />
+      </Link>
+    )
+  }
   return (
-    <div className="product-list-item">
-      <div className="product-list-item__image">
-        <Thumbnail source={product} />
-      </div>
-      <h4 className="product-list-item__title">{product.name}</h4>
-      <p className="product-list-item__category">{category.name}</p>
-      <p className="product-list-item__price">{getProductPrice()}</p>
+    <div 
+    className="product-list-item"
+    onMouseOver={() => {
+      if (!isHovered) {
+        setState(!isHovered)
+      }
+    }} 
+    onMouseLeave={() =>  {
+      if (isHovered) {
+        setState(!isHovered)
+      }
+    }}
+  >
+    <div className="product-list-item__image">
+      {(!isHovered || !secondImage) &&  getThumbnail(product, id, name)}
+      {isHovered && secondImage && getThumbnail(secondImage, id, name)}
+
     </div>
+    <h4 className="product-list-item__title">{product.name}</h4>
+    <p className="product-list-item__category">{address}</p>
+    <p className="product-list-item__price">{maxDiscount}</p>
+  </div>
   );
 };
 

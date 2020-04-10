@@ -1,21 +1,14 @@
-import "./scss/index.scss";
+import './scss/index.scss';
 
-import * as React from "react";
+import { IFilterAttributes, IFilters } from '@types';
+import * as React from 'react';
 
-import { IFilterAttributes, IFilters } from "@types";
-import {
-  Breadcrumbs,
-  extractBreadcrumbs,
-  ProductsFeatured,
-} from "../../components";
-
-import { ProductListHeader } from "../../@next/components/molecules";
-import { ProductList } from "../../@next/components/organisms";
-import { FilterSidebar } from "../../@next/components/organisms/FilterSidebar";
-
-import { maybe } from "../../core/utils";
-
-import { Category_category, Category_products } from "./types/Category";
+import { ProductListHeader } from '../../@next/components/molecules';
+import { ProductList } from '../../@next/components/organisms';
+import { FilterSidebar } from '../../@next/components/organisms/FilterSidebar';
+import { Breadcrumbs, extractBreadcrumbs, ProductsFeatured } from '../../components';
+import { maybe } from '../../core/utils';
+import { Category_category, Category_products } from './types/Category';
 
 interface SortItem {
   label: string;
@@ -82,6 +75,15 @@ const Page: React.FC<PageProps> = ({
       []
     );
 
+  const PRODUCTS_DELETE_THIS = [
+    {
+      id: '',
+      name: '',
+      address: '',
+      imageUrls: [''],
+      maxDiscount: 0
+    }
+  ];
   return (
     <div className="category">
       <div className="container">
@@ -114,7 +116,7 @@ const Page: React.FC<PageProps> = ({
         )}
       </div>
 
-      {!hasProducts && <ProductsFeatured title="You might like" />}
+      {!hasProducts && <ProductsFeatured title="Te puede interesar" products={PRODUCTS_DELETE_THIS}/>}
     </div>
   );
 };

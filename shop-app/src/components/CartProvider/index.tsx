@@ -1,20 +1,12 @@
-import { isEqual, pullAllBy } from "lodash";
-import * as React from "react";
+import { ApolloClient } from 'apollo-client';
+import { isEqual, pullAllBy } from 'lodash';
+import * as React from 'react';
 
-import { ApolloClient } from "apollo-client";
-import { CheckoutContextInterface } from "../../checkout/context";
-import { updateCheckoutLineQuery } from "../../checkout/queries";
-import {
-  updateCheckoutLine,
-  updateCheckoutLineVariables,
-} from "../../checkout/types/updateCheckoutLine";
-import { maybe } from "../../core/utils";
-import {
-  CartContext,
-  CartInterface,
-  CartLine,
-  CartLineInterface,
-} from "./context";
+import { CheckoutContextInterface } from '../../checkout/context';
+import { updateCheckoutLineQuery } from '../../checkout/queries';
+import { updateCheckoutLine, updateCheckoutLineVariables } from '../../checkout/types/updateCheckoutLine';
+import { maybe } from '../../core/utils';
+import { CartContext, CartInterface, CartLine, CartLineInterface } from './context';
 
 enum LocalStorageKeys {
   Cart = "cart",
@@ -22,7 +14,7 @@ enum LocalStorageKeys {
 
 interface CartProviderProps {
   checkout: CheckoutContextInterface;
-  apolloClient: ApolloClient<any>;
+  apolloClient: ApolloClient<any> | null;
 }
 
 type CartProviderState = CartInterface;
@@ -99,6 +91,9 @@ export default class CartProvider extends React.Component<
 
     if (checkoutID) {
       const { apolloClient } = this.props;
+      if (!apolloClient) {
+        return;
+      }
       const {
         data: {
           checkoutLinesUpdate: { errors, checkout: updatedCheckout },

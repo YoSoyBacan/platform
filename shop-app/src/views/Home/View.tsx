@@ -1,36 +1,29 @@
-import "./scss/index.scss";
+import './scss/index.scss';
 
-import * as React from "react";
+import * as React from 'react';
 
-import { MetaWrapper } from "../../components";
-import Page from "./Page";
-import { TypedHomePageQuery } from "./queries";
+import { Models } from '../../common/models';
+import { MetaWrapper } from '../../components';
+import Page from './Page';
 
-const View: React.FC = () => (
+type Props = {
+  home: Models.HomePage | null;
+  apiStatus: Models.APIFetchStatus;
+}
+const View: React.FC<Props> = (props: Props) => (
   <div className="home-page">
-    <TypedHomePageQuery alwaysRender displayLoader={false} errorPolicy="all">
-      {({ data, loading }) => {
-        return (
           <MetaWrapper
             meta={{
-              description: data.shop ? data.shop.description : "",
-              title: data.shop ? data.shop.name : "",
+              description: props.home ? props.home.description : "",
+              title: props.home ? props.home.name : "",
             }}
           >
             <Page
-              loading={loading}
-              backgroundImage={
-                data.shop &&
-                data.shop.homepageCollection &&
-                data.shop.homepageCollection.backgroundImage
-              }
-              categories={data.categories}
-              shop={data.shop}
+              apiStatus={props.apiStatus}
+              home={props.home}
             />
           </MetaWrapper>
         );
-      }}
-    </TypedHomePageQuery>
   </div>
 );
 

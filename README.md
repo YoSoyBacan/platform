@@ -24,7 +24,7 @@ mkdir db
 Necesitas tener `Docker` instalado localmente y correr este comando
 
 ```
-docker run -p 27107:27107 -d -v ./db:/bitnami --name mongodb bitnami/mongodb:latest
+docker run --name mongo -p 27017:27017 -v `pwd`/db:/data/db -d mongo mongod
 ```
 
 En este punto ya tienes una instancia de MongoDB corriendo localmente.

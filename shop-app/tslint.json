@@ -8,6 +8,8 @@
     "interface-name": false,
     "member-access": [true, "no-public"],
     "no-console": [true, "log"],
+    "no-namespace": false,
+    "object-literal-sort-keys": false,
     "max-classes-per-file": false,
     "no-implicit-dependencies": false,
     "no-shadowed-variable": false,
@@ -23,7 +25,7 @@
       ]
     },
     "trailing-comma": [
-      true,
+      false,
       {
         "singleline": "never",
         "multiline": {

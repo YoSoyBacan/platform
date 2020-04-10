@@ -1,15 +1,14 @@
-import "../Category/scss/index.scss";
+import '../Category/scss/index.scss';
 
-import * as React from "react";
+import { IFilterAttributes, IFilters } from '@types';
+import * as React from 'react';
 
-import { IFilterAttributes, IFilters } from "@types";
-import { ProductListHeader } from "../../@next/components/molecules";
-import { ProductList } from "../../@next/components/organisms";
-import { Breadcrumbs, ProductsFeatured } from "../../components";
-import { getDBIdFromGraphqlId, maybe } from "../../core/utils";
-
-import { FilterSidebar } from "../../@next/components/organisms/FilterSidebar";
-import { Collection_collection, Collection_products } from "./types/Collection";
+import { ProductListHeader } from '../../@next/components/molecules';
+import { ProductList } from '../../@next/components/organisms';
+import { FilterSidebar } from '../../@next/components/organisms/FilterSidebar';
+import { Breadcrumbs, ProductsFeatured } from '../../components';
+import { getDBIdFromGraphqlId, maybe } from '../../core/utils';
+import { Collection_collection, Collection_products } from './types/Collection';
 
 interface SortItem {
   label: string;
@@ -65,7 +64,15 @@ const Page: React.FC<PageProps> = ({
       value: collection.name,
     },
   ];
-
+  const PRODUCTS_DELETE_THIS = [
+    {
+      id: '',
+      name: '',
+      address: '',
+      imageUrls: [''],
+      maxDiscount: 0
+    }
+  ];
   const getAttribute = (attributeSlug: string, valueSlug: string) => {
     return {
       attributeSlug,
@@ -119,7 +126,7 @@ const Page: React.FC<PageProps> = ({
         )}
       </div>
 
-      {!hasProducts && <ProductsFeatured title="You might like" />}
+      {!hasProducts && <ProductsFeatured title="Te puede interesar" products={PRODUCTS_DELETE_THIS}/>}
     </div>
   );
 };
