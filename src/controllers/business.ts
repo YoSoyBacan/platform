@@ -139,7 +139,26 @@ const doGetBusiness = apiWrapper.bind(
   }
 );
 
+const doChangeBusiness = apiWrapper.bind(
+  apiWrapper, 
+  'PUT:/api/business/:businessId', 
+  validator.body(AuthValidators.ChangeBusinessValidator),
+  async (req: Request, res: Response) => {
+    const business = await Business.findById(req.params.businessId);
+
+    for (const op of req.body) {
+      if (op.op === 'add' || op.op === 'replace') {
+        (business as any)[op.field] = op.value;
+      } else if (op.op === 'remove') {
+        delete (business as any)[op.field]
+      }
+    }
+
+  }
+);
+
 router.post('/', doCreateBusiness);
 router.get('/:businessId', doGetBusiness);
+router.put('/:businessId', doChangeBusiness);
 
 export default router;
