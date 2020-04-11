@@ -5,7 +5,8 @@ import lusca from 'lusca';
 import passport from 'passport';
 import path from 'path';
 
-import authController from './controllers/auth';
+import authController from './controllers/user';
+import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
 import vouchersController from './controllers/vouchers';
 
@@ -55,8 +56,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
  * Primary app routes.
  */
 app.use('/api/auth', authController);
+app.use('/api/business', businessController);
 app.use('/api/vouchers', vouchersController);
-
 /**
  * OAuth authentication routes. (Sign in)
  */

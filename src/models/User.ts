@@ -8,6 +8,8 @@ const UserSchema = new Schema({}, {
 
 export interface IUser extends Document {
   type: Constants.UserType;
+  firstName: string;
+  lastName: string;
   email: string;
   phoneNumber: string;
   countryCode: string;
@@ -18,6 +20,16 @@ UserSchema.add({
   /* Properties */
   type: {
     type:Constants.UserType,
+    required: true
+  },
+  firstName: {
+    type: String, 
+    trime: true, 
+    required: true
+  },
+  lastName: {
+    type: String, 
+    trime: true, 
     required: true
   },
   email: {

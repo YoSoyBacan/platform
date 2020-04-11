@@ -7,8 +7,6 @@ const AccountSchema = new Schema({}, {
 });
 
 export interface IAccount extends Document {
-  firstName: string;
-  lastName: string;
   address?: string;
   city?: string;
   country: string;
@@ -22,16 +20,6 @@ export interface IAccount extends Document {
 
 AccountSchema.add({
   /*Properties*/
-  firstName: {
-    type: String, 
-    trime: true, 
-    required: true
-  },
-  lastName: {
-    type: String, 
-    trime: true, 
-    required: true
-  },
   address: {
     type: String,
     trim: true

@@ -44,10 +44,10 @@ export enum PercentageDiscount {
 
 // TODO: Lista de Bancos de Ecuador completa
 export enum BankOptions {
-    PRODUBANCO = 'PRODUBANCO',
-    PICHINCHA = 'BANCO PICHINCHA',
-    GUAYAQUIL = 'BANCO GUAYAQUIL',
-    BANCO_PACIFICO = 'BANCO PACIFICO',
+    PRODUBANCO = 'Produbanco',
+    PICHINCHA = 'Banco del Pichincha',
+    GUAYAQUIL = 'Banco de Guayaquil',
+    BANCO_PACIFICO = 'Banco de Pacifico',
 
 };
 

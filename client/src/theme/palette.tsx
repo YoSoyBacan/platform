@@ -9,7 +9,7 @@ export default createPalette({
   },
   primary: {
     contrastText: white,
-    main: '#0767DB',
+    main: '#1D224C',
     light: '#F6F9FD',
     dark: '#0B48A0'
   },
@@ -21,7 +21,7 @@ export default createPalette({
   },
   success: {
     contrastText: white,
-    main: '#45B880',
+    main: '#93D500',
     light: '#F1FAF5',
     dark: '#00783E'
   },
@@ -33,13 +33,13 @@ export default createPalette({
   },
   warning: {
     contrastText: white,
-    main: '#FFB822',
+    main: '#FFC600',
     light: '#FDF8F3',
     dark: '#95591E'
   },
   danger: {
     contrastText: white,
-    main: '#ED4740',
+    main: '#F5333F',
     light: '#FEF6F6',
     dark: '#BF0E08'
   },

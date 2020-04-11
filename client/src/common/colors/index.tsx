@@ -18,13 +18,13 @@ export const grey = {
 
 export const black = '#000000';
 
-export const blue = '#0767DB';
+export const blue = '#10CFC9';
 
-export const green = '#45B880';
+export const green = '#93D500';
 
-export const orange = '#FFB822';
+export const orange = '#FF6B00';
 
-export const red = '#ED4740';
+export const red = '#F5333F';
 
 export const primary = {
   main: blue,

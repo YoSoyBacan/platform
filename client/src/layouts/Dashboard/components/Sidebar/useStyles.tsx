@@ -14,7 +14,7 @@ export default makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '63px',
+      height: '200px',
       flexShrink: 0
     },
     logoLink: {
