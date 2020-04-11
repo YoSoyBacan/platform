@@ -38,9 +38,6 @@ const Sidebar: React.FC<Props> = ({ className }) => {
             src="/images/logos/brainalytica_logo.svg"
           />
         </Link>
-        <Typography variant="h1" className={classes.logoTitle}>
-            Voom
-        </Typography>
       </div>
       <Divider className={classes.logoDivider} />
       <div className={classes.profile}>
@@ -70,7 +67,7 @@ const Sidebar: React.FC<Props> = ({ className }) => {
           </ListItemIcon>
           <ListItemText
             classes={{ primary: classes.listItemText }}
-            primary="Dashboard"
+            primary="Inicio"
           />
         </ListItem>
         <ListItem
@@ -83,7 +80,7 @@ const Sidebar: React.FC<Props> = ({ className }) => {
           </ListItemIcon>
           <ListItemText
             classes={{ primary: classes.listItemText }}
-            primary="Productos"
+            primary="Tarjetas de Consumo"
           />
         </ListItem>
         <ListItem
@@ -96,23 +93,23 @@ const Sidebar: React.FC<Props> = ({ className }) => {
           </ListItemIcon>
           <ListItemText
             classes={{ primary: classes.listItemText }}
-            primary="Tags"
+            primary="Ventas"
           />
         </ListItem>
         <ListItem
           activeClassName={classes.activeListItem}
           className={classes.listItem}
           component={NavLink}
-          to="/sign-in">
+          to="/tags">
           <ListItemIcon className={classes.listItemIcon}>
             <IngresosIcon />
           </ListItemIcon>
           <ListItemText
             classes={{ primary: classes.listItemText }}
-            primary="Ingresos"
+            primary="Clientes"
           />
         </ListItem>
-        <ListItem
+        {/* <ListItem
           activeClassName={classes.activeListItem}
           className={classes.listItem}
           component={NavLink}
@@ -124,7 +121,7 @@ const Sidebar: React.FC<Props> = ({ className }) => {
             classes={{ primary: classes.listItemText }}
             primary="Métricas"
           />
-        </ListItem>
+        </ListItem> */}
         <ListItem
           activeClassName={classes.activeListItem}
           className={classes.listItem}
@@ -135,7 +132,7 @@ const Sidebar: React.FC<Props> = ({ className }) => {
           </ListItemIcon>
           <ListItemText
             classes={{ primary: classes.listItemText }}
-            primary="Perfil"
+            primary="Mi negocio"
           />
         </ListItem>
         <ListItem
@@ -148,30 +145,7 @@ const Sidebar: React.FC<Props> = ({ className }) => {
           </ListItemIcon>
           <ListItemText
             classes={{ primary: classes.listItemText }}
-            primary="Ajustes"
-          />
-        </ListItem>
-      </List>
-      <Divider className={classes.listDivider} />
-      <List
-        component="div"
-        disablePadding
-        subheader={
-          <ListSubheader className={classes.listSubheader}>
-            Servicio al Cliente
-          </ListSubheader>
-        }>
-        <ListItem
-          className={classes.listItem}
-          component="a"
-          href="https://devias.io/contact-us"
-          target="_blank">
-          <ListItemIcon className={classes.listItemIcon}>
-            <InfoIcon />
-          </ListItemIcon>
-          <ListItemText
-            classes={{ primary: classes.listItemText }}
-            primary="Customer support"
+            primary="Mi Perfil"
           />
         </ListItem>
       </List>

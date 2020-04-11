@@ -46,7 +46,6 @@ interface UpdateBusinessSchema extends ValidatedRequestSchema {
 const doCreateBusiness = apiWrapper.bind(
     apiWrapper, 
     'POST:/api/business',
-    // validator.body(AuthValidators.CreateBusinessValidator),
     async (req: ValidatedRequest<CreateBusinessSchema>, res: Response) => {
         // Check the business doesn't exist 
         const foundBusiness = await Business.findOne({
@@ -102,7 +101,6 @@ const doCreateBusiness = apiWrapper.bind(
             accountNumber: req.body.accountNumber,
             owner: req.body.owner
         });
-
         await newBusiness.save();
 
         // Delete business 
@@ -151,7 +149,6 @@ const doGetBusiness = apiWrapper.bind(
 const doChangeBusiness = apiWrapper.bind(
   apiWrapper, 
   'PUT:/api/business/:businessId', 
-  validator.body(AuthValidators.ChangeBusinessValidator),
   async (req: ValidatedRequest<UpdateBusinessSchema>, res: Response) => {
     const business = await Business.findById(req.params.businessId);
 
@@ -169,8 +166,8 @@ const doChangeBusiness = apiWrapper.bind(
   }
 );
 
-router.post('/', doCreateBusiness);
+router.post('/', validator.body(AuthValidators.CreateBusinessValidator), doCreateBusiness);
 router.get('/:businessId', doGetBusiness);
-router.put('/:businessId', doChangeBusiness);
+router.put('/:businessId', validator.body(AuthValidators.ChangeBusinessValidator), doChangeBusiness);
 
 export default router;

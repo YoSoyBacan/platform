@@ -100,7 +100,7 @@ BusinessSchema.add({
   },
   /* Voucher Options */
   voucherOptions: [{
-    type: Number,
+    type: Object,
     required: true
   }],
   /* Legal Information */
