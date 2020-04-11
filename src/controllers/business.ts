@@ -30,7 +30,7 @@ interface CreateBusinessSchema extends ValidatedRequestSchema {
         voucherOptions: string[], 
         legalId: string,
         bank: Constants.BankOptions,
-        accountNumer: string,
+        accountNumber: string,
         owner: string,
     }
 };
@@ -46,7 +46,7 @@ interface UpdateBusinessSchema extends ValidatedRequestSchema {
 const doCreateBusiness = apiWrapper.bind(
     apiWrapper, 
     'POST:/api/business',
-    validator.body(AuthValidators.CreateBusinessValidator),
+    // validator.body(AuthValidators.CreateBusinessValidator),
     async (req: ValidatedRequest<CreateBusinessSchema>, res: Response) => {
         // Check the business doesn't exist 
         const foundBusiness = await Business.findOne({
@@ -99,9 +99,10 @@ const doCreateBusiness = apiWrapper.bind(
             voucherOptions: req.body.voucherOptions,
             legalId: req.body.legalId,
             bank: req.body.bank,
-            accountNumer: req.body.accountNumer,
+            accountNumber: req.body.accountNumber,
             owner: req.body.owner
         });
+
         await newBusiness.save();
 
         // Delete business 
@@ -132,7 +133,7 @@ const doGetBusiness = apiWrapper.bind(
           imagenes: business.images,
           legalId: business.legalId,
           banco: business.bank,
-          numero_de_cuenta: business.accountNumer
+          numero_de_cuenta: business.accountNumber
         },
         informacion_del_usuario: {
           nombre: `${user.firstName} ${user.lastName}`,

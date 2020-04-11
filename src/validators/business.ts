@@ -17,7 +17,7 @@ export const CreateBusinessValidator = Joi.object({
   voucherOptions: Joi.array().items(Joi.string()).required(),
   legalId: Joi.string().min(10).max(13).required(),
   bank: Joi.string().allow(Constants.BankOptions.BANCO_PACIFICO, Constants.BankOptions.GUAYAQUIL, Constants.BankOptions.PICHINCHA, Constants.BankOptions.PRODUBANCO).required(),
-  accountNumer: Joi.string().required(),
+  accountNumber: Joi.string().required(),
   owner: Joi.string().required()
 });
 

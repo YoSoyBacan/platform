@@ -20,7 +20,7 @@ export interface IBusiness extends Document {
   voucherOptions: string[];
   legalId: string;
   bank: Constants.BankOptions;
-  accountNumer: string;
+  accountNumber: string;
   owner: string;
   vouchers?: string[];
   transactions?: string[];
