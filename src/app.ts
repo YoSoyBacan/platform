@@ -8,7 +8,7 @@ import path from 'path';
 import authController from './controllers/user';
 import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
-
+import vouchersController from './controllers/vouchers';
 
 // Create Express server
 const app = express();
@@ -57,6 +57,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
  */
 app.use('/api/auth', authController);
 app.use('/api/business', businessController);
+app.use('/api/vouchers', vouchersController);
 /**
  * OAuth authentication routes. (Sign in)
  */
