@@ -39,13 +39,13 @@ class Users extends Component {
               className={classes.title}
               variant="body2"
             >
-              TOTAL USERS
+              TOTAL DE CLIENTES
             </Typography>
             <Typography
               className={classes.value}
               variant="h3"
             >
-              1600
+              {this.props.totalUserCount}
             </Typography>
           </div>
           <div className={classes.iconWrapper}>
@@ -74,7 +74,8 @@ class Users extends Component {
 
 Users.propTypes = {
   className: PropTypes.string,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired, 
+  totalUserCount: PropTypes.number
 };
 
 export default withStyles(styles)(Users);

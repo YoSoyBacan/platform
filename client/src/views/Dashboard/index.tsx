@@ -1,7 +1,7 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import React, { Component } from 'react';
 
-import { Budget, DevicesChart, OrdersTable, ProductList, Profit, Progress, SalesChart, Users } from './components';
+import { MonetaryCard, DevicesChart, OrdersTable, ProductList, Profit, Progress, SalesChart, Users } from './components';
 
 // Material helpers
 // Material components
@@ -23,13 +23,13 @@ const Dashboard = () => {
       <div className={classes.root}>
         <Grid container spacing={4}>
           <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <Budget className={classes.item} />
+            <MonetaryCard className={classes.item} value={200} title={"Dolares Redimidos"}/>
           </Grid>
           <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <Users className={classes.item} />
+            <Users className={classes.item} totalUserCount={200}/>
           </Grid>
           <Grid item lg={3} sm={6} xl={3} xs={12}>
-            <Progress className={classes.item} />
+            <Progress className={classes.item} percentage={"54"}/>
           </Grid>
           <Grid item lg={3} sm={6} xl={3} xs={12}>
             <Profit className={classes.item} />
