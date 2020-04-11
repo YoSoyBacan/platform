@@ -6,6 +6,7 @@ import passport from 'passport';
 import path from 'path';
 
 import authController from './controllers/user';
+import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
 
 
@@ -55,6 +56,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
  * Primary app routes.
  */
 app.use('/api/auth', authController);
+app.use('/api/business', businessController);
 /**
  * OAuth authentication routes. (Sign in)
  */

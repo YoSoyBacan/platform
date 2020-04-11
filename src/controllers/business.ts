@@ -35,6 +35,14 @@ interface CreateBusinessSchema extends ValidatedRequestSchema {
     }
 };
 
+interface UpdateBusinessSchema extends ValidatedRequestSchema {
+  [ContainerTypes.Body]: Array<{
+    op: string, 
+    field: string,
+    value: any
+  }>
+}
+
 const doCreateBusiness = apiWrapper.bind(
     apiWrapper, 
     'POST:/api/business',
@@ -143,7 +151,7 @@ const doChangeBusiness = apiWrapper.bind(
   apiWrapper, 
   'PUT:/api/business/:businessId', 
   validator.body(AuthValidators.ChangeBusinessValidator),
-  async (req: Request, res: Response) => {
+  async (req: ValidatedRequest<UpdateBusinessSchema>, res: Response) => {
     const business = await Business.findById(req.params.businessId);
 
     for (const op of req.body) {
@@ -153,6 +161,9 @@ const doChangeBusiness = apiWrapper.bind(
         delete (business as any)[op.field]
       }
     }
+
+    await business.save();
+    return res.json(business);
 
   }
 );

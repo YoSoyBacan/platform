@@ -16,7 +16,14 @@ export const CreateBusinessValidator = Joi.object({
   avatarImageUrl: Joi.string().dataUri().required(), //? DANI
   voucherOptions: Joi.array().items(Joi.string()).required(),
   legalId: Joi.string().min(10).max(13).required(),
-  bank: Joi.string().allow(Constants.BankOptions.BANCO_PACIFICO, Constants.BankOptions.GUAYAQUIL, Constants.BankOptions.PICHINCHA, Constants.BankOptions.PRODUBANCO),
+  bank: Joi.string().allow(Constants.BankOptions.BANCO_PACIFICO, Constants.BankOptions.GUAYAQUIL, Constants.BankOptions.PICHINCHA, Constants.BankOptions.PRODUBANCO).required(),
   accountNumer: Joi.string().required(),
   owner: Joi.string().required()
 });
+
+
+export const ChangeBusinessValidator = Joi.array().items(Joi.object({
+  op: Joi.string().required().allow('add', 'remove', 'replace'),
+  field: Joi.string().allow('name', 'address'),
+  value: Joi.any()
+}))
