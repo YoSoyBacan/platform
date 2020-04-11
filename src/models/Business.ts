@@ -13,11 +13,14 @@ export interface IBusiness extends Document {
   industry: Constants.Industries;
   businessRegisteredAt: Date;
   businessDescription: string;
-  percentageDiscount: Constants.PercentageDiscount;
   coordinates?: number[];
   avatarImageUrl: string;
   images?: string[];
-  voucherOptions: string[];
+  voucherOptions: Array<{
+    value: Constants.VoucherOptionsValues,
+    discount: Constants.PercentageDiscount,
+    createdAt: Date
+  }>;
   legalId: string;
   bank: Constants.BankOptions;
   accountNumer: string;
@@ -82,10 +85,6 @@ BusinessSchema.add({
     trim: true,
     required: true
   },
-  percentageDiscount: {
-    type: Constants.PercentageDiscount,
-    required: true
-  },
   coordinates: {
     type: [Number], 
     default: [0, 0]
@@ -100,7 +99,11 @@ BusinessSchema.add({
   },
   /* Voucher Options */
   voucherOptions: [{
-    type: Number,
+    type: {
+      value: Constants.VoucherOptionsValues, 
+      discount: Constants.PercentageDiscount,
+      createdAt: Date
+    },
     required: true
   }],
   /* Legal Information */
