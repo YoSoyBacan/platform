@@ -33,9 +33,11 @@ const Sidebar: React.FC<Props> = ({ className }) => {
       <div className={classes.logoWrapper}>
         <Link className={classes.logoLink} to="/">
           <img
-            alt="Voom logo"
+            alt="Bacan logo"
             className={classes.logoImage}
-            src="/images/logos/brainalytica_logo.svg"
+            src="/images/logos/B_logo.svg"
+            width="100"
+            height="100"
           />
         </Link>
       </div>
