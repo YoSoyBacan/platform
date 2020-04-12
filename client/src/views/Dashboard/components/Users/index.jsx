@@ -39,7 +39,7 @@ class Users extends Component {
               className={classes.title}
               variant="body2"
             >
-              TOTAL DE CLIENTES
+              CLIENTES TOTALES
             </Typography>
             <Typography
               className={classes.value}
@@ -57,14 +57,13 @@ class Users extends Component {
             className={classes.difference}
             variant="body2"
           >
-            <ArrowUpwardIcon />
-            16%
+            {this.props.percentage}
           </Typography>
           <Typography
             className={classes.caption}
             variant="caption"
           >
-            Since last month
+            {this.props.time}
           </Typography>
         </div>
       </Paper>
@@ -75,7 +74,9 @@ class Users extends Component {
 Users.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired, 
-  totalUserCount: PropTypes.number
+  totalUserCount: PropTypes.number.isRequired,
+  percentage: PropTypes.string, 
+  time: PropTypes.string
 };
 
 export default withStyles(styles)(Users);
