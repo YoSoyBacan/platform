@@ -24,10 +24,12 @@ interface CreateBusinessSchema extends ValidatedRequestSchema {
         businessEmail: string, 
         industry: Constants.Industries,
         businessRegisteredAt: Date, 
-        businessDescription: string, 
-        percentageDiscount: Constants.PercentageDiscount,
+        businessDescription: string,
         avatarImageUrl: string, 
+        images: string,
+        percentageDiscount: Constants.PercentageDiscount, 
         voucherOptions: string[], 
+        vouchers: object[],
         legalId: string,
         bank: Constants.BankOptions,
         accountNumber: string,
@@ -108,43 +110,6 @@ const doCreateBusiness = apiWrapper.bind(
     }   
 )
 
-const doGetBusiness = apiWrapper.bind(
-  apiWrapper, 
-  'GET:/api/business/:businessId',
-  async (req: Request, res: Response) => {
-    const business = await Business.findById(req.params.businessId).populate("owner");
-    const user = (business.owner as any) as IUser;
-  
-    const response: APIResponse.BusinessResponse = {
-      data: {
-        informacion_del_negocio: {
-          nombre: business.name, 
-          direccion: business.address,
-          fecha_de_registro: business.businessRegisteredAt,
-          telefono: business.businessTelephone,
-          ciudad: business.city,
-          pais: business.country,
-          email: business.businessEmail,
-          industria: business.industry,
-          link: business.businessLink,
-          avatar: business.avatarImageUrl, 
-          imagenes: business.images,
-          legalId: business.legalId,
-          banco: business.bank,
-          numero_de_cuenta: business.accountNumber
-        },
-        informacion_del_usuario: {
-          nombre: `${user.firstName} ${user.lastName}`,
-          email: user.email,
-          numero: user.phoneNumber,
-          codigo_del_pais: user.countryCode
-        } 
-      }
-    }
-
-    return res.json(response);
-  }
-);
 
 const doChangeBusiness = apiWrapper.bind(
   apiWrapper, 
@@ -167,7 +132,6 @@ const doChangeBusiness = apiWrapper.bind(
 );
 
 router.post('/', validator.body(AuthValidators.CreateBusinessValidator), doCreateBusiness);
-router.get('/:businessId', doGetBusiness);
 router.put('/:businessId', validator.body(AuthValidators.ChangeBusinessValidator), doChangeBusiness);
 
 export default router;
