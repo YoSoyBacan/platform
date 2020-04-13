@@ -1,9 +1,11 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 import * as Constants from '../util/constants';
+import { IVoucher } from './Voucher';
 
 export interface IBusiness extends Document {
   name: string;
+  legalName: string;
   address: string;
   country: Constants.CountryOptions;
   city: string;
@@ -16,16 +18,15 @@ export interface IBusiness extends Document {
   coordinates?: number[];
   avatarImageUrl: string;
   images?: string[];
-  voucherOptions: Array<{
-    value: Constants.VoucherOptionsValues,
-    discount: Constants.PercentageDiscount,
-    createdAt: Date
-  }>;
+  voucherOptions: Array<{ 
+    value: Constants.VoucherOptionsValues, 
+    discount: Constants.PercentageDiscount, 
+    createdAt: Date}>;
   legalId: string;
   bank: Constants.BankOptions;
   accountNumber: string;
   owner: string;
-  vouchers?: string[];
+  vouchers?: (string | IVoucher)[];
   transactions?: string[];
   notifications?:  string[];
 }
@@ -38,6 +39,11 @@ BusinessSchema.add({
   /* Properties */
   name: {
     type: String,
+    trim: true,
+    required: true
+  },
+  legalName: {
+    type: String, 
     trim: true,
     required: true
   },
@@ -99,11 +105,7 @@ BusinessSchema.add({
   },
   /* Voucher Options */
   voucherOptions: [{
-    type: {
-      value: Constants.VoucherOptionsValues, 
-      discount: Constants.PercentageDiscount,
-      createdAt: Date
-    },
+    type: mongoose.Schema.Types.Mixed,
     required: true
   }],
   /* Legal Information */

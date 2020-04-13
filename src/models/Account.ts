@@ -1,6 +1,7 @@
 import mongoose, { Document,  Schema } from 'mongoose';
 
 import * as Constants from '../util/constants';
+import { IUser } from './User';
 
 const AccountSchema = new Schema({}, {
   timestamps: true
@@ -9,9 +10,9 @@ const AccountSchema = new Schema({}, {
 export interface IAccount extends Document {
   address?: string;
   city?: string;
-  country: string;
+  country: Constants.CountryOptions;
   legalID?: string;
-  user: string;
+  user: (string | IUser);
   vouchers?: string[];
   orders?: string[];
   transactions?: string[];
