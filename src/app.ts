@@ -8,7 +8,7 @@ import path from 'path';
 import authController from './controllers/user';
 import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
-import vouchersController from './controllers/vouchers';
+import vouchersController from './controllers/voucherOptions';
 
 // Create Express server
 const app = express();
