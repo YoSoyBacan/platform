@@ -1,28 +1,75 @@
+import { PercentageDiscount, VoucherOptionsValues, CountryOptions } from '../util/constants';
+
 export namespace APIResponse {
   export interface BusinessResponse {
     data: {
-      informacion_del_negocio: {
-        nombre: string;
-        direccion: string;
-        fecha_de_registro: Date;
-        telefono: string;
-        ciudad: string; 
-        pais: string;
+      business_information: {
+        name: string;
+        adress: string;
+        registered_date: Date;
+        phone_number: string;
+        city: string; 
+        country: string;
         email: string; 
-        industria: string;
+        industry: string;
         link: string;
         avatar: string;
-        imagenes: string[];
+        images: string[];
         legalId: string;
-        banco: string;
-        numero_de_cuenta: string;
+        bank: string;
+        account_number: string;
+        business_description: string;
       },
-      informacion_del_usuario: {
-        nombre: string;
+      user_information: {
+        name: string;
         email: string;
-        numero: string;
-        codigo_del_pais: string;
+        phone_number: string;
+        country_code: string;
       }
     }
   }
+
+  export interface VentasResponse {
+    data: {
+    //   deposited_amount: number;
+      total_number_of_vouchers_sold: number;
+      total_amount_sold: number;
+      total_redeemed_vouchers: number;
+      voucher_list: Array<{
+        voucher_discount: PercentageDiscount;
+        voucher_amount: VoucherOptionsValues;
+        totally_redeemed: boolean;
+        voucher_order_id: string;
+      }>
+    }
+  }
+
+  export interface BusinessVoucherOptionsResponse {
+    data: {
+      tarjetas_publicadas: Array<{
+        valor: number,
+        descuento: string,
+        numero_de_ventas: number,
+        fecha_creacion: Date
+      }>,
+      tarjetas_disponibles: Array<{
+        valor: number
+      }>
+    }
+  }
+
+  export interface ClientesResponse {
+    data: {
+      total_users: number, 
+      user_list: Array<{
+        user_firstName: string, 
+        user_lastName: string,
+        user_email: string,
+        user_city: string,
+        user_country: CountryOptions,
+      }>
+    }
+  }
 }
+
+
