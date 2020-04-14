@@ -1,44 +1,29 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-
-// Externals
-import PropTypes from 'prop-types';
-import compose from 'recompose/compose';
-import validate from 'validate.js';
-import _ from 'underscore';
-
-// Material helpers
-import { withStyles } from '@material-ui/core';
-
-// Material components
-import {
-  Grid,
-  Button,
-  IconButton,
-  CircularProgress,
-  TextField,
-  Typography
-} from '@material-ui/core';
-
-// Material icons
+import { Button, CircularProgress, Grid, IconButton, TextField, Typography, withStyles } from '@material-ui/core';
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
-
-// Shared components
 import { Facebook as FacebookIcon, Google as GoogleIcon } from 'icons';
+import PropTypes from 'prop-types';
+import React, { Component, useContext } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import compose from 'recompose/compose';
+import _ from 'underscore';
+import validate from 'validate.js';
 
-// Component styles
+import { AuthContext } from '../../context/authentication';
+import firebase from '../../lib/firebase';
+import schema from './schema';
 import styles from './styles';
 
+// Externals
+// Material helpers
+// Material components
+// Material icons
+// Shared components
+// Component styles
 // Form validation schema
-import schema from './schema';
-
 // Service methods
-const signIn = () => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(true);
-    }, 1500);
-  });
+const signIn = async (email, password) => {
+  const firebaseUser = await firebase.auth().signInWithEmailAndPassword(email, password);
+  return firebaseUser
 };
 
 class SignIn extends Component {
@@ -92,13 +77,19 @@ class SignIn extends Component {
     try {
       const { history } = this.props;
       const { values } = this.state;
+      const { authenticated, setAuthenticated, setAuthBody } = useContext(AuthContext);
+
+      if (authenticated) {
+        history.push('/dashboard');
+        return;
+      }
 
       this.setState({ isLoading: true });
 
-      await signIn(values.email, values.password);
+      const firebaseUser = await signIn(values.email, values.password);
 
-      localStorage.setItem('isAuthenticated', true);
-
+      setAuthBody(firebaseUser.user);
+      setAuthenticated(firebaseUser.user.uid);
       history.push('/dashboard');
     } catch (error) {
       this.setState({
