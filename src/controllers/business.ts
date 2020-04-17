@@ -15,24 +15,23 @@ const validator = createValidator();
 // Schemas 
 interface CreateBusinessSchema extends ValidatedRequestSchema {
     [ContainerTypes.Body]: {
-        name: string, 
-        address: string, 
-        country: Constants.CountryOptions,
-        city: string, 
-        businessTelephone: string, 
-        businessLink: string,         
+        businessPersonName: string, 
+        businessPersonId: string, 
+        businessCountry: Constants.CountryOptions,
         businessEmail: string, 
-        industry: Constants.Industries,
-        businessRegisteredAt: Date, 
-        businessDescription: string,
-        avatarImageUrl: string, 
-        images: string,
-        percentageDiscount: Constants.PercentageDiscount, 
-        voucherOptions: string[], 
-        vouchers: object[],
-        legalId: string,
-        bank: Constants.BankOptions,
-        accountNumber: string,
+        legalName: string, 
+        businessLegalId: string,
+        numEmployees: number, 
+        businessAddress: string, 
+        businessCity: string, 
+        entityType: Constants.EntityType,
+        hasAccounting: boolean, 
+        businessPhone: string, 
+        businessLink: string,
+        bankName: Constants.BankOptions,
+        bankAccountNumber: string,
+        bankAccountType: Constants.BankAccountType, 
+        bankBeneficiaryName: string,
         owner: string,
     }
 };
@@ -56,7 +55,7 @@ const doCreateBusiness = apiWrapper.bind(
                     businessEmail: req.body.businessEmail
                 },
                 {
-                    legalId: req.body.legalId
+                    businessLegalId: req.body.businessLegalId
                 }
             ]
         });
@@ -73,11 +72,10 @@ const doCreateBusiness = apiWrapper.bind(
 
     //TODO DANI do a function that creates a link before writing to the db use it with bit.ly
         const bitly = new BitlyClient(process.env['BITLY_ACCESS_TOKEN'], {});
-        console.log(bitly);
         let businessBitLink;
 
         try {
-          let result = await bitly.shorten('https://github.com/tanepiper/node-bitly');
+          let result = await bitly.shorten(req.body.businessLink);
           businessBitLink = result.link;
           console.log(`Your shortened bitlink is ${businessBitLink}`);
         } catch(e) {
@@ -85,22 +83,23 @@ const doCreateBusiness = apiWrapper.bind(
         }
     
         const newBusiness = new Business({
-            name: req.body.name,
-            address: req.body.address,
-            country: req.body.country, 
-            city: req.body.city, 
-            businessTelephone: req.body.businessTelephone,
+            businessPersonName: req.body.businessPersonName,
+            businessPersonId: req.body.businessPersonId,
+            businessCountry: req.body.businessCountry, 
+            businessEmail: req.body.businessEmail,
+            legalName: req.body.legalName,
+            businessLegalId: req.body.businessLegalId,
+            numEmployees: req.body.numEmployees,
+            businessAddress: req.body.businessAddress,
+            businessCity: req.body.businessCity, 
+            entityType: req.body.entityType,
+            hasAccounting: req.body.hasAccounting,
+            businessPhone: req.body.businessPhone,
             businessLink: businessBitLink,
-            businessEmail: req.body.businessEmail, 
-            industry: req.body.industry,
-            businessRegisteredAt: req.body.businessRegisteredAt,
-            businessDescription: req.body.businessDescription,
-            percentageDiscount: req.body.percentageDiscount,
-            avatarImageUrl: req.body.avatarImageUrl,
-            voucherOptions: req.body.voucherOptions,
-            legalId: req.body.legalId,
-            bank: req.body.bank,
-            accountNumber: req.body.accountNumber,
+            bankName: req.body.bankName,
+            bankAccountNumber: req.body.bankAccountNumber,
+            bankAccountType: req.body.bankAccountType, 
+            bankBeneficiaryName: req.body.bankBeneficiaryName,
             owner: req.body.owner
         });
         await newBusiness.save();

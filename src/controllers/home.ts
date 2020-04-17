@@ -17,20 +17,20 @@ const doGetBusinessHome = apiWrapper.bind(
     const response: APIResponse.BusinessResponse = {
       data: {
         business_information: {
-          name: business.name, 
-          adress: business.address,
+          name: business.legalName, 
+          adress: business.businessAddress,
           registered_date: business.businessRegisteredAt,
-          phone_number: business.businessTelephone,
-          city: business.city,
-          country: business.country,
+          phone_number: business.businessPhone,
+          city: business.businessCity,
+          country: business.businessCountry,
           email: business.businessEmail,
           industry: business.industry,
           link: business.businessLink,
           avatar: business.avatarImageUrl, 
           images: business.images,
-          legalId: business.legalId,
-          bank: business.bank,
-          account_number: business.accountNumber,
+          legalId: business.businessLegalId,
+          bank: business.bankName,
+          account_number: business.bankAccountNumber,
           business_description: business.businessDescription,
         },
         user_information: {
@@ -46,4 +46,4 @@ const doGetBusinessHome = apiWrapper.bind(
   }
 );
 
-router.get('/:businessId', doGetBusinessHome);
+router.get('/:businessId/home', doGetBusinessHome);
