@@ -48,8 +48,18 @@ export enum BankOptions {
     PICHINCHA = 'Banco del Pichincha',
     GUAYAQUIL = 'Banco de Guayaquil',
     BANCO_PACIFICO = 'Banco de Pacifico',
-
+    BANCO_INTERNACIONAL = "Banco Internacional"
 };
+
+export enum EntityType {
+    PERSONA_NATURAL = 'Persona Natural',
+    PERSONA_JURIDICA = 'Persona Juridica'
+}
+
+export enum BankAccountType {
+    AHORROS = 'Ahorros',
+    CORRIENTE = 'Corriente'
+}
 
 export enum NotificationType {
     SUCCESS = 'Éxito',

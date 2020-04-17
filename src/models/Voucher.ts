@@ -1,12 +1,13 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 import * as Constants from '../util/constants';
-import { ContainerTypes } from 'express-joi-validation';
+import { IOrder } from './Order';
 
 export interface IVoucher extends Document {
     discount: Constants.PercentageDiscount;
     amount: Constants.VoucherOptionsValues;
-    order: string, 
+    totally_redeemed: boolean;
+    order: (string | IOrder), 
     transactions?: string[];
     account: string;
     business: string;
@@ -24,6 +25,10 @@ VoucherSchema.add({
     },
     amount: {
         type: Constants.VoucherOptionsValues,
+        required: true
+    },
+    totally_redeemed: {
+        type: Boolean,
         required: true
     },
     /* Relationship */

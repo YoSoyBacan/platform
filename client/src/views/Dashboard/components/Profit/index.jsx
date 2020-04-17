@@ -36,13 +36,13 @@ class Profit extends Component {
               className={classes.title}
               variant="body2"
             >
-              TOTAL PROFIT
+              {this.props.title}
             </Typography>
             <Typography
               className={classes.value}
               variant="h3"
             >
-              $23,200
+              ${this.props.value}
             </Typography>
           </div>
           <div className={classes.iconWrapper}>
@@ -56,7 +56,9 @@ class Profit extends Component {
 
 Profit.propTypes = {
   className: PropTypes.string,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  value: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default withStyles(styles)(Profit);

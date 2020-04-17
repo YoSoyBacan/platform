@@ -1,31 +1,43 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 import * as Constants from '../util/constants';
+import { IVoucher } from './Voucher';
+import { IUser } from './User';
 
 export interface IBusiness extends Document {
-  name: string;
-  address: string;
-  country: Constants.CountryOptions;
-  city: string;
-  businessTelephone: string;
-  businessLink: string;
+  businessPersonName: string;
+  businessPersonId: string;
+  businessCountry: Constants.CountryOptions;
   businessEmail: string;
-  industry: Constants.Industries;
-  businessRegisteredAt: Date;
-  businessDescription: string;
+  /* Business */
+  legalName: string;
+  businessLegalId: string;
+  numEmployees: number;
+  businessAddress: string;
+  businessCity: string;
+  entityType: Constants.EntityType;
+  hasAccounting: boolean;
+  businessPhone: string;
+  businessLink: string;
+  /* Extra */
+  industry?: Constants.Industries;
+  businessRegisteredAt?: Date;
+  businessDescription?: string;
   coordinates?: number[];
-  avatarImageUrl: string;
+  avatarImageUrl?: string;
   images?: string[];
-  voucherOptions: Array<{
-    value: Constants.VoucherOptionsValues,
-    discount: Constants.PercentageDiscount,
-    createdAt: Date
-  }>;
-  legalId: string;
-  bank: Constants.BankOptions;
-  accountNumber: string;
-  owner: string;
-  vouchers?: string[];
+  voucherOptions?: Array<{ 
+    value: Constants.VoucherOptionsValues, 
+    discount: Constants.PercentageDiscount, 
+    createdAt: Date}>;
+  /* Bank Info*/
+  bankName: Constants.BankOptions;
+  bankAccountNumber: string;
+  bankAccountType: Constants.BankAccountType;
+  bankBeneficiaryName: string;
+  /* Relationships */
+  owner: string | IUser;
+  vouchers?: (string | IVoucher)[];
   transactions?: string[];
   notifications?:  string[];
 }
@@ -36,27 +48,57 @@ const BusinessSchema = new Schema({}, {
 
 BusinessSchema.add({
   /* Properties */
-  name: {
+  businessPersonName: {
     type: String,
     trim: true,
     required: true
   },
-  address: {
+  businessPersonId: {
     type: String,
     trim: true,
     required: true
   },
-  country: {
-   type: Constants.CountryOptions,
-   required: true,
-   default: Constants.CountryOptions.ECUADOR 
-  },
-  city: {
+  businessCountry: {
+    type: Constants.CountryOptions,
+    required: true,
+    default: Constants.CountryOptions.ECUADOR 
+   },
+  businessEmail: {
     type: String,
     trim: true,
     required: true
   },
-  businessTelephone: {
+  /* Business */
+  legalName: {
+    type: String, 
+    trim: true,
+    required: true
+  },
+  businessLegalId: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  businessAddress: {
+    type: String,
+    trim: true,
+    required: true
+  },
+  businessCity: {
+    type: String,
+    trim: true,
+    required: true
+  },
+  entityType: {
+    type: Constants.EntityType,
+    required: true
+  },
+  hasAccounting: {
+    type: Boolean, 
+    trim: true, 
+    required: true
+  }, 
+  businessPhone: {
     type: String,
     trim: true,
     required: true
@@ -66,24 +108,16 @@ BusinessSchema.add({
     trim: true,
     required: true
   },
-  businessEmail: {
-    type: String,
-    trim: true,
-    required: true
-  },
+  /* Extra */
   industry: {
     type: Constants.Industries,
-    trim: true,
-    required: true
   },
   businessRegisteredAt: {
     type: Date,
-    required: true
   },
   businessDescription: {
     type: String,
-    trim: true,
-    required: true
+    trim: true
   },
   coordinates: {
     type: [Number], 
@@ -91,33 +125,30 @@ BusinessSchema.add({
   },
   avatarImageUrl: {
     type: String,
-    trim: true,
-    required: true
+    trim: true
   },
   images: {
     type: [String]
   },
-  /* Voucher Options */
   voucherOptions: [{
-    type: {
-      value: Constants.VoucherOptionsValues, 
-      discount: Constants.PercentageDiscount,
-      createdAt: Date
-    },
-    required: true
+    type: mongoose.Schema.Types.Mixed
   }],
-  /* Legal Information */
-  legalId: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  bank: {
+  /* Bank Info */
+  bankName: {
     type: Constants.BankOptions,
     required: true
   },
-  accountNumber: {
+  bankAccountNumber: {
     type: String,
+    trim: true,
+    required: true
+  },
+  bankAccountType: {
+    type: Constants.BankAccountType, 
+    required: true
+  },
+  bankBeneficiaryName: {
+    type: String, 
     trim: true,
     required: true
   },

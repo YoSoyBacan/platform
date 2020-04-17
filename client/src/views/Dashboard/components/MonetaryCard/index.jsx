@@ -55,14 +55,13 @@ class MonetaryCard extends Component {
             className={classes.difference}
             variant="body2"
           >
-            <ArrowDownwardIcon />
             {this.props.percentage}
           </Typography>
           <Typography
             className={classes.caption}
             variant="caption"
           >
-            Since last month
+            {this.props.time}
           </Typography>
         </div>
       </Paper>
@@ -76,6 +75,7 @@ MonetaryCard.propTypes = {
   value: PropTypes.number.isRequired, 
   title: PropTypes.string.isRequired, 
   percentage: PropTypes.string,
+  time: PropTypes.string
 };
 
 export default withStyles(styles)(MonetaryCard);
