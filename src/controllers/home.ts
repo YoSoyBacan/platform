@@ -12,7 +12,7 @@ const doGetBusinessHome = apiWrapper.bind(
   'GET:/api/:businessId/home',
   async (req: Request, res: Response) => {
     const business = await Business.findById(req.params.businessId).populate("owner");
-    const user = (business.owner as any) as IUser;
+    const user = (business.owner as IUser);
   
     const response: APIResponse.BusinessResponse = {
       data: {
