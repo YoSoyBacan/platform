@@ -2,7 +2,7 @@ import mongoose, { Document, Schema } from 'mongoose';
 
 import * as Constants from '../util/constants';
 import { IVoucher } from './Voucher';
-import { truncateSync } from 'fs';
+import { IUser } from './User';
 
 export interface IBusiness extends Document {
   businessPersonName: string;
@@ -36,7 +36,7 @@ export interface IBusiness extends Document {
   bankAccountType: Constants.BankAccountType;
   bankBeneficiaryName: string;
   /* Relationships */
-  owner: string;
+  owner: string | IUser;
   vouchers?: (string | IVoucher)[];
   transactions?: string[];
   notifications?:  string[];
