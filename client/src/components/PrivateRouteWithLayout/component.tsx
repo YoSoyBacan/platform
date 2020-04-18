@@ -5,24 +5,30 @@ import { AuthContext } from '../../context';
 
 type Props = {
   component: any;
-  layout: React.FC<{title: string}>;
+  layout: React.FC<{ title: string }>;
   path: string;
-  title: string
+  title: string;
 };
 
-export const PrivateRouteWithLayout: React.FC<Props> = ({ layout: Layout, component: Component, ...routeProps}) => {
+export const PrivateRouteWithLayout: React.FC<Props> = ({
+  layout: Layout,
+  component: Component,
+  ...routeProps
+}) => {
   const { authenticated } = React.useContext(AuthContext);
   return (
     <Route
       {...routeProps}
-      render={() => (
-        !authenticated ?
-        <Layout {...routeProps}>
-          <Component {...routeProps}/>
-        </Layout>
-        : <Redirect to="sign-in"/>
-      )}
-    
+      render={() =>
+        /* dani: Set to authenticated */
+        authenticated ? (
+          <Layout {...routeProps}>
+            <Component {...routeProps} />
+          </Layout>
+        ) : (
+          <Redirect to="sign-in" />
+        )
+      }
     />
-  )
-}
+  );
+};

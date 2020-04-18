@@ -1,47 +1,60 @@
 import React, { useEffect, useState } from 'react';
 
-export type AuthContextState = {
-  authenticated: string,
-  setAuthenticated: (authToken: string) => void;
-  authBody: string,
-  setAuthBody: (authBody: string) => void;
+interface AuthBody {
+  name: string;
+  businessId: string;
+  legalId: string;
 }
+export type AuthContextState = {
+  authenticated: boolean;
+  authToken: string;
+  setAuthenticated: (isAuthenticated: boolean) => void;
+  setAuthToken: (token: string) => void;
+  authBody: AuthBody | null;
+  setAuthBody: (authBody: AuthBody) => void;
+};
 
 const defaultContextState: AuthContextState = {
-  authenticated: '',
-  setAuthenticated: (val: string) => {},
-  authBody: '',
-  setAuthBody: (authBody: string) => {}
-}
-export const AuthContext = React.createContext<AuthContextState>(defaultContextState);
+  authenticated: false,
+  authToken: "",
+  setAuthenticated: (isAuth: boolean) => {},
+  setAuthToken: (token: string) => {},
+  authBody: null,
+  setAuthBody: (authBody: AuthBody) => {},
+};
 
+export const AuthContext = React.createContext<AuthContextState>(
+  defaultContextState
+);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const prevAuth = window.localStorage.getItem('auth') || '';
-  const prevAuthBody = window.localStorage.getItem('authBody') || '';
-  const [authenticated, setAuthenticated] = useState(prevAuth);
-  const [authBody, setAuthBody] = useState(prevAuthBody);
+  const prevAuthToken = window.localStorage.getItem("auth") || "";
+  const prevAuthBody = window.localStorage.getItem("authBody") || null;
 
-  useEffect(
-    () => {
-      window.localStorage.setItem('authenticated', authenticated);
-      window.localStorage.setItem('authBody', authBody);
-    },
-    [authenticated, authBody]
-  );
+  const parsedAuthBody = prevAuthBody
+    ? (JSON.parse(prevAuthBody) as AuthBody)
+    : null;
+
+  const [authToken, setAuthToken] = useState(prevAuthToken);
+  const [authenticated, setAuthenticated] = useState(!!prevAuthToken);
+  const [authBody, setAuthBody] = useState(parsedAuthBody);
+
+  useEffect(() => {
+    window.localStorage.setItem("auth", authToken);
+    window.localStorage.setItem("authBody", JSON.stringify(authBody));
+  }, [authenticated, authBody, authToken]);
+
   const defaultContext = {
     authenticated,
-    setAuthenticated: (authToken: string) => {
-      setAuthenticated(authToken);
-    },
+    setAuthenticated,
+    authToken,
+    setAuthToken,
     authBody,
-    setAuthBody: (newAuthBody: string) => {
-      setAuthBody(newAuthBody);
-    }
+    setAuthBody,
   };
   return (
     <AuthContext.Provider value={defaultContext}>
       {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};

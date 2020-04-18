@@ -5,16 +5,16 @@ import lusca from 'lusca';
 import passport from 'passport';
 import path from 'path';
 
-import authController from './controllers/user';
 import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
+import userController from './controllers/user';
 import vouchersController from './controllers/voucherOptions';
 
 // Create Express server
 const app = express();
 
 // Express configuration
-app.set('port', process.env.PORT || 8000);
+app.set("port", process.env.PORT || 8000);
 app.use(compression());
 app.use(assignReferenceId);
 app.use(bodyParser.json());
@@ -31,11 +31,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(lusca.xframe('SAMEORIGIN'));
+app.use(lusca.xframe("SAMEORIGIN"));
 app.use(lusca.xssProtection(true));
 app.use((req: Request, res: Response, next: NextFunction) => {
-    res.locals.user = req.user;
-    next();
+  res.locals.user = req.user;
+  next();
 });
 // app.use((req, res, next) => {
 //     // After successful login, redirect back to the intended page
@@ -55,9 +55,9 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 /**
  * Primary app routes.
  */
-app.use('/api/auth', authController);
-app.use('/api/business', businessController);
-app.use('/api/vouchers', vouchersController);
+app.use("/api/user", userController);
+app.use("/api/business", businessController);
+app.use("/api/vouchers", vouchersController);
 /**
  * OAuth authentication routes. (Sign in)
  */
@@ -66,16 +66,13 @@ app.use('/api/vouchers', vouchersController);
 //     res.redirect(req.session.returnTo || '/');
 // });
 
-
-
-
 // Serve the static files from React app
-app.use(express.static(path.join(__dirname+'/../client/build/')));
+app.use(express.static(path.join(__dirname + "/../client/build/")));
 /**
  * React Application
  */
-app.get('*', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname+'/../client/build/'));
+app.get("*", (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname + "/../client/build/"));
 });
 
 export default app;

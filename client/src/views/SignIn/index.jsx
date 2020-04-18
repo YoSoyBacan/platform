@@ -1,9 +1,8 @@
 import { Button, CircularProgress, Grid, IconButton, TextField, Typography, withStyles } from '@material-ui/core';
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
-import { Facebook as FacebookIcon, Google as GoogleIcon } from 'icons';
 import PropTypes from 'prop-types';
 import React, { Component, useContext } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import compose from 'recompose/compose';
 import _ from 'underscore';
 import validate from 'validate.js';
@@ -22,27 +21,29 @@ import styles from './styles';
 // Form validation schema
 // Service methods
 const signIn = async (email, password) => {
-  const firebaseUser = await firebase.auth().signInWithEmailAndPassword(email, password);
-  return firebaseUser
+  const firebaseUser = await firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password);
+  return firebaseUser;
 };
 
 class SignIn extends Component {
   state = {
     values: {
-      email: '',
-      password: ''
+      email: "",
+      password: "",
     },
     touched: {
       email: false,
-      password: false
+      password: false,
     },
     errors: {
       email: null,
-      password: null
+      password: null,
     },
     isValid: false,
     isLoading: false,
-    submitError: null
+    submitError: null,
   };
 
   handleBack = () => {
@@ -77,24 +78,32 @@ class SignIn extends Component {
     try {
       const { history } = this.props;
       const { values } = this.state;
-      const { authenticated, setAuthenticated, setAuthBody } = useContext(AuthContext);
+      const {
+        authenticated,
+        setAuthenticated,
+        setAuthBody,
+        setAuthToken,
+      } = useContext(AuthContext);
 
       if (authenticated) {
-        history.push('/dashboard');
+        history.push("/dashboard");
         return;
       }
 
       this.setState({ isLoading: true });
 
       const firebaseUser = await signIn(values.email, values.password);
+      const userId = firebaseUser.user.uid;
+      setAuthToken(firebaseUser.credential.providerId);
+      setAuthenticated(true);
 
-      setAuthBody(firebaseUser.user);
-      setAuthenticated(firebaseUser.user.uid);
-      history.push('/dashboard');
+      // Get the business info
+
+      history.push("/dashboard");
     } catch (error) {
       this.setState({
         isLoading: false,
-        serviceError: error
+        serviceError: error,
       });
     }
   };
@@ -107,7 +116,7 @@ class SignIn extends Component {
       errors,
       isValid,
       submitError,
-      isLoading
+      isLoading,
     } = this.state;
 
     const showEmailError = touched.email && errors.email;
@@ -115,47 +124,26 @@ class SignIn extends Component {
 
     return (
       <div className={classes.root}>
-        <Grid
-          className={classes.grid}
-          container
-        >
-          <Grid
-            className={classes.quoteWrapper}
-            item
-            lg={5}
-          >
+        <Grid className={classes.grid} container>
+          <Grid className={classes.quoteWrapper} item lg={5}>
             <div className={classes.quote}>
               <div className={classes.quoteInner}>
-                <Typography
-                  className={classes.quoteText}
-                  variant="h1"
-                >
+                <Typography className={classes.quoteText} variant="h1">
                   Hella narwhal Cosby sweater McSweeney's, salvia kitsch before
                   they sold out High Life.
                 </Typography>
                 <div className={classes.person}>
-                  <Typography
-                    className={classes.name}
-                    variant="body1"
-                  >
+                  <Typography className={classes.name} variant="body1">
                     Takamaru Ayako
                   </Typography>
-                  <Typography
-                    className={classes.bio}
-                    variant="body2"
-                  >
+                  <Typography className={classes.bio} variant="body2">
                     Manager at inVision
                   </Typography>
                 </div>
               </div>
             </div>
           </Grid>
-          <Grid
-            className={classes.content}
-            item
-            lg={7}
-            xs={12}
-          >
+          <Grid className={classes.content} item lg={7} xs={12}>
             <div className={classes.content}>
               <div className={classes.contentHeader}>
                 <IconButton
@@ -167,50 +155,16 @@ class SignIn extends Component {
               </div>
               <div className={classes.contentBody}>
                 <form className={classes.form}>
-                  <Typography
-                    className={classes.title}
-                    variant="h2"
-                  >
-                    Sign in
-                  </Typography>
-                  <Typography
-                    className={classes.subtitle}
-                    variant="body1"
-                  >
-                    Sign in with social media
-                  </Typography>
-                  <Button
-                    className={classes.facebookButton}
-                    color="primary"
-                    onClick={this.handleSignIn}
-                    size="large"
-                    variant="contained"
-                  >
-                    <FacebookIcon className={classes.facebookIcon} />
-                    Login with Facebook
-                  </Button>
-                  <Button
-                    className={classes.googleButton}
-                    onClick={this.handleSignIn}
-                    size="large"
-                    variant="contained"
-                  >
-                    <GoogleIcon className={classes.googleIcon} />
-                    Login with Google
-                  </Button>
-                  <Typography
-                    className={classes.sugestion}
-                    variant="body1"
-                  >
-                    or login with email address
+                  <Typography className={classes.title} variant="h2">
+                    Ingresa
                   </Typography>
                   <div className={classes.fields}>
                     <TextField
                       className={classes.textField}
                       label="Email address"
                       name="email"
-                      onChange={event =>
-                        this.handleFieldChange('email', event.target.value)
+                      onChange={(event) =>
+                        this.handleFieldChange("email", event.target.value)
                       }
                       type="text"
                       value={values.email}
@@ -228,8 +182,8 @@ class SignIn extends Component {
                       className={classes.textField}
                       label="Password"
                       name="password"
-                      onChange={event =>
-                        this.handleFieldChange('password', event.target.value)
+                      onChange={(event) =>
+                        this.handleFieldChange("password", event.target.value)
                       }
                       type="password"
                       value={values.password}
@@ -245,10 +199,7 @@ class SignIn extends Component {
                     )}
                   </div>
                   {submitError && (
-                    <Typography
-                      className={classes.submitError}
-                      variant="body2"
-                    >
+                    <Typography className={classes.submitError} variant="body2">
                       {submitError}
                     </Typography>
                   )}
@@ -263,20 +214,18 @@ class SignIn extends Component {
                       size="large"
                       variant="contained"
                     >
-                      Sign in now
+                      Ingresa Ahora
                     </Button>
                   )}
-                  <Typography
-                    className={classes.signUp}
-                    variant="body1"
-                  >
-                    Don't have an account?{' '}
-                    <Link
+                  <Typography className={classes.signUp} variant="body1">
+                    No tienes una cuenta?{" "}
+                    <a
                       className={classes.signUpUrl}
-                      to="/sign-up"
+                      href="google.com"
+                      target="_blank"
                     >
-                      Sign up
-                    </Link>
+                      Regístrate
+                    </a>
                   </Typography>
                 </form>
               </div>
@@ -291,10 +240,7 @@ class SignIn extends Component {
 SignIn.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
 };
 
-export default compose(
-  withRouter,
-  withStyles(styles)
-)(SignIn);
+export default compose(withRouter, withStyles(styles))(SignIn);
