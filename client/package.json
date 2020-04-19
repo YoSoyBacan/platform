@@ -1,5 +1,5 @@
 {
-  "name": "react-material-dashboard",
+  "name": "bacan-admin-frontend",
   "version": "0.2.0",
   "private": true,
   "proxy": "http://localhost:8000",
@@ -38,6 +38,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.4",
     "@types/recompose": "^0.30.6",
+    "@types/underscore": "^1.9.4",
     "axios": "^0.19.2",
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",
@@ -57,7 +58,6 @@
     "react-scripts": "3.0.1",
     "recompose": "^0.30.0",
     "typescript": "3.4.5",
-    "underscore": "^1.9.1",
     "validate.js": "^0.13.1",
     "yup": "^0.28.3"
   },
@@ -67,6 +67,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
     "prettier-eslint": "^9.0.0",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "underscore": "^1.10.2"
   }
 }
