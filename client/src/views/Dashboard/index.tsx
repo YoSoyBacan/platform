@@ -2,7 +2,10 @@ import { Grid, makeStyles } from '@material-ui/core';
 import React, { useContext } from 'react';
 
 import { AuthContext } from '../../context/authentication';
+import { useFetch } from '../../lib/fetch';
+import { BusinessHomeResponse } from '../../lib/models';
 import { DevicesChart, MonetaryCard, OrdersTable, ProductList, Profit, Progress, SalesChart, Users } from './components';
+
 
 // Material helpers
 // Material components
@@ -18,10 +21,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+ 
 const Dashboard = () => {
   const classes = useStyles();
-  const { authBody } = useContext(AuthContext);
-  // const { businessId } = authBody;
+  const { authBody, authToken } = useContext(AuthContext);
+  const businessId  = !!authBody ? authBody.businessId : '';
+  const [ data, loading ] = useFetch<BusinessHomeResponse>(`/${businessId}/home`, authToken);
   // TODO: Fetch from backend
   // console.log(businessId);
   return (

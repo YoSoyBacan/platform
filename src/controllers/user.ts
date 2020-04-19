@@ -13,6 +13,8 @@ const validator = createValidator();
 // Schemas
 interface CreateUserSchema extends ValidatedRequestSchema {
   [ContainerTypes.Body]: {
+    firstName: string;
+    lastName: string;
     email: string;
     countryCode: string;
     phoneNumber: string;
@@ -49,6 +51,8 @@ const doCreateUser = apiWrapper.bind(
     }
 
     const newUser = new User({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       type: req.body.type,
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,
@@ -56,17 +60,22 @@ const doCreateUser = apiWrapper.bind(
       authMethod: req.body.authMethod,
     });
     await newUser.save();
-
+    const id = newUser._id.toString();
     // Save the firebase user
-    const firebaseUser = await firebase.auth().createUser({
-      uid: newUser._id,
-      email: req.body.email,
-      emailVerified: false,
-      phoneNumber: `+${req.body.countryCode}${req.body.phoneNumber}`,
-      password: req.body.password,
-      disabled: false,
-    });
-    if (!firebaseUser) {
+    try {
+      const firebaseUser = await firebase.auth().createUser({
+        uid: id,
+        displayName: `${req.body.firstName} ${req.body.lastName}`,
+        email: req.body.email,
+        emailVerified: false,
+        phoneNumber: `+${req.body.countryCode}${req.body.phoneNumber}`,
+        password: req.body.password,
+        disabled: false,
+      });
+      return res.status(200).json(firebaseUser);
+    } catch(firebaseError) {
+      console.log(firebaseError.errorInfo);
+      
       const err: RequestFailure = {
         code: ResponseCode.ERROR_UNKNOWN,
         error: true,
@@ -80,7 +89,6 @@ const doCreateUser = apiWrapper.bind(
       });
       return res.status(400).json(err);
     }
-    return res.status(200).json(newUser);
   }
 );
 const doGetUser = apiWrapper.bind(

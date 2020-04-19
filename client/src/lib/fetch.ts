@@ -40,19 +40,18 @@ export class APIClient {
   }
 }
 
-function useFetch(path: string) {
-  const [data, setData] = useState([]);
+function useFetch<T>(path: string, token?: string) {
+  const [data, setData] = useState({} as T);
   const [loading, setLoading] = useState(true);
 
   async function fetchUrl() {
-    // TODO[sebastian]: Add authentication headers
-    const response = await fetch(`${path}`, {
+    const response = await fetch(`/api/${path}`, {
       headers: {
-        Authorization: "Token CACA",
+        Authorization: `Bearer ${token}`,
       },
     });
     const json = await response.json();
-    setData(json);
+    setData(json as T);
     setLoading(false);
   }
 

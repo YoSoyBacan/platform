@@ -18,7 +18,7 @@ export const decodeFirebaseToken = async(req: Request, res: Response, next: Func
   }
 
   try {
-    const { autorization: headerToken } = req.headers;
+    const headerToken = req.headers.authorization;
     const splitToken = (headerToken as string).split(' ');
     if (splitToken[0] !== 'Bearer' || typeof splitToken[1] !== 'string') {
       return res.status(400).json({
@@ -27,6 +27,13 @@ export const decodeFirebaseToken = async(req: Request, res: Response, next: Func
         }
       });
     }
+    const validKey = process.env.REGISTRATION_API_KEY;
+    if (splitToken[1] === validKey) {
+      req.user = {};
+      next();
+      return;
+    }
+    
     const userPayload = await firebase.auth().verifyIdToken(splitToken[1]);
     req.user = userPayload;
     next();

@@ -239,6 +239,8 @@ export const CreateProduct: React.FC<Props> = ({ classes, onBack }) => {
     return;
   }, []);
 
+
+
   const createProduct = async (values: ProductForm) => {
     setLoading(true);
     try {

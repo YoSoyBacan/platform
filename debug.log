@@ -678,3 +678,76 @@
 {"stringValue":"\"aWWWbuVvg5cKbYoH69LQTV3wiag1\"","kind":"ObjectId","value":"aWWWbuVvg5cKbYoH69LQTV3wiag1","path":"_id","reason":{},"message":"Cast to ObjectId failed for value \"aWWWbuVvg5cKbYoH69LQTV3wiag1\" at path \"_id\" for model \"User\"","name":"CastError","level":"error"}
 {"message":"GET:/api/user/:userId","level":"info"}
 {"stringValue":"\"aWWWbuVvg5cKbYoH69LQTV3wiag1\"","kind":"ObjectId","value":"aWWWbuVvg5cKbYoH69LQTV3wiag1","path":"_id","reason":{},"message":"Cast to ObjectId failed for value \"aWWWbuVvg5cKbYoH69LQTV3wiag1\" at path \"_id\" for model \"User\"","name":"CastError","level":"error"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"errors":{"lastName":{"message":"Path `lastName` is required.","name":"ValidatorError","properties":{"message":"Path `lastName` is required.","type":"required","path":"lastName"},"kind":"required","path":"lastName"},"firstName":{"message":"Path `firstName` is required.","name":"ValidatorError","properties":{"message":"Path `firstName` is required.","type":"required","path":"firstName"},"kind":"required","path":"firstName"}},"_message":"User validation failed","message":"User validation failed: lastName: Path `lastName` is required., firstName: Path `firstName` is required.","name":"ValidationError","level":"error"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-uid","message":"The uid must be a non-empty string with at most 128 characters."}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-uid","message":"The uid must be a non-empty string with at most 128 characters."}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-phone-number","message":"TOO_LONG"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-phone-number","message":"TOO_LONG"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-phone-number","message":"TOO_SHORT"}
+{"message":"POST:/api/user","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-uid","message":"The uid must be a non-empty string with at most 128 characters."}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-uid","message":"The uid must be a non-empty string with at most 128 characters."}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-uid","message":"The uid must be a non-empty string with at most 128 characters."}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-phone-number","message":"The phone number must be a non-empty E.164 standard compliant identifier string."}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
+{"code":"auth/invalid-phone-number","message":"The phone number must be a non-empty E.164 standard compliant identifier string."}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
+{"message":"POST:/api/user","level":"info"}
