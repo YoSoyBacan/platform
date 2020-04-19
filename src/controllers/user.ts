@@ -13,6 +13,8 @@ const validator = createValidator();
 // Schemas
 interface CreateUserSchema extends ValidatedRequestSchema {
   [ContainerTypes.Body]: {
+    firstName: string;
+    lastName: string;
     email: string;
     countryCode: string;
     phoneNumber: string;
@@ -49,6 +51,8 @@ const doCreateUser = apiWrapper.bind(
     }
 
     const newUser = new User({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       type: req.body.type,
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,
@@ -56,16 +60,18 @@ const doCreateUser = apiWrapper.bind(
       authMethod: req.body.authMethod,
     });
     await newUser.save();
-
+    const id = JSON.stringify(newUser._id) as string;
     // Save the firebase user
     const firebaseUser = await firebase.auth().createUser({
-      uid: newUser._id,
+      uid: id,
+      displayName: `${req.body.firstName} ${req.body.lastName}`,
       email: req.body.email,
       emailVerified: false,
       phoneNumber: `+${req.body.countryCode}${req.body.phoneNumber}`,
       password: req.body.password,
       disabled: false,
     });
+
     if (!firebaseUser) {
       const err: RequestFailure = {
         code: ResponseCode.ERROR_UNKNOWN,
