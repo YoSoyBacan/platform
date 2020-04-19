@@ -1,8 +1,8 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 import * as Constants from '../util/constants';
-import { IVoucher } from './Voucher';
 import { IUser } from './User';
+import { IVoucher } from './Voucher';
 
 export interface IBusiness extends Document {
   businessPersonName: string;
@@ -106,7 +106,6 @@ BusinessSchema.add({
   businessLink: {
     type: String,
     trim: true,
-    required: true
   },
   /* Extra */
   industry: {

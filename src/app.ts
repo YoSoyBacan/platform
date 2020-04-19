@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
 import compression from 'compression';
+import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
 import lusca from 'lusca';
 import passport from 'passport';
@@ -9,6 +10,7 @@ import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
 import userController from './controllers/user';
 import vouchersController from './controllers/voucherOptions';
+import { decodeFirebaseToken, isAuthorized } from './middlewares/authentication';
 
 // Create Express server
 const app = express();
@@ -16,6 +18,7 @@ const app = express();
 // Express configuration
 app.set("port", process.env.PORT || 8000);
 app.use(compression());
+app.use(cors());
 app.use(assignReferenceId);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -56,7 +59,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
  * Primary app routes.
  */
 app.use("/api/user", userController);
-app.use("/api/business", businessController);
+app.use("/api/business", decodeFirebaseToken, isAuthorized, businessController);
 app.use("/api/vouchers", vouchersController);
 /**
  * OAuth authentication routes. (Sign in)
@@ -75,4 +78,8 @@ app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname + "/../client/build/"));
 });
 
+
+app.use((err: Error, req: Request, res: Response) => {
+  console.log(err);
+});
 export default app;

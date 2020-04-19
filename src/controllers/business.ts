@@ -1,16 +1,21 @@
-import { Response, Router, Request } from 'express';
-import { ContainerTypes, createValidator, ValidatedRequest, ValidatedRequestSchema } from 'express-joi-validation';
 import { BitlyClient } from 'bitly';
+import { Request, Response, Router } from 'express';
+import {
+  ContainerTypes,
+  createValidator,
+  ExpressJoiError,
+  ValidatedRequest,
+  ValidatedRequestSchema,
+} from 'express-joi-validation';
 
-import { Business, IUser } from '../models';
+import { Business } from '../models';
 import * as Constants from '../util/constants';
 import * as AuthValidators from '../validators/business';
 import { apiWrapper, RequestFailure, ResponseCode } from './common';
-import { APIResponse } from '../lib/responseTypes';
 
 
 const router = Router({ mergeParams: true });
-const validator = createValidator();
+const validator = createValidator({ passError: true });
 
 // Schemas 
 interface CreateBusinessSchema extends ValidatedRequestSchema {
@@ -28,6 +33,7 @@ interface CreateBusinessSchema extends ValidatedRequestSchema {
         hasAccounting: boolean, 
         businessPhone: string, 
         businessLink: string,
+        businessRegisteredAt: Date,
         bankName: Constants.BankOptions,
         bankAccountNumber: string,
         bankAccountType: Constants.BankAccountType, 
@@ -70,18 +76,6 @@ const doCreateBusiness = apiWrapper.bind(
             return res.status(400).json(err);
         }
 
-    //TODO DANI do a function that creates a link before writing to the db use it with bit.ly
-        const bitly = new BitlyClient(process.env['BITLY_ACCESS_TOKEN'], {});
-        let businessBitLink;
-
-        try {
-          let result = await bitly.shorten(req.body.businessLink);
-          businessBitLink = result.link;
-          console.log(`Your shortened bitlink is ${businessBitLink}`);
-        } catch(e) {
-          throw e;
-        }
-    
         const newBusiness = new Business({
             businessPersonName: req.body.businessPersonName,
             businessPersonId: req.body.businessPersonId,
@@ -95,7 +89,6 @@ const doCreateBusiness = apiWrapper.bind(
             entityType: req.body.entityType,
             hasAccounting: req.body.hasAccounting,
             businessPhone: req.body.businessPhone,
-            businessLink: businessBitLink,
             bankName: req.body.bankName,
             bankAccountNumber: req.body.bankAccountNumber,
             bankAccountType: req.body.bankAccountType, 
@@ -104,7 +97,6 @@ const doCreateBusiness = apiWrapper.bind(
         });
         await newBusiness.save();
 
-        // Delete business 
         return res.status(200).json(newBusiness);
     }   
 )
@@ -115,9 +107,15 @@ const doChangeBusiness = apiWrapper.bind(
   'PUT:/api/business/:businessId', 
   async (req: ValidatedRequest<UpdateBusinessSchema>, res: Response) => {
     const business = await Business.findById(req.params.businessId);
+    const bitly = new BitlyClient(process.env['BITLY_ACCESS_TOKEN'], {});
 
     for (const op of req.body) {
       if (op.op === 'add' || op.op === 'replace') {
+        let value = op.value;
+        if (op.field === 'businessLink') {
+          // Bitly link
+          value = await bitly.shorten(value);
+        }
         (business as any)[op.field] = op.value;
       } else if (op.op === 'remove') {
         delete (business as any)[op.field]
@@ -129,6 +127,13 @@ const doChangeBusiness = apiWrapper.bind(
 
   }
 );
+
+router.use((error: ExpressJoiError, req: Request, res: Response, next: Function) => {
+  // Error handler for validation errors
+  return res.status(427).json({
+    message: error.error
+  });
+});
 
 router.post('/', validator.body(AuthValidators.CreateBusinessValidator), doCreateBusiness);
 router.put('/:businessId', validator.body(AuthValidators.ChangeBusinessValidator), doChangeBusiness);

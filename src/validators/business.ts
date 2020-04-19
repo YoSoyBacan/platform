@@ -3,21 +3,23 @@ import * as Joi from '@hapi/joi';
 import * as Constants from '../util/constants';
 
 export const CreateBusinessValidator = Joi.object({
-  name: Joi.string().required(),
-  address: Joi.string().required(),
-  country: Joi.string().required(),
-  city: Joi.string().required(),
-  businessTelephone: Joi.string().min(7).required(),
+  businessPersonName: Joi.string().required(),
+  businessPersonId: Joi.string().required(),
+  businessCountry: Joi.string().allow(Constants.CountryOptions.COLOMBIA, Constants.CountryOptions.ECUADOR),
   businessEmail: Joi.string().required(),
-  industry: Joi.string().allow(Constants.Industries.RESTAURANT),
+  legalName: Joi.string().required(),
+  businessLegalId: Joi.string().required(),
+  numEmployees: Joi.number().required(),
+  businessAddress: Joi.string().required(),
+  businessCity: Joi.string().required(),
+  entityType: Joi.string().allow(Constants.EntityType.PERSONA_JURIDICA, Constants.EntityType.PERSONA_NATURAL),
+  hasAccounting: Joi.bool().required(),
+  businessPhone: Joi.string().min(7).required(),
   businessRegisteredAt: Joi.date().required(),
-  businessDescription: Joi.string().required(),
-  percentageDiscount: Joi.string().allow(Constants.PercentageDiscount.FIFTEEN_PERCENT, Constants.PercentageDiscount.TWENTY_PERCENT, Constants.PercentageDiscount.TWENTY_FIVE_PERCENT, Constants.PercentageDiscount.THIRTY_PERCENT, Constants.PercentageDiscount.THIRTY_FIVE_PERCENT),
-  avatarImageUrl: Joi.string().required(),
-  voucherOptions: Joi.array().items(Joi.string()).required(),
-  legalId: Joi.string().min(10).max(13).required(),
-  bank: Joi.string().allow(Constants.BankOptions.BANCO_PACIFICO, Constants.BankOptions.GUAYAQUIL, Constants.BankOptions.PICHINCHA, Constants.BankOptions.PRODUBANCO).required(),
-  accountNumber: Joi.string().required(),
+  bankName: Joi.string().allow(Constants.BankOptions.BANCO_PACIFICO, Constants.BankOptions.GUAYAQUIL, Constants.BankOptions.PICHINCHA, Constants.BankOptions.PRODUBANCO).required(),
+  bankAccountNumber: Joi.string().required(),
+  bankAccountType: Joi.string().allow(Constants.BankAccountType.AHORROS, Constants.BankAccountType.CORRIENTE),
+  bankBeneficiaryName: Joi.string().required(),
   owner: Joi.string().required()
 });
 

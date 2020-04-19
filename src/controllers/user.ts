@@ -60,19 +60,22 @@ const doCreateUser = apiWrapper.bind(
       authMethod: req.body.authMethod,
     });
     await newUser.save();
-    const id = JSON.stringify(newUser._id) as string;
+    const id = newUser._id.toString();
     // Save the firebase user
-    const firebaseUser = await firebase.auth().createUser({
-      uid: id,
-      displayName: `${req.body.firstName} ${req.body.lastName}`,
-      email: req.body.email,
-      emailVerified: false,
-      phoneNumber: `+${req.body.countryCode}${req.body.phoneNumber}`,
-      password: req.body.password,
-      disabled: false,
-    });
-
-    if (!firebaseUser) {
+    try {
+      const firebaseUser = await firebase.auth().createUser({
+        uid: id,
+        displayName: `${req.body.firstName} ${req.body.lastName}`,
+        email: req.body.email,
+        emailVerified: false,
+        phoneNumber: `+${req.body.countryCode}${req.body.phoneNumber}`,
+        password: req.body.password,
+        disabled: false,
+      });
+      return res.status(200).json(firebaseUser);
+    } catch(firebaseError) {
+      console.log(firebaseError.errorInfo);
+      
       const err: RequestFailure = {
         code: ResponseCode.ERROR_UNKNOWN,
         error: true,
@@ -86,7 +89,6 @@ const doCreateUser = apiWrapper.bind(
       });
       return res.status(400).json(err);
     }
-    return res.status(200).json(newUser);
   }
 );
 const doGetUser = apiWrapper.bind(
