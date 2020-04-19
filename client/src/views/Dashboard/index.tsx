@@ -21,8 +21,9 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = () => {
   const classes = useStyles();
   const { authBody } = useContext(AuthContext);
-  const { businessId } = authBody;
+  // const { businessId } = authBody;
   // TODO: Fetch from backend
+  // console.log(businessId);
   return (
     <div className={classes.root}>
       <Grid container spacing={4}>
@@ -34,7 +35,7 @@ const Dashboard = () => {
           />
         </Grid>
         <Grid item lg={3} sm={6} xl={3} xs={12}>
-          <Users className={classes.item} totalUserCount={200} />
+          <Users className={classes.item} totalusercount={200} />
         </Grid>
         <Grid item lg={3} sm={6} xl={3} xs={12}>
           <Progress className={classes.item} percentage={"54"} />
