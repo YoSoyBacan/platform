@@ -9,7 +9,7 @@ const router = Router({ mergeParams: true });
 
 const doGetBusinessHome = apiWrapper.bind(
   apiWrapper, 
-  'GET:/api/:businessId/home',
+  'GET:/api/home/:businessId',
   async (req: Request, res: Response) => {
     const business = await Business.findById(req.params.businessId).populate("owner");
     const user = (business.owner as IUser);
@@ -17,21 +17,21 @@ const doGetBusinessHome = apiWrapper.bind(
     const response: APIResponse.BusinessResponse = {
       data: {
         business_information: {
-          name: business.legalName, 
-          adress: business.businessAddress,
-          registered_date: business.businessRegisteredAt,
-          phone_number: business.businessPhone,
-          city: business.businessCity,
-          country: business.businessCountry,
-          email: business.businessEmail,
+          legalName: business.legalName, 
+          businessAddress: business.businessAddress,
+          businessRegisteredAt: business.businessRegisteredAt,
+          businessPhone: business.businessPhone,
+          businessCity: business.businessCity,
+          businessCountry: business.businessCountry,
+          businessEmail: business.businessEmail,
           industry: business.industry,
-          link: business.businessLink,
-          avatar: business.avatarImageUrl, 
+          businessLink: business.businessLink,
+          avatarImageUrl: business.avatarImageUrl, 
           images: business.images,
-          legalId: business.businessLegalId,
-          bank: business.bankName,
-          account_number: business.bankAccountNumber,
-          business_description: business.businessDescription,
+          businessLegalId: business.businessLegalId,
+          bankName: business.bankName,
+          bankAccountNumber: business.bankAccountNumber,
+          businessDescription: business.businessDescription,
         },
         user_information: {
           name: `${user.firstName} ${user.lastName}`,
@@ -46,4 +46,6 @@ const doGetBusinessHome = apiWrapper.bind(
   }
 );
 
-router.get('/:businessId/home', doGetBusinessHome);
+router.get('/:businessId', doGetBusinessHome);
+
+export default router;

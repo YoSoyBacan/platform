@@ -3,10 +3,11 @@ import { ContainerTypes, createValidator, ValidatedRequest, ValidatedRequestSche
 
 import { Account, User } from '../models';
 import { apiWrapper } from './common';
-
+import { request } from 'http';
+import * as AuthValidators from '../validators/account';
 
 const router = Router({ mergeParams: true });
-const validator = createValidator;
+const validator = createValidator({ passError: true });
 
 // Schemas 
 interface CreateAccountSchema extends ValidatedRequestSchema {
@@ -21,8 +22,7 @@ interface CreateAccountSchema extends ValidatedRequestSchema {
 const doCreateAccount = apiWrapper.bind(
   apiWrapper, 
   'POST:/api/business',
-  validator.body(AuthValidators,CreateAccountValidator),
-  async (req: ValidatedRequest<CreateUserSchema>, res: Response) => {
+  async (req: ValidatedRequest<CreateAccountSchema>, res: Response) => {
     //Check the account doesn't exist already and there exists a User for this account 
     const foundUser = await User.findOne({
       $and: [
@@ -31,3 +31,5 @@ const doCreateAccount = apiWrapper.bind(
     })
   }
 )
+
+router.post('/business', validator.body(AuthValidators.CreateAccountValidator), doCreateAccount);

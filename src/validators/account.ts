@@ -2,7 +2,7 @@ import * as Joi from '@hapi/joi';
 
 import * as Constants from '../util/constants';
 
-export const CreateUserValidator = Joi.object({
+export const CreateAccountValidator = Joi.object({
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
   email: Joi.string().email().required(),

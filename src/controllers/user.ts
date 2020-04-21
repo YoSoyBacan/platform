@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import { Request, Response, Router } from 'express';
 import { ContainerTypes, createValidator, ValidatedRequest, ValidatedRequestSchema } from 'express-joi-validation';
 
@@ -95,11 +96,11 @@ const doGetUser = apiWrapper.bind(
   apiWrapper,
   "GET:/api/user/:userId",
   async (req: Request, res: Response) => {
-    const user = await User.findById(req.params.userId);
+    const user = await User.findById(req.params.userId).lean();
     if (user.type === Constants.UserType.BUSINESS) {
-      const business = await Business.find({
+      const business = await Business.findOne({
         owner: req.params.userId,
-      });
+      }).lean();
 
       const response = {
         user: {
@@ -112,7 +113,7 @@ const doGetUser = apiWrapper.bind(
       return res.json(response);
     }
     if (user.type === Constants.UserType.CONSUMER) {
-      const account = await Account.find({
+      const account = await Account.findOne({
         user: req.params.userId,
       });
       const response = {
@@ -130,10 +131,8 @@ const doGetUser = apiWrapper.bind(
     });
   }
 );
-router.post(
-  "/",
-  validator.body(AuthValidators.CreateUserValidator),
-  doCreateUser
-);
+
+
+router.post("/", validator.body(AuthValidators.CreateUserValidator), doCreateUser);
 router.get("/:userId", doGetUser);
 export default router;

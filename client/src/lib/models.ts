@@ -1,3 +1,5 @@
+//  INTERFACES FOR FRONT-END 
+
 export interface GetTemplatesResponse {
   TWO_ONE_INCHES: {
       templates: Array<{
@@ -22,21 +24,21 @@ export interface GetTemplatesResponse {
 export interface BusinessHomeResponse {
   data: {
     business_information: {
-      name: string;
-      adress: string;
-      registered_date: Date;
-      phone_number: string;
-      city: string; 
-      country: string;
-      email: string; 
+      legalName: string;
+      businessAddress: string;
+      businessRegisteredAt: Date;
+      businessPhone: string;
+      businessCity: string; 
+      businessCountry: string;
+      businessEmail: string; 
       industry: string;
-      link: string;
-      avatar: string;
+      businessLink: string;
+      avatarImageUrl: string;
       images: string[];
-      legalId: string;
-      bank: string;
-      account_number: string;
-      business_description: string;
+      businessLegalId: string;
+      bankName: string;
+      bankAccountNumber: string;
+      businessDescription: string;
     },
     user_information: {
       name: string;

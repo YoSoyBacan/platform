@@ -10,6 +10,7 @@ import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
 import userController from './controllers/user';
 import vouchersController from './controllers/voucherOptions';
+import homeController from './controllers/home';
 import { decodeFirebaseToken, isAuthorized } from './middlewares/authentication';
 
 // Create Express server
@@ -61,6 +62,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.use("/api/user", userController);
 app.use("/api/business", decodeFirebaseToken, isAuthorized, businessController);
 app.use("/api/vouchers", vouchersController);
+app.use("/api/home", decodeFirebaseToken, isAuthorized, homeController);
 /**
  * OAuth authentication routes. (Sign in)
  */
