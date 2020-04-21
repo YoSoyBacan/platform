@@ -12,8 +12,6 @@ const validator = createValidator({ passError: true });
 // Schemas 
 interface CreateAccountSchema extends ValidatedRequestSchema {
   [ContainerTypes.Body]: {
-    firstName: string,
-    lastName: string,
     country: string,
     user: string,
   }
@@ -21,15 +19,13 @@ interface CreateAccountSchema extends ValidatedRequestSchema {
 
 const doCreateAccount = apiWrapper.bind(
   apiWrapper, 
-  'POST:/api/business',
+  'POST:/api/account',
   async (req: ValidatedRequest<CreateAccountSchema>, res: Response) => {
     //Check the account doesn't exist already and there exists a User for this account 
-    const foundUser = await User.findOne({
-      $and: [
-        
-      ]
-    })
+    const foundUser = await User.findOne(req.params.user);
+
+    // TODO keep creating account   
   }
 )
 
-router.post('/business', validator.body(AuthValidators.CreateAccountValidator), doCreateAccount);
+router.post('/account', validator.body(AuthValidators.CreateAccountValidator), doCreateAccount);

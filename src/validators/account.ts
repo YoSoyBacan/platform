@@ -3,20 +3,6 @@ import * as Joi from '@hapi/joi';
 import * as Constants from '../util/constants';
 
 export const CreateAccountValidator = Joi.object({
-  firstName: Joi.string().required(),
-  lastName: Joi.string().required(),
-  email: Joi.string().email().required(),
-  countryCode: Joi.string().required(),
-  phoneNumber: Joi.string().min(5).max(15).required(),
-  type: Joi.string().allow(
-    Constants.UserType.BUSINESS,
-    Constants.UserType.CONSUMER
-  ).required(),
-  authMethod: Joi.string().allow(
-    Constants.AuthMethods.EMAIL,
-    Constants.AuthMethods.TELEFONO,
-    Constants.AuthMethods.GOOGLE,
-    Constants.AuthMethods.FACEBOOK
-  ).required(),
-  password: Joi.string().min(3).max(15).required(),
+  country: Joi.string().allow(Constants.CountryOptions.COLOMBIA, Constants.CountryOptions.ECUADOR).required,
+  user: Joi.object().required
 });

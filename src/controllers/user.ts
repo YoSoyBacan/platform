@@ -5,7 +5,7 @@ import { ContainerTypes, createValidator, ValidatedRequest, ValidatedRequestSche
 import firebase from '../initializers/firebase';
 import { Account, Business, User } from '../models';
 import * as Constants from '../util/constants';
-import * as AuthValidators from '../validators/auth';
+import * as AuthValidators from '../validators/user';
 import { apiWrapper, RequestFailure, ResponseCode } from './common';
 
 const router = Router({ mergeParams: true });
