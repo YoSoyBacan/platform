@@ -9,6 +9,7 @@ export interface IBusiness extends Document {
   businessPersonId: string;
   businessCountry: Constants.CountryOptions;
   businessEmail: string;
+  salesObjective?: number;
   /* Business */
   legalName: string;
   businessLegalId: string;
@@ -40,6 +41,10 @@ export interface IBusiness extends Document {
   vouchers?: (string | IVoucher)[];
   transactions?: string[];
   notifications?:  string[];
+
+  /* External Relationships */
+  buenPlanProviderId: string;
+  shopProviderId: string;
 }
 const BusinessSchema = new Schema({}, {
   timestamps: true
@@ -67,6 +72,11 @@ BusinessSchema.add({
     type: String,
     trim: true,
     required: true
+  },
+  salesObjective: {
+    type: Number,
+    required: false,
+    default: 0
   },
   /* Business */
   legalName: {
@@ -171,7 +181,17 @@ BusinessSchema.add({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Notification',
     required: false
-  }]
+  }],
+  /* External Relationships */
+  buenPlanProviderId: {
+    type: String,
+    trim: true,
+    required: true
+  },
+  shopProviderId: {
+    type: String,
+    trim: true
+  }
 });
 
 const Business =  mongoose.model<IBusiness>('Business', BusinessSchema);

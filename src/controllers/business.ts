@@ -8,11 +8,11 @@ import {
   ValidatedRequestSchema,
 } from 'express-joi-validation';
 
+import BuenPlanAPI from '../lib/clients/buenplan';
 import { Business } from '../models';
 import * as Constants from '../util/constants';
 import * as AuthValidators from '../validators/business';
 import { apiWrapper, RequestFailure, ResponseCode } from './common';
-
 
 const router = Router({ mergeParams: true });
 const validator = createValidator({ passError: true });
@@ -76,24 +76,47 @@ const doCreateBusiness = apiWrapper.bind(
             return res.status(400).json(err);
         }
 
+        // Create the Business in Buen Plan
+        console.log('Sending Buen Plan Request');
+        const { data } = await BuenPlanAPI.post<{id: string}>('businesses', {
+          businessPersonName: req.body.businessPersonName,
+          businessPersonId: req.body.businessPersonId,
+          businessEmail: req.body.businessEmail,
+          legalName: req.body.legalName,
+          businessLegalId: req.body.businessLegalId,
+          numEmployees: req.body.numEmployees,
+          businessAddress: req.body.businessAddress,
+          businessCity: req.body.businessCity.toLocaleUpperCase(), 
+          entityType: req.body.entityType,
+          hasAccounting: req.body.hasAccounting,
+          businessPhone: req.body.businessPhone,
+          bankName: { name: req.body.bankName },
+          businessRegisteredAt: new Date(req.body.businessRegisteredAt || 0).toLocaleString(),
+          bankAccountNumber: req.body.bankAccountNumber,
+          bankAccountType: req.body.bankAccountType, 
+          bankBeneficiaryName: req.body.bankBeneficiaryName,
+        });
+
         const newBusiness = new Business({
             businessPersonName: req.body.businessPersonName,
             businessPersonId: req.body.businessPersonId,
-            businessCountry: req.body.businessCountry, 
+            businessCountry: req.body.businessCountry || Constants.CountryOptions.ECUADOR, 
             businessEmail: req.body.businessEmail,
             legalName: req.body.legalName,
             businessLegalId: req.body.businessLegalId,
             numEmployees: req.body.numEmployees,
             businessAddress: req.body.businessAddress,
-            businessCity: req.body.businessCity, 
+            businessCity: req.body.businessCity.toLocaleUpperCase(), 
             entityType: req.body.entityType,
             hasAccounting: req.body.hasAccounting,
             businessPhone: req.body.businessPhone,
             bankName: req.body.bankName,
+            businessRegisteredAt: new Date(req.body.businessRegisteredAt || 0),
             bankAccountNumber: req.body.bankAccountNumber,
             bankAccountType: req.body.bankAccountType, 
             bankBeneficiaryName: req.body.bankBeneficiaryName,
-            owner: req.body.owner
+            owner: req.body.owner,
+            buenPlanProviderId: data.id
         });
         await newBusiness.save();
 
