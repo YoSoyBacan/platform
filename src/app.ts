@@ -2,9 +2,11 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';
 import express, { NextFunction, Request, Response } from 'express';
+import expressWinston from 'express-winston';
 import lusca from 'lusca';
 import passport from 'passport';
 import path from 'path';
+import winston from 'winston';
 
 import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
@@ -40,21 +42,23 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   res.locals.user = req.user;
   next();
 });
-// app.use((req, res, next) => {
-//     // After successful login, redirect back to the intended page
-//     if (!req.user &&
-//     req.path !== '/login' &&
-//     req.path !== '/signup' &&
-//     !req.path.match(/^\/auth/) &&
-//     !req.path.match(/\./)) {
-//         req.session.returnTo = req.path;
-//     } else if (req.user &&
-//     req.path == '/account') {
-//         req.session.returnTo = req.path;
-//     }
-//     next();
-// });
 
+
+/**
+ * Logging
+ */
+
+app.use(expressWinston.logger({
+  transports: [
+    new winston.transports.Console()
+  ],
+  format: winston.format.combine(
+    winston.format.colorize()
+  ),
+  meta: true,
+  msg: "HTTP {{req.method}} {{req.url}} {{res.statusCode}} {{res.responseTime}}ms",
+  colorize: true
+}));
 /**
  * Primary app routes.
  */

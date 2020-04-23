@@ -751,3 +751,6 @@
 {"message":"Using .env file to supply config environment variables","level":"debug"}
 {"message":"App is running at http://localhost:8000 in development mode","level":"info"}
 {"message":"POST:/api/user","level":"info"}
+{"message":"Logging initialized at debug level","level":"debug"}
+{"message":"Using .env.development file to supply config environment variables","level":"debug"}
+{"message":"App is running at http://localhost:8000 in development mode","level":"info"}
