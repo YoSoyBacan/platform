@@ -11,13 +11,13 @@ WORKDIR /usr/src/app
 
 # Install packages 
 RUN npm i
-
+RUN npm install -g typescript@3.6.3
 ENV GOOGLE_APPLICATION_CREDENTIALS /usr/src/app/src/config/service-account.json
 # Bump contain heap memory
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 # Compile Typescript
-RUN npm run build
+#UN npm run build-ts
 
 #Expose port 8000 which the app runs on
 EXPOSE 8000
