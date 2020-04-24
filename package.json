@@ -70,7 +70,8 @@
     "request-promise": "^4.2.4",
     "tsconfig-paths": "^3.9.0",
     "uuid": "^7.0.2",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "typescript": "^3.6.3"
   },
   "devDependencies": {
     "@types/async": "^3.0.2",
@@ -126,7 +127,6 @@
     "shelljs": "^0.8.3",
     "supertest": "^4.0.2",
     "ts-jest": "^24.1.0",
-    "ts-node": "^8.5.2",
-    "typescript": "^3.6.3"
+    "ts-node": "^8.5.2"
   }
 }

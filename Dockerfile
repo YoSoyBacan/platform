@@ -5,13 +5,13 @@ ENV NODE_ENV production
 
 # Creating application directory
 RUN mkdir -p /usr/src/app
+#Copy Application code to app folder and environment
+COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 # Install packages 
 RUN npm i
 
-#Copy Application code to app folder and environment
-COPY . /usr/src/app
 ENV GOOGLE_APPLICATION_CREDENTIALS /usr/src/app/src/config/service-account.json
 # Bump contain heap memory
 ENV NODE_OPTIONS="--max-old-space-size=4096"
