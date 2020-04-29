@@ -7,7 +7,7 @@ import _ from 'underscore';
 import validate from 'validate.js';
 
 import { AuthContext } from '../../context/authentication';
-import { APIClient, useFetch } from '../../lib/fetch';
+import { APIClient } from '../../lib/fetch';
 import firebase from '../../lib/firebase';
 import schema from './schema';
 import styles from './styles';
@@ -230,7 +230,7 @@ const SignIn = (props: SignInProps) => {
                   No tienes una cuenta?{" "}
                   <a
                     className={classes.signUpUrl}
-                    href="google.com"
+                    href="https://registro.yosoybacan.com"
                     target="_blank"
                   >
                     Regístrate aquí!
