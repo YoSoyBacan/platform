@@ -15,20 +15,20 @@ const styles = theme => ({
     padding: theme.spacing(4)
   },
   content: {
-    marginTop: '150px',
-    textAlign: 'center'
+    marginTop: '100px',
+    textAlign: 'center',
+    lineHeight: '90px'
   },
   image: {
     display: 'inline-block',
     marginTop: '50px',
     marginBottom: '50px',
-    maxWidth: '100%',
     width: '554px'
   }
 });
 
 const handleOnClick = () => {
-  window.location.replace('https://www.yosoybacan.com');
+  window.location.replace('https://www.registro.yosoybacan.com');
   return
 }
 
@@ -54,14 +54,14 @@ class InConstruction extends Component {
                 Gracias por confiar en nosotros y hacer tu negocio más Bacán!
               </Typography>
               <Typography variant="h5">
-                Estamos trabajando duro en esta plataforma en donde podras saber todo sobre tu negocio! Esperalo pronto...
+                Estamos trabajando duro en esta plataforma en donde podras saber todo sobre tu negocio! Espéralo pronto...
               </Typography>
               <img
                 alt="Under development"
                 className={classes.image}
                 src="/images/not_found.png"
               />
-              <Typography variant="h3" margin="70px">
+              <Typography variant="h3">
                 Aun no estas registrado?
               </Typography>
               <Button 
@@ -70,6 +70,7 @@ class InConstruction extends Component {
                 onClick={handleOnClick}
                 size="large"
                 variant="contained"
+                paddingTop="70px"
               >
                 Registrate aquí!
               </Button>

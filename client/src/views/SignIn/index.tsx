@@ -11,6 +11,7 @@ import { APIClient } from '../../lib/fetch';
 import firebase from '../../lib/firebase';
 import schema from './schema';
 import styles from './styles';
+import InConstruction from 'views/InConstruction';
 
 // Externals
 // Material helpers
@@ -164,7 +165,8 @@ const SignIn = (props: SignInProps) => {
           </div>
         </Grid>
         <Grid className={classes.content} item lg={7} xs={12}>
-          <div className={classes.content}>
+          <InConstruction/>
+          {/* <div className={classes.content}>
             <div className={classes.contentHeader}>
               <IconButton className={classes.backButton} onClick={handleBack}>
                 <ArrowBackIcon />
@@ -240,9 +242,9 @@ const SignIn = (props: SignInProps) => {
                 </Typography>
               </form>
             </div>
-          </div>
+          </div> */}
         </Grid>
-      </Grid>
+      </Grid> 
     </div>
   );
 };
