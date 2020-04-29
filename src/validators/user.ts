@@ -1,4 +1,4 @@
-import * as Joi '@hapi/joi';
+import * as Joi from '@hapi/joi';
 
 import * as Constants from '../util/constants';
 

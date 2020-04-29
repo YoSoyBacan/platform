@@ -112,7 +112,6 @@ const SignIn = (props: SignInProps) => {
 
       setLoading(true);
       const firebaseUser = await signIn(values.email, values.password);
-      console.log(firebaseUser);
       const userId = firebaseUser.user!.uid as string;
       const token = await firebaseUser.user!.getIdToken();
       setAuthToken(token || "");
@@ -120,9 +119,9 @@ const SignIn = (props: SignInProps) => {
 
       // Get the business info
       const client = new APIClient(token || "");
-      console.log(client);
+      // console.log(client);
       const response = await client.get<UserResponse>(`user/${userId}`);
-      console.log(response);
+      // console.log(response);
       setAuthBody({
         legalName: response.data.business.legalName,
         businessId: response.data.business._id,
@@ -130,12 +129,14 @@ const SignIn = (props: SignInProps) => {
         firstName: response.data.user.firstName, 
         userId: response.data.user._id,
       });
-      history.push("/dashboard");
+      //TODO CHANGE THIS 
+      history.push("/in-construction");
       return;
     } catch (error) {
+      const { history } = props;
       // TODO handle multiple errors! 
-      console.log("ERROR");
-      console.log(error);
+      // console.log("ERROR");
+      // console.log(error);
       setState({
         ...state,
         errors: {
@@ -145,6 +146,7 @@ const SignIn = (props: SignInProps) => {
           },
         },
       });
+      history.push("/in-construction");
       setLoading(false);
     }
   };
