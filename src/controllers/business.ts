@@ -77,7 +77,6 @@ const doCreateBusiness = apiWrapper.bind(
         }
 
         // Create the Business in Buen Plan
-        console.log('Sending Buen Plan Request');
         const { data } = await BuenPlanAPI.post<{id: string}>('businesses', {
           businessPersonName: req.body.businessPersonName,
           businessPersonId: req.body.businessPersonId,

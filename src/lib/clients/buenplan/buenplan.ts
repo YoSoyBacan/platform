@@ -19,7 +19,8 @@ export class BuenPlanAPI {
     const reqHeaders = {
       ...headers,
       accept: 'application/json',
-      "Content-Type": 'application/json'
+      "Content-Type": 'application/json',
+      'Authorization': `${this.apiKey}`
     };
 
     try {

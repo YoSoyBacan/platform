@@ -4,7 +4,6 @@ import fs from 'fs';
 import logger from './logger';
 
 export const ENVIRONMENT = process.env.NODE_ENV;
-console.log(ENVIRONMENT);
 if (fs.existsSync('.env') && ENVIRONMENT === 'production') {
     logger.debug('Using .env file to supply config environment variables');
     dotenv.config({ path: '.env' });

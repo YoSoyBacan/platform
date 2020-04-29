@@ -26,6 +26,6 @@ export const CreateBusinessValidator = Joi.object({
 
 export const ChangeBusinessValidator = Joi.array().items(Joi.object({
   op: Joi.string().required().allow('add', 'remove', 'replace'),
-  field: Joi.string().allow('name', 'address'),
+  field: Joi.string(),
   value: Joi.any()
 }))
