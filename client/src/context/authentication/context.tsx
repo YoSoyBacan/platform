@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
+//TODO fixthissss -> globalStore
 interface AuthBody {
-  name: string;
+  legalName: string;
   businessId: string;
   legalId: string;
+  userId: string;
+  firstName: string;
 }
 export type AuthContextState = {
   authenticated: boolean;

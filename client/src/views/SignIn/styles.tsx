@@ -6,19 +6,17 @@ export default (theme: any) => ({
   grid: {
     height: "100%",
   },
-  quoteWrapper: {
+  sideLogoWrapper: {
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },
-  quote: {
-    backgroundColor: theme.palette.common.neutral,
+  sideLogo: {
+    backgroundColor: theme.palette.primary.main,
     height: "100%",
+    backgroundSize: "600px",
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundImage: "url(/images/sign_up_1.jpg)",
-    backgroundSize: "cover",
+    backgroundImage: 'url(/images/sign_up_logo.svg)',
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   },

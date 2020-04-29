@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Externals
 import { Doughnut } from 'react-chartjs-2';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-
-// Material helpers
-import { withStyles } from '@material-ui/core';
 
 // Material components
 import { IconButton, Typography } from '@material-ui/core';
@@ -37,10 +34,11 @@ import { data, options } from './chart';
 // Component styles
 import styles from './styles';
 
-class DevicesChart extends Component {
-  render() {
-    const { classes, className, ...rest } = this.props;
 
+
+const DevicesChart = (props) => {
+    const { className, ...rest } = props;
+    const classes = styles();
     const rootClassName = classNames(classes.root, className);
 
     return (
@@ -53,7 +51,6 @@ class DevicesChart extends Component {
           <PortletToolbar>
             <IconButton
               className={classes.refreshButton}
-              onClick={this.handleRefresh}
               variant="text"
             >
               <RefreshIcon />
@@ -102,12 +99,11 @@ class DevicesChart extends Component {
         </PortletContent>
       </Portlet>
     );
-  }
 }
 
+
 DevicesChart.propTypes = {
-  className: PropTypes.string,
-  classes: PropTypes.object.isRequired
+  className: PropTypes.string
 };
 
-export default withStyles(styles)(DevicesChart);
+export default DevicesChart;

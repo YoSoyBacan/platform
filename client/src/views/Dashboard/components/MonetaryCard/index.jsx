@@ -25,7 +25,6 @@ import styles from './styles';
 class MonetaryCard extends Component {
   render() {
     const { classes, className, ...rest } = this.props;
-    console.log(this.props);
 
     const rootClassName = classNames(classes.root, className);
 
