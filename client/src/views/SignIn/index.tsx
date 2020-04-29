@@ -11,6 +11,7 @@ import { APIClient } from '../../lib/fetch';
 import firebase from '../../lib/firebase';
 import schema from './schema';
 import styles from './styles';
+import InConstruction from 'views/InConstruction';
 
 // Externals
 // Material helpers
@@ -112,7 +113,6 @@ const SignIn = (props: SignInProps) => {
 
       setLoading(true);
       const firebaseUser = await signIn(values.email, values.password);
-      console.log(firebaseUser);
       const userId = firebaseUser.user!.uid as string;
       const token = await firebaseUser.user!.getIdToken();
       setAuthToken(token || "");
@@ -120,9 +120,9 @@ const SignIn = (props: SignInProps) => {
 
       // Get the business info
       const client = new APIClient(token || "");
-      console.log(client);
+      // console.log(client);
       const response = await client.get<UserResponse>(`user/${userId}`);
-      console.log(response);
+      // console.log(response);
       setAuthBody({
         legalName: response.data.business.legalName,
         businessId: response.data.business._id,
@@ -130,12 +130,14 @@ const SignIn = (props: SignInProps) => {
         firstName: response.data.user.firstName, 
         userId: response.data.user._id,
       });
-      history.push("/dashboard");
+      //TODO CHANGE THIS 
+      history.push("/in-construction");
       return;
     } catch (error) {
+      const { history } = props;
       // TODO handle multiple errors! 
-      console.log("ERROR");
-      console.log(error);
+      // console.log("ERROR");
+      // console.log(error);
       setState({
         ...state,
         errors: {
@@ -145,6 +147,7 @@ const SignIn = (props: SignInProps) => {
           },
         },
       });
+      history.push("/in-construction");
       setLoading(false);
     }
   };
@@ -162,7 +165,8 @@ const SignIn = (props: SignInProps) => {
           </div>
         </Grid>
         <Grid className={classes.content} item lg={7} xs={12}>
-          <div className={classes.content}>
+          <InConstruction/>
+          {/* <div className={classes.content}>
             <div className={classes.contentHeader}>
               <IconButton className={classes.backButton} onClick={handleBack}>
                 <ArrowBackIcon />
@@ -238,9 +242,9 @@ const SignIn = (props: SignInProps) => {
                 </Typography>
               </form>
             </div>
-          </div>
+          </div> */}
         </Grid>
-      </Grid>
+      </Grid> 
     </div>
   );
 };
