@@ -14,6 +14,7 @@ import SignUp from './views/SignUp';
 import TagsList from './views/Tags';
 import Typography from './views/Typography';
 import UnderDevelopment from './views/UnderDevelopment';
+import InConstruction from 'views/InConstruction';
 
 // Layout
 // Views
@@ -33,6 +34,7 @@ const Routes: React.FC = () => {
       <Route component={SignIn} exact path="/sign-in" />
       <Route component={UnderDevelopment} exact path="/under-development" />
       <Route component={NotFound} exact path="/not-found" />
+      <Route component={InConstruction} exact path="/in-construction" />
       <Redirect to="/not-found" />
     </Switch>
   );
