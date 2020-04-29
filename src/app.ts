@@ -10,9 +10,9 @@ import winston from 'winston';
 
 import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
+import homeController from './controllers/home';
 import userController from './controllers/user';
 import vouchersController from './controllers/voucherOptions';
-import homeController from './controllers/home';
 import { decodeFirebaseToken, isAuthorized } from './middlewares/authentication';
 
 // Create Express server
@@ -24,7 +24,7 @@ app.use(compression());
 app.use(cors());
 app.use(assignReferenceId);
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true}));
 // TODO[sebastian]: Add Redis session store
 // app.use(session({
 //     resave: true,
@@ -65,7 +65,7 @@ app.use(expressWinston.logger({
  */
 app.use("/api/user", userController);
 app.use("/api/business", decodeFirebaseToken, isAuthorized, businessController);
-app.use("/api/vouchers", vouchersController);
+app.use("/api/vouchers", decodeFirebaseToken, isAuthorized, vouchersController);
 app.use("/api/home", decodeFirebaseToken, isAuthorized, homeController);
 /**
  * OAuth authentication routes. (Sign in)

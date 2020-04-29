@@ -32,13 +32,15 @@ export async function apiWrapper(
     logger.info(apiPath);
     await execute(req, res);
   } catch(error) {
+    console.log(error);
     logger.error(error);
     const payload: RequestFailure = {
       error: true,
       code: ResponseCode.ERROR_UNKNOWN,
       referenceId: res.locals.sequenceId
     };
-    return res.status(400).json(payload);
+    res.status(400).send(payload);
+    return;
   }
 }
 

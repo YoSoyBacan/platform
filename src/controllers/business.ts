@@ -51,35 +51,55 @@ interface UpdateBusinessSchema extends ValidatedRequestSchema {
 }
 
 const doCreateBusiness = apiWrapper.bind(
-    apiWrapper, 
-    'POST:/api/business',
-    async (req: ValidatedRequest<CreateBusinessSchema>, res: Response) => {
-        // Check the business doesn't exist 
-        const foundBusiness = await Business.findOne({
-            $or: [
-                {
-                    businessEmail: req.body.businessEmail
-                },
-                {
-                    businessLegalId: req.body.businessLegalId
-                }
-            ]
-        });
-        if (foundBusiness) {
-            const err: RequestFailure = {
-                code: ResponseCode.ERROR_FORBIDDEN,
-                error: true,
-                referenceId: res.locals.sequenceId,
-                message: `El negocio con estos credenciales ya ha sido registrado`
-            };
+  apiWrapper, 
+  'POST:/api/business',
+  async (req: ValidatedRequest<CreateBusinessSchema>, res: Response) => {
+      // Check the business doesn't exist 
+      const foundBusiness = await Business.findOne({
+          $or: [
+              {
+                  businessEmail: req.body.businessEmail
+              },
+              {
+                  businessLegalId: req.body.businessLegalId
+              }
+          ]
+      });
+      if (foundBusiness) {
+          const err: RequestFailure = {
+              code: ResponseCode.ERROR_FORBIDDEN,
+              error: true,
+              referenceId: res.locals.sequenceId,
+              message: `El negocio con estos credenciales ya ha sido registrado`
+          };
 
-            return res.status(400).json(err);
-        }
+          return res.status(400).json(err);
+      }
 
-        // Create the Business in Buen Plan
-        const { data } = await BuenPlanAPI.post<{id: string}>('businesses', {
+      // Create the Business in Buen Plan
+      const { data } = await BuenPlanAPI.post<{id: string}>('businesses', {
+        businessPersonName: req.body.businessPersonName,
+        businessPersonId: req.body.businessPersonId,
+        businessEmail: req.body.businessEmail,
+        legalName: req.body.legalName,
+        businessLegalId: req.body.businessLegalId,
+        numEmployees: req.body.numEmployees,
+        businessAddress: req.body.businessAddress,
+        businessCity: req.body.businessCity.toLocaleUpperCase(), 
+        entityType: req.body.entityType,
+        hasAccounting: req.body.hasAccounting,
+        businessPhone: req.body.businessPhone,
+        bankName: { name: req.body.bankName },
+        businessRegisteredAt: new Date(req.body.businessRegisteredAt || 0).toLocaleString(),
+        bankAccountNumber: req.body.bankAccountNumber,
+        bankAccountType: req.body.bankAccountType, 
+        bankBeneficiaryName: req.body.bankBeneficiaryName,
+      });
+
+      const newBusiness = new Business({
           businessPersonName: req.body.businessPersonName,
           businessPersonId: req.body.businessPersonId,
+          businessCountry: req.body.businessCountry || Constants.CountryOptions.ECUADOR, 
           businessEmail: req.body.businessEmail,
           legalName: req.body.legalName,
           businessLegalId: req.body.businessLegalId,
@@ -89,38 +109,18 @@ const doCreateBusiness = apiWrapper.bind(
           entityType: req.body.entityType,
           hasAccounting: req.body.hasAccounting,
           businessPhone: req.body.businessPhone,
-          bankName: { name: req.body.bankName },
-          businessRegisteredAt: new Date(req.body.businessRegisteredAt || 0).toLocaleString(),
+          bankName: req.body.bankName,
+          businessRegisteredAt: new Date(req.body.businessRegisteredAt || 0),
           bankAccountNumber: req.body.bankAccountNumber,
           bankAccountType: req.body.bankAccountType, 
           bankBeneficiaryName: req.body.bankBeneficiaryName,
-        });
+          owner: req.body.owner,
+          buenPlanProviderId: data.id
+      });
+      await newBusiness.save();
 
-        const newBusiness = new Business({
-            businessPersonName: req.body.businessPersonName,
-            businessPersonId: req.body.businessPersonId,
-            businessCountry: req.body.businessCountry || Constants.CountryOptions.ECUADOR, 
-            businessEmail: req.body.businessEmail,
-            legalName: req.body.legalName,
-            businessLegalId: req.body.businessLegalId,
-            numEmployees: req.body.numEmployees,
-            businessAddress: req.body.businessAddress,
-            businessCity: req.body.businessCity.toLocaleUpperCase(), 
-            entityType: req.body.entityType,
-            hasAccounting: req.body.hasAccounting,
-            businessPhone: req.body.businessPhone,
-            bankName: req.body.bankName,
-            businessRegisteredAt: new Date(req.body.businessRegisteredAt || 0),
-            bankAccountNumber: req.body.bankAccountNumber,
-            bankAccountType: req.body.bankAccountType, 
-            bankBeneficiaryName: req.body.bankBeneficiaryName,
-            owner: req.body.owner,
-            buenPlanProviderId: data.id
-        });
-        await newBusiness.save();
-
-        return res.status(200).json(newBusiness);
-    }   
+      return res.status(200).json(newBusiness);
+  }   
 )
 
 
@@ -128,7 +128,23 @@ const doChangeBusiness = apiWrapper.bind(
   apiWrapper, 
   'PUT:/api/business/:businessId', 
   async (req: ValidatedRequest<UpdateBusinessSchema>, res: Response) => {
+    if (req.params.businessId === 'ADMIN-ID') {
+      const responseDummy = {
+        businessLink: 'yosoybacan.com'
+      };
+      return res.status(200).json(responseDummy);
+    }
     const business = await Business.findById(req.params.businessId);
+    if (!business) {
+      const err: RequestFailure = {
+        code: ResponseCode.ERROR_FORBIDDEN,
+        error: true,
+        referenceId: res.locals.sequenceId,
+        message: `El negocio con este ID no ha sido registrado`
+    };
+
+    return res.status(400).json(err);
+    }
     const bitly = new BitlyClient(process.env['BITLY_ACCESS_TOKEN'], {});
 
     for (const op of req.body) {
