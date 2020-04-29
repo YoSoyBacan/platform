@@ -45,7 +45,7 @@ class Users extends Component {
               className={classes.value}
               variant="h3"
             >
-              {this.props.totalUserCount}
+              {this.props.totalusercount}
             </Typography>
           </div>
           <div className={classes.iconWrapper}>
@@ -74,7 +74,7 @@ class Users extends Component {
 Users.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired, 
-  totalUserCount: PropTypes.number.isRequired,
+  totalusercount: PropTypes.number.isRequired,
   percentage: PropTypes.string, 
   time: PropTypes.string
 };

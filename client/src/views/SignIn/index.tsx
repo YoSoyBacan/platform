@@ -7,7 +7,7 @@ import _ from 'underscore';
 import validate from 'validate.js';
 
 import { AuthContext } from '../../context/authentication';
-import { APIClient } from '../../lib/fetch';
+import { APIClient, useFetch } from '../../lib/fetch';
 import firebase from '../../lib/firebase';
 import schema from './schema';
 import styles from './styles';
@@ -29,14 +29,17 @@ const signIn = async (email: string, password: string) => {
 
 type UserResponse = {
   user: {
+    _id: string;
     firstName: string;
     email: string;
   };
   business: {
-    id: string;
-    name: string;
+    _id: string;
+    legalName: string;
+    legalId: string;
   };
 };
+
 type SignInProps = {
   className: string;
   classes: any;
@@ -106,31 +109,32 @@ const SignIn = (props: SignInProps) => {
     try {
       const { history } = props;
       const { values } = state;
-      // if (authenticated) {
-      //   history.push("/dashboard");
-      //   return;
-      // }
 
       setLoading(true);
       const firebaseUser = await signIn(values.email, values.password);
       console.log(firebaseUser);
       const userId = firebaseUser.user!.uid as string;
       const token = await firebaseUser.user!.getIdToken();
-      console.log(token, userId);
       setAuthToken(token || "");
       setAuthenticated(true);
 
       // Get the business info
       const client = new APIClient(token || "");
+      console.log(client);
       const response = await client.get<UserResponse>(`user/${userId}`);
+      console.log(response);
       setAuthBody({
-        name: response.data.business.name,
-        businessId: response.data.business.id,
-        legalId: response.data.user.email,
+        legalName: response.data.business.legalName,
+        businessId: response.data.business._id,
+        legalId: response.data.business.legalId,
+        firstName: response.data.user.firstName, 
+        userId: response.data.user._id,
       });
       history.push("/dashboard");
       return;
     } catch (error) {
+      // TODO handle multiple errors! 
+      console.log("ERROR");
       console.log(error);
       setState({
         ...state,
@@ -153,22 +157,8 @@ const SignIn = (props: SignInProps) => {
   return (
     <div className={classes.root}>
       <Grid className={classes.grid} container>
-        <Grid className={classes.quoteWrapper} item lg={5}>
-          <div className={classes.quote}>
-            <div className={classes.quoteInner}>
-              <Typography className={classes.quoteText} variant="h1">
-                Hella narwhal Cosby sweater McSweeney's, salvia kitsch before
-                they sold out High Life.
-              </Typography>
-              <div className={classes.person}>
-                <Typography className={classes.name} variant="body1">
-                  Takamaru Ayako
-                </Typography>
-                <Typography className={classes.bio} variant="body2">
-                  Manager at inVision
-                </Typography>
-              </div>
-            </div>
+        <Grid className={classes.sideLogoWrapper} item lg={5}>
+          <div className={classes.sideLogo}>
           </div>
         </Grid>
         <Grid className={classes.content} item lg={7} xs={12}>
@@ -186,7 +176,7 @@ const SignIn = (props: SignInProps) => {
                 <div className={classes.fields}>
                   <TextField
                     className={classes.textField}
-                    label="Email address"
+                    label="Email"
                     name="email"
                     onChange={(event) =>
                       handleFieldChange("email", event.target.value)
@@ -202,7 +192,7 @@ const SignIn = (props: SignInProps) => {
                   )}
                   <TextField
                     className={classes.textField}
-                    label="Password"
+                    label="Contaseña"
                     name="password"
                     onChange={(event) =>
                       handleFieldChange("password", event.target.value)
@@ -243,7 +233,7 @@ const SignIn = (props: SignInProps) => {
                     href="google.com"
                     target="_blank"
                   >
-                    Regístrate
+                    Regístrate aquí!
                   </a>
                 </Typography>
               </form>

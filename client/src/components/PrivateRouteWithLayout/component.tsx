@@ -21,7 +21,7 @@ export const PrivateRouteWithLayout: React.FC<Props> = ({
       {...routeProps}
       render={() =>
         /* dani: Set to authenticated */
-        !authenticated ? (
+        authenticated ? (
           <Layout {...routeProps}>
             <Component {...routeProps} />
           </Layout>
