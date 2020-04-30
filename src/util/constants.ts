@@ -39,7 +39,9 @@ export enum PercentageDiscount {
     TWENTY_PERCENT = 0.2,
     TWENTY_FIVE_PERCENT = 0.25,
     THIRTY_PERCENT = 0.3,
-    THIRTY_FIVE_PERCENT = 0.35
+    THIRTY_FIVE_PERCENT = 0.35,
+    FORTY_PERCENT = 0.4,
+    FIFTY_PERCENT = 0.5
 }
 
 // TODO: Lista de Bancos de Ecuador completa

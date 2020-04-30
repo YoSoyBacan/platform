@@ -128,12 +128,6 @@ const doChangeBusiness = apiWrapper.bind(
   apiWrapper, 
   'PUT:/api/business/:businessId', 
   async (req: ValidatedRequest<UpdateBusinessSchema>, res: Response) => {
-    if (req.params.businessId === 'ADMIN-ID') {
-      const responseDummy = {
-        businessLink: 'yosoybacan.com'
-      };
-      return res.status(200).json(responseDummy);
-    }
     const business = await Business.findById(req.params.businessId);
     if (!business) {
       const err: RequestFailure = {
