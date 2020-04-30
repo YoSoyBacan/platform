@@ -141,9 +141,8 @@ const doChangeBusiness = apiWrapper.bind(
         error: true,
         referenceId: res.locals.sequenceId,
         message: `El negocio con este ID no ha sido registrado`
-    };
-
-    return res.status(400).json(err);
+      };
+      return res.status(400).json(err);
     }
     const bitly = new BitlyClient(process.env['BITLY_ACCESS_TOKEN'], {});
 
@@ -152,9 +151,12 @@ const doChangeBusiness = apiWrapper.bind(
         let value = op.value;
         if (op.field === 'businessLink') {
           // Bitly link
-          value = await bitly.shorten(value);
+          const encodedURI = encodeURI(value);
+          const { link } = await bitly.shorten(encodedURI);
+          (business as any)[op.field] = link;
+        } else {
+          (business as any)[op.field] = op.value;
         }
-        (business as any)[op.field] = op.value;
       } else if (op.op === 'remove') {
         delete (business as any)[op.field]
       }
