@@ -3,7 +3,6 @@ import * as Joi from '@hapi/joi';
 import * as Constants from '../util/constants';
 
 export const CreateUserValidator = Joi.object({
-  password: Joi.string().required(),
   type: Joi.string().allow(Constants.UserType.BUSINESS, Constants.UserType.CONSUMER),
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
@@ -15,5 +14,6 @@ export const CreateUserValidator = Joi.object({
     Constants.AuthMethods.TELEFONO,
     Constants.AuthMethods.GOOGLE,
     Constants.AuthMethods.FACEBOOK
-  ).required()
+  ).required(),
+  password: Joi.string().required(),
 });

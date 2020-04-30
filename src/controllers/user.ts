@@ -69,19 +69,25 @@ const doCreateUser = apiWrapper.bind(
         displayName: `${req.body.firstName} ${req.body.lastName}`,
         email: req.body.email,
         emailVerified: false,
-        phoneNumber: `+${req.body.countryCode}${req.body.phoneNumber}`,
         password: req.body.password,
         disabled: false,
       });
       return res.status(200).json(firebaseUser);
     } catch(firebaseError) {
-      console.log(firebaseError.errorInfo);
+
+      let error_message = firebaseError.errorInfo.message;
+      if (firebaseError.errorInfo.message == "The email address is already in use by another account.") {
+        error_message = "La cuenta vinculada a este email y telefono ya está registrada."
+      } else if (firebaseError.errorInfo.message == "The password must be a string with at least 6 characters.") {
+        error_message = "Tu contraseña debe tener mínimo 6 caracteres."
+      }
+
       
       const err: RequestFailure = {
         code: ResponseCode.ERROR_UNKNOWN,
         error: true,
         referenceId: res.locals.sequenceId,
-        message: "Error guardando usuario, por favor intentalo mas tarde",
+        message: (error_message),
       };
 
       // Delete user
