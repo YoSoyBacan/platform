@@ -50,7 +50,15 @@ export enum BankOptions {
     PICHINCHA = 'Banco del Pichincha',
     GUAYAQUIL = 'Banco de Guayaquil',
     BANCO_PACIFICO = 'Banco de Pacifico',
-    BANCO_INTERNACIONAL = "Banco Internacional"
+    BANCO_INTERNACIONAL = "Banco Internacional",
+    BANCO_SOLIDARIO = "Banco Solidario",
+    BANCO_DINERS_CLUB = "Banco Diners Club",
+    BANCO_PRO_CREDIT = "Banco ProCredit",
+    BANCO_BOLIVARIANO = "Banco Bolivariano",
+    BIESS = "BIESS",
+    BANCO_GENERAL_RUMINAUI = "Banco General Rumiñahui",
+    BANCO_LOJA = "Banco de Loja",
+    BANCO_MACHALA = "Banco de Machala"
 };
 
 export enum EntityType {
