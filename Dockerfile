@@ -1,4 +1,4 @@
-FROM node:12.16.1
+FROM node:10.15.3-jessie
 
 # Setup env
 
@@ -9,7 +9,6 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 # Install back-end packages 
-RUN rm -rf node_modules
 RUN npm i
 RUN npm install -g typescript@3.6.3
 RUN npm install pm2 -g
@@ -17,7 +16,6 @@ ENV GOOGLE_APPLICATION_CREDENTIALS /usr/src/app/src/config/service-account.json
 
 WORKDIR /usr/src/app/client
 # Install the front-end packages
-RUN rm -rf node_modules
 RUN npm install
 
 ## Build front end
