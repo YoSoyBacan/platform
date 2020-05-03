@@ -10,9 +10,6 @@ jobs:
     steps:
     - name: Checkout master
       uses: actions/checkout@master
-    - name: Update SHA
-      run: echo $GITHUB_SHA > $GITHUB_WORKSPACE/site/_meta
-    - name: Build the Docker image
       run: TAG=$(echo $GITHUB_SHA | head -c7) && docker build . --file Dockerfile --tag sebasalvarado/bacan:$TAG
     - name: Docker Login
       env:
