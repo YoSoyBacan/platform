@@ -1,25 +1,43 @@
-name: Docker Image CI
+name: Build and Deploy
 
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout master
+      uses: actions/checkout@master
+    - name: Update SHA
+      run: echo $GITHUB_SHA > $GITHUB_WORKSPACE/site/_meta
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: Upload a Build Artifact
-    - uses: actions/upload-artifact@v2
+      run: TAG=$(echo $GITHUB_SHA | head -c7) && docker build . --file Dockerfile --tag sebasalvarado/bacan:$TAG
+    - name: Docker Login
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - name: Push image to Docker Hub
+      run: docker push sebasalvarado/bacan
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Execute Deploy on Digital Ocean
+      uses: appleboy/ssh-action@master
       with:
-        # Artifact name
-        name: # optional
-        # A file, directory or wildcard pattern that describes what to upload
-        path: 
+        host: ${{ secrets.HOST }}
+        username: root
+        key: ${{ secrets.KEY }}
+        port: 22
+        script: |
+          # Pull Docker image
+          docker stop BACAN_APP
+          docker system prune -f
+          docker pull sebasalvarado/bacan:latest
+          docker run -p 8000:8000 -d --name=BACAN_APP sebasalvarado/bacan:latest
+

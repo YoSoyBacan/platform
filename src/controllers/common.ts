@@ -32,7 +32,6 @@ export async function apiWrapper(
     logger.info(apiPath);
     await execute(req, res);
   } catch(error) {
-    console.log(error);
     logger.error(error);
     const payload: RequestFailure = {
       error: true,
