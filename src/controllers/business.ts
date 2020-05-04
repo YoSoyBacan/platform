@@ -147,6 +147,7 @@ const doChangeBusiness = apiWrapper.bind(
           // Bitly link
           const encodedURI = encodeURI(value);
           const { link } = await bitly.shorten(encodedURI);
+          business.rawBusinessLink = encodedURI;
           (business as any)[op.field] = link;
         } else {
           (business as any)[op.field] = op.value;

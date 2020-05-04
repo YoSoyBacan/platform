@@ -20,6 +20,7 @@ export interface IBusiness extends Document {
   hasAccounting: boolean;
   businessPhone: string;
   businessLink: string;
+  rawBusinessLink: string;
   /* Extra */
   industry?: Constants.Industries;
   businessRegisteredAt?: Date;
@@ -114,6 +115,10 @@ BusinessSchema.add({
     required: true
   },
   businessLink: {
+    type: String,
+    trim: true,
+  },
+  rawBusinessLink: {
     type: String,
     trim: true,
   },
