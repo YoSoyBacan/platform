@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 RUN npm i
 RUN npm install -g typescript@3.6.3
 RUN npm install pm2 -g
-RUN echo $GOOGLE_APPLICATION_CREDENTIALS > /usr/src/app/src/config/service-account.json
+# RUN echo $GOOGLE_APPLICATION_CREDENTIALS > /usr/src/app/src/config/service-account.json
 ENV GOOGLE_APPLICATION_CREDENTIALS /usr/src/app/src/config/service-account.json
 
 WORKDIR /usr/src/app/client
