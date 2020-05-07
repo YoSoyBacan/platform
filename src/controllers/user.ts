@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import { Request, Response, Router } from 'express';
 import { ContainerTypes, createValidator, ValidatedRequest, ValidatedRequestSchema } from 'express-joi-validation';
 
@@ -40,15 +39,18 @@ const doCreateUser = apiWrapper.bind(
         },
       ],
     });
-    if (foundUser) {
-      const err: RequestFailure = {
-        code: ResponseCode.ERROR_FORBIDDEN,
-        error: true,
-        referenceId: res.locals.sequenceId,
-        message: `Usuario con email ${req.body.email} y telefono ${req.body.phoneNumber} ya se encuentra registrado, por favor inicia sesion`,
-      };
 
-      return res.status(400).json(err);
+    if (foundUser) {
+      const firebaseUser = await firebase.auth().getUser(foundUser._id.toString());
+      // TODO[sebastian]: Find a better way to do this.
+      // const err: RequestFailure = {
+      //   code: ResponseCode.ERROR_FORBIDDEN,
+      //   error: true,
+      //   referenceId: res.locals.sequenceId,
+      //   message: `Usuario con email ${req.body.email} y telefono ${req.body.phoneNumber} ya se encuentra registrado, por favor inicia sesion`,
+      // };
+      // return res.status(400).json(err);
+      return res.status(200).json(firebaseUser);
     }
 
     const newUser = new User({

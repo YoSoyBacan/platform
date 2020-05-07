@@ -66,14 +66,16 @@ const doCreateBusiness = apiWrapper.bind(
           ]
       });
       if (foundBusiness) {
-          const err: RequestFailure = {
-              code: ResponseCode.ERROR_FORBIDDEN,
-              error: true,
-              referenceId: res.locals.sequenceId,
-              message: `El negocio con estos credenciales ya ha sido registrado`
-          };
+          // TODO[sebastian]: Find a better way to do this.
+          // const err: RequestFailure = {
+          //     code: ResponseCode.ERROR_FORBIDDEN,
+          //     error: true,
+          //     referenceId: res.locals.sequenceId,
+          //     message: `El negocio con estos credenciales ya ha sido registrado`
+          // };
 
-          return res.status(400).json(err);
+          // return res.status(400).json(err);
+          return res.status(200).json(foundBusiness);
       }
 
       // Create the Business in Buen Plan
