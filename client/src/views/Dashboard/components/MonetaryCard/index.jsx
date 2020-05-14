@@ -13,7 +13,7 @@ import { Typography } from '@material-ui/core';
 // Material icons
 import {
   ArrowDownward as ArrowDownwardIcon,
-  Money as MoneyIcon
+  AttachMoney as MoneyIcon
 } from '@material-ui/icons';
 
 // Shared components
