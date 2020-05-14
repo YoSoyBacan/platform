@@ -27,16 +27,8 @@ class ProductsToolbar extends Component {
             variant="outlined"
             onClick={onClickCreate}
           >
-            Nuevo
+            Nueva tarjeta
           </Button>
-        </div>
-        <div className={classes.row}>
-          <SearchInput
-            className={classes.searchInput}
-            placeholder="Buscar producto"
-          />
-          <span className={classes.spacer} />
-          <DisplayMode mode="grid" />
         </div>
       </div>
     );

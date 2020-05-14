@@ -1,90 +1,89 @@
-import { CircularProgress, Grid, IconButton, Typography, withStyles } from '@material-ui/core';
+import { CircularProgress, Grid, IconButton, Typography, makeStyles,withStyles } from '@material-ui/core';
 import { ChevronLeft as ChevronLeftIcon, ChevronRight as ChevronRightIcon } from '@material-ui/icons';
-import React, { Component } from 'react';
+import React, {useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getProducts } from 'services/product';
 
 import { ProductCard, ProductsToolbar } from './components';
 import styles from './styles';
 import { CreateProduct } from './views';
+import { APIClient } from 'lib/fetch';
+import { AuthContext } from 'context';
+import { BusinessVoucherOptionsResponse } from '../../lib/models';
+import { getProducts } from 'services/product';
 
-// Externals
-// Material helpers
-// Material components
-// Material icons
-// Shared layouts
-// Shared services
-// Custom components
-// Component styles
 enum PageState {
   OVERVIEW = "OVERVIEW",
   CREATE = "CREATE"
 };
 
-type Props = {
+
+// Component styles
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(4)
+  },
+  company: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(0.5)
+  }
+}));
+
+type ProductListProps  = {
+  className: string;
   classes: any;
+}
+
+type Products = {
+  tarjetas_publicadas: Array<{
+    valor: number,
+    descuento: string,
+    numero_de_ventas: number,
+    fecha_creacion: Date
+  }>,
+  tarjetas_disponibles: Array<{
+    valor: number
+  }>
 };
-type State = {
-  page: PageState;
-  isLoading: boolean;
-  limit: number;
-  products: any[];
-  productsTotal: number;
-  error: any;
-};
-class ProductList extends Component<Props, State> {
-  signal = true;
 
-  state = {
-    page: PageState.OVERVIEW,
-    isLoading: false,
-    limit: 6,
-    products: [],
-    productsTotal: 0,
-    error: null
-  };
+type TarjetaPublicada = {
+  valor: number,
+  descuento: string,
+  numero_de_ventas: number,
+  fecha_creacion: Date
+}
 
-  async getProducts(limit: number) {
-    try {
-      this.setState({ isLoading: true });
+// type getProductsType = { 
+//   products: Product[]; 
+//   productsTotal: number 
+// };
 
-      const { products, productsTotal } = await getProducts(limit);
+//TODO  DANI FINISH 
+const ProductList = (props: ProductListProps) => {
+  const { authBody, authToken } = useContext(AuthContext);
+  const [ loading, setLoading ] = useState(false);
+  const [ pageState, setPageState ] = useState<PageState>();
+  const [ products, setProducts ] = useState<Products>();
+  const businessId  = !!authBody ? authBody.businessId : '';
 
-      if (this.signal) {
-        this.setState({
-          isLoading: false,
-          products,
-          productsTotal,
-          limit
-        });
-      }
-    } catch (error) {
-      if (this.signal) {
-        this.setState({
-          isLoading: false,
-          error
-        });
+  useEffect(() => {
+    async function getData() {
+      setLoading(true);
+      try {
+        const response = await getProducts(authToken, businessId);
+        setProducts(response.data)
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
       }
     }
-  }
 
-  componentWillMount() {
-    this.signal = true;
+    getData();
+  }, [])
+  const { classes } = props;
 
-    const { limit } = this.state;
 
-    this.getProducts(limit);
-  }
-
-  componentWillUnmount() {
-    this.signal = false;
-  }
-
-  renderProducts() {
-    const { classes } = this.props;
-    const { isLoading, products } = this.state;
-
-    if (isLoading) {
+  const renderProducts = (() => {
+    if (loading) {
       return (
         <div className={classes.progressWrapper}>
           <CircularProgress />
@@ -92,21 +91,22 @@ class ProductList extends Component<Props, State> {
       );
     }
 
-    if (products.length === 0) {
+    if ( products && products.tarjetas_publicadas.length === 0) {
       return (
         <Typography variant="h6">There are no products available</Typography>
       );
     }
 
     return (
+      products && 
       <Grid
         container
         spacing={3}
       >
-        {products.map((product: any) => (
+        {products.tarjetas_publicadas.map((product: TarjetaPublicada) => (
           <Grid
             item
-            key={product.id}
+            key={product.valor}
             lg={4}
             md={6}
             xs={12}
@@ -118,41 +118,31 @@ class ProductList extends Component<Props, State> {
         ))}
       </Grid>
     );
-  }
+  });
 
-  render() {
-    const { classes } = this.props;
-    if (this.state.page === PageState.CREATE) {
+
+  if (pageState === PageState.CREATE) {
       return (
         <div className={classes.root}>
-          <CreateProduct classes={classes} onBack={() => {
-            this.setState({
-              page: PageState.OVERVIEW
-            });
-          }}/>
+          <CreateProduct classes={classes} onBack={() => setPageState(PageState.OVERVIEW)}/>
         </div>
       );
     }
-    return (
-        <div className={classes.root}>
-          <ProductsToolbar onClickCreate={() => {
-            this.setState({
-              page: PageState.CREATE
-            });
-          }}/>
-          <div className={classes.content}>{this.renderProducts()}</div>
-          <div className={classes.pagination}>
-            <Typography variant="caption">1-6 of 20</Typography>
-            <IconButton>
-              <ChevronLeftIcon />
-            </IconButton>
-            <IconButton>
-              <ChevronRightIcon />
-            </IconButton>
-          </div>
+
+  return (
+      <div className={classes.root}>
+        <ProductsToolbar onClickCreate={() => setPageState(PageState.CREATE)}/>
+        <div className={classes.content}>{renderProducts()}</div>
+        <div className={classes.pagination}>
+          <IconButton>
+            <ChevronLeftIcon />
+          </IconButton>
+          <IconButton>
+            <ChevronRightIcon />
+          </IconButton>
         </div>
-    );
-  }
-}
+      </div>
+  );
+};
 
 export default withStyles(styles)(ProductList);

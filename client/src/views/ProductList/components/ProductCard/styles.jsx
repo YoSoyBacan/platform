@@ -50,7 +50,7 @@ export default theme => ({
     marginLeft: theme.spacing(1),
     color: theme.palette.text.secondary
   },
-  downloadsIcon: {
+  moneyIcon: {
     marginLeft: 'auto',
     color: theme.palette.text.secondary
   },
