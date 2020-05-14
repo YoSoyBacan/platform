@@ -14,7 +14,8 @@ import SignUp from './views/SignUp';
 import TagsList from './views/Tags';
 import Typography from './views/Typography';
 import UnderDevelopment from './views/UnderDevelopment';
-import InConstruction from 'views/InConstruction';
+import InConstruction from './views/InConstruction';
+import Redeem from './views/Redeem';
 
 // Layout
 // Views
@@ -26,6 +27,7 @@ const Routes: React.FC = () => {
       <PrivateRouteWithLayout layout={DashboardLayout} component={Dashboard} path="/dashboard" title="Inicio"/>
       <PrivateRouteWithLayout layout={DashboardLayout} component={TagsList} path="/tags" title="Tags"/>
       <PrivateRouteWithLayout layout={DashboardLayout} component={ProductList} title="Productos" path="/productos" />
+      <Route component={Redeem} exact path="/redime" />
       <Route component={Typography} exact path="/typography" />
       <Route component={Icons} exact path="/icons" />
       <Route component={Account} exact path="/account" />

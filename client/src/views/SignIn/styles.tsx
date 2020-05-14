@@ -38,7 +38,8 @@ export default (theme: any) => ({
   contentWrapper: {},
   content: {
     display: "flex",
-    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
   },
   contentHeader: {
     display: "flex",
@@ -55,6 +56,7 @@ export default (theme: any) => ({
   contentBody: {
     flexGrow: 1,
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     [theme.breakpoints.down("md")]: {
       justifyContent: "center",
@@ -64,7 +66,8 @@ export default (theme: any) => ({
     paddingLeft: "100px",
     paddingRight: "100px",
     paddingBottom: "125px",
-    flexBasis: "700px",
+    verticalAlign: "default",
+    flexBasis: "auto",
     [theme.breakpoints.down("sm")]: {
       paddingLeft: theme.spacing(2),
       paddingRight: theme.spacing(2),
@@ -148,6 +151,11 @@ export default (theme: any) => ({
     color: theme.palette.danger.main,
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(1),
+  },
+  redeemButton:{
+    backgroundColor: theme.palette.danger.main,
+    color: theme.palette.common.white,
+    padding: "20px  60px",
   },
   submitError: {
     color: theme.palette.danger.main,
