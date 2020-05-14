@@ -11,8 +11,9 @@ import winston from 'winston';
 import businessController from './controllers/business';
 import { assignReferenceId } from './controllers/common';
 import homeController from './controllers/home';
+import miNegocioController from './controllers/miNegocio';
 import userController from './controllers/user';
-import vouchersController from './controllers/voucherOptions';
+import voucherOptionsController from './controllers/voucherOptions';
 import { decodeFirebaseToken, isAuthorized } from './middlewares/authentication';
 
 // Create Express server
@@ -65,8 +66,10 @@ app.use(expressWinston.logger({
  */
 app.use("/api/user", userController);
 app.use("/api/business", decodeFirebaseToken, isAuthorized, businessController);
-app.use("/api/vouchers", decodeFirebaseToken, isAuthorized, vouchersController);
+app.use("/api/misTarjetas", decodeFirebaseToken, isAuthorized, voucherOptionsController);
 app.use("/api/home", decodeFirebaseToken, isAuthorized, homeController);
+app.use("/api/miNegocio", decodeFirebaseToken, isAuthorized, miNegocioController);
+
 /**
  * OAuth authentication routes. (Sign in)
  */

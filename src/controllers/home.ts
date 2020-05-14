@@ -11,34 +11,44 @@ const doGetBusinessHome = apiWrapper.bind(
   apiWrapper, 
   'GET:/api/home/:businessId',
   async (req: Request, res: Response) => {
-    const business = await Business.findById(req.params.businessId).populate("owner");
-    const user = (business.owner as IUser);
+    const business = await Business.findById(req.params.businessId);
   
-    const response: APIResponse.BusinessResponse = {
+    const response: APIResponse.BusinessHome = {
       data: {
-        business_information: {
-          legalName: business.legalName, 
-          businessAddress: business.businessAddress,
-          businessRegisteredAt: business.businessRegisteredAt,
-          businessPhone: business.businessPhone,
-          businessCity: business.businessCity,
-          businessCountry: business.businessCountry,
-          businessEmail: business.businessEmail,
-          industry: business.industry,
-          businessLink: business.businessLink,
-          avatarImageUrl: business.avatarImageUrl, 
-          images: business.images,
-          businessLegalId: business.businessLegalId,
-          bankName: business.bankName,
-          bankAccountNumber: business.bankAccountNumber,
-          businessDescription: business.businessDescription,
-        },
-        user_information: {
-          name: `${user.firstName} ${user.lastName}`,
-          email: user.email,
-          phone_number: user.phoneNumber,
-          country_code: user.countryCode
-        } 
+        header: {
+            amountRedeemed: 100,
+            totalClients: 30,
+            salesObjective: business.salesObjective,
+            totalSales: 1000,
+            depositedAmount: 20,
+          },
+        lastSales: {
+			salesPerDay: [{
+				date: new Date(),
+				sales: 30
+            }],
+            depositedMoney: [{
+                amount: 20,
+                date: new Date(),
+            }],
+			proportionOfCards: [{
+				value: 20,
+                discount: 40,
+                percentage: 30,
+            },
+            {
+				value: 40,
+                discount: 10,
+                percentage: 30,
+			}],
+			lastOrders:[{
+				clientName: "Maria Castro",
+				clientCity: "Quito",
+				voucherDiscount: 15,
+				voucherAmount: 30,
+				date: new Date()
+			}]
+		}
       }
     }
 
