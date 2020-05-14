@@ -5,9 +5,13 @@ import { AuthContext } from '../../context/authentication';
 import { useFetch } from '../../lib/fetch';
 import { BusinessHomeResponse } from '../../lib/models';
 import { DevicesChart, MonetaryCard, OrdersTable, ProductList, Profit, Progress, SalesChart, Users } from './components';
-import palette from 'theme/palette';
-import moment from 'moment';
 
+
+// Material helpers
+// Material components
+// Shared layouts
+// Custom components
+// Component styles
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(4),
@@ -40,61 +44,31 @@ const Dashboard = () => {
   }, [])
   const classes = useStyles();
 
-  let salesProgress = 0;
-  let salesChartData = {};
-
-  if (data) {
-    salesProgress = (data.data.header.totalSales / data.data.header.salesObjective) * 100;
-    
-    salesChartData = {
-      labels: data.data.lastSales.salesPerDay.map(sale => {
-        let date =  new Date(sale.date);
-        const convertedDate = moment(date).format('MMM Do, YYYY');
-        return convertedDate;
-      }),
-      datasets: [
-        {
-          label: 'Vendio',
-          backgroundColor: palette.primary.main,
-          data: data.data.lastSales.salesPerDay.map(sale => sale.sales)
-        },
-      ]
-    }
-  
-  }
-
   return (
-    data && <div className={classes.root}>
-      <Grid container spacing={2}>
-         <Grid item lg={8} sm={6} xl={3} xs={12}>
-          <Profit
-            className={classes.item}
-            value={data.data.header.totalSales}
-            title={"TOTAL VENDIDO"}
-          />
-        </Grid>
-        <Grid item lg={4} sm={6} xl={3} xs={12}>
-          <Users className={classes.item} totalusercount={data.data.header.totalClients} />
-        </Grid>
-        <Grid item lg={4} sm={6} xl={3} xs={12}>
+    <div className={classes.root}>
+      <Grid container spacing={4}>
+        <Grid item lg={3} sm={6} xl={3} xs={12}>
           <MonetaryCard
             className={classes.item}
-            value={data.data.header.amountRedeemed}
+            value={200}
             title={"CANTIDAD REDIMIDA"}
           />
         </Grid>
-        <Grid item lg={4} sm={6} xl={3} xs={12}>
-          <MonetaryCard
+        <Grid item lg={3} sm={6} xl={3} xs={12}>
+          <Users className={classes.item} totalusercount={200} />
+        </Grid>
+        <Grid item lg={3} sm={6} xl={3} xs={12}>
+          <Progress className={classes.item} percentage={"54"} />
+        </Grid>
+        <Grid item lg={3} sm={6} xl={3} xs={12}>
+          <Profit
             className={classes.item}
-            value={data.data.header.depositedAmount}
-            title={"CANTIDAD DEPOSITADA"}
+            value={500}
+            title={"TOTAL VENDIDO"}
           />
         </Grid>
-        <Grid item lg={4} sm={6} xl={3} xs={12}>
-          <Progress className={classes.item} percentage={salesProgress.toString()} />
-        </Grid>
         <Grid item lg={8} md={12} xl={9} xs={12}>
-          <SalesChart className={classes.item} data={salesChartData} />
+          <SalesChart className={classes.item} />
         </Grid>
         <Grid item lg={4} md={6} xl={3} xs={12}>
           <DevicesChart className={classes.item} />

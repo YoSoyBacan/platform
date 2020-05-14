@@ -28,14 +28,14 @@ import {
 } from 'components';
 
 // Chart configuration
-import { options } from './chart';
+import { data, options } from './chart';
 
 // Component styles
 import styles from './styles';
 
 class SalesChart extends Component {
   render() {
-    const { classes, className, data, ...rest } = this.props;
+    const { classes, className, ...rest } = this.props;
 
     const rootClassName = classNames(classes.root, className);
 
@@ -45,8 +45,16 @@ class SalesChart extends Component {
         className={rootClassName}
       >
         <PortletHeader noDivider>
-          <PortletLabel title="Últimas Ventas" />
-          <PortletLabel subtitle="de los últimos 7 días" />
+          <PortletLabel title="Latest sales" />
+          <PortletToolbar>
+            <Button
+              className={classes.dropdownButton}
+              size="small"
+              variant="text"
+            >
+              Last 7 days <ArrowDropDownIcon />
+            </Button>
+          </PortletToolbar>
         </PortletHeader>
         <PortletContent>
           <div className={classes.chartWrapper}>
@@ -72,8 +80,7 @@ class SalesChart extends Component {
 
 SalesChart.propTypes = {
   className: PropTypes.string,
-  classes: PropTypes.object.isRequired,
-  data: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(SalesChart);
