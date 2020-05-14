@@ -2,7 +2,7 @@
 import { PercentageDiscount, VoucherOptionsValues, CountryOptions } from '../util/constants';
 
 export namespace APIResponse {
-  export interface BusinessResponse {
+  export interface BusinessInformationResponse {
     data: {
       business_information: {
         legalName: string;
@@ -26,6 +26,40 @@ export namespace APIResponse {
         email: string;
         phone_number: string;
         country_code: string;
+      }
+    }
+  }
+
+  export interface BusinessHome {
+    data: {
+      header: {
+        amountRedeemed: number;
+        totalClients: number;
+        salesObjective: number;
+        totalSales: number;
+        depositedAmount: number;
+      },
+      lastSales: {
+        salesPerDay: Array<{
+          date: Date;
+          sales: number;
+        }>,
+        depositedMoney: Array<{
+          amount: number;
+          date: Date;
+        }>,
+        proportionOfCards: Array<{
+          value: number;
+          discount: number;
+          percentage: number;
+        }>,
+        lastOrders: Array<{
+          clientName: string;
+          clientCity: string;
+          voucherDiscount: PercentageDiscount;
+          voucherAmount: VoucherOptionsValues;
+          date: Date;
+        }>
       }
     }
   }

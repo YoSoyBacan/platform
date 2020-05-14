@@ -1,4 +1,5 @@
 //  INTERFACES FOR FRONT-END 
+import { PercentageDiscount, VoucherOptionsValues, CountryOptions } from './constants';
 
 export interface GetTemplatesResponse {
   TWO_ONE_INCHES: {
@@ -23,28 +24,48 @@ export interface GetTemplatesResponse {
 
 export interface BusinessHomeResponse {
   data: {
-    business_information: {
-      legalName: string;
-      businessAddress: string;
-      businessRegisteredAt: Date;
-      businessPhone: string;
-      businessCity: string; 
-      businessCountry: string;
-      businessEmail: string; 
-      industry: string;
-      businessLink: string;
-      avatarImageUrl: string;
-      images: string[];
-      businessLegalId: string;
-      bankName: string;
-      bankAccountNumber: string;
-      businessDescription: string;
+    header: {
+      amountRedeemed: number;
+      totalClients: number;
+      salesObjective: number;
+      totalSales: number;
+      depositedAmount:  number;
     },
-    user_information: {
-      name: string;
-      email: string;
-      phone_number: string;
-      country_code: string;
+    lastSales: {
+      salesPerDay: Array<{
+        date: Date;
+        sales: number;
+      }>,
+      depositedMoney: Array<{
+        amount: number;
+        date: Date;
+      }>,
+      proportionOfCards: Array<{
+        value: number;
+        discount: number;
+        percentage: number;
+      }>,
+      lastOrders: Array<{
+        clientName: string;
+        clientCity: string;
+        voucherDiscount: PercentageDiscount;
+        voucherAmount: VoucherOptionsValues;
+        date: Date;
+      }>
     }
+  }
+}
+
+export interface BusinessVoucherOptionsResponse {
+  data: {
+    tarjetas_publicadas: Array<{
+      valor: number,
+      descuento: string,
+      numero_de_ventas: number,
+      fecha_creacion: Date
+    }>,
+    tarjetas_disponibles: Array<{
+      valor: number
+    }>
   }
 }
