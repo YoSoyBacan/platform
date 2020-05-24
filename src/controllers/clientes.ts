@@ -1,10 +1,9 @@
 import { Response, Router, Request } from 'express';
 import { Business, IUser } from '../models';
-import { Voucher, Account } from '../models';
+import { Voucher, User } from '../models';
 
 import { apiWrapper } from './common';
 import { APIResponse } from '../lib/responseTypes';
-import { IAccount } from '../models/Account';
 import { IVoucher } from '../models/Voucher';
 import router from './user';
 
@@ -13,27 +12,27 @@ const doGetClients = apiWrapper.bind(
   'GET:/api/:businessId/clientes', 
   async (req: Request, res: Response) => {
     const business = await Business.findById(req.params.businessId).populate("vouchers");
-    const getAllAccountsIds = business.vouchers.map((voucher:IVoucher) => {
-      return voucher.account as string
+    const getAllClientIds = business.vouchers.map((voucher:IVoucher) => {
+      return voucher.userId as string
     }) 
-    const uniqueAccountIds = [ ...new Set(getAllAccountsIds)];
-    const accounts = await Promise.all(uniqueAccountIds.map(id => (
-      Account.findById(id).populate("user")
+    const uniqueClientIds = [ ...new Set(getAllClientIds)];
+    const users = await Promise.all(uniqueClientIds.map(id => (
+      User.findById(id)
     )));
 
-    const get_user_list = accounts.map((account:IAccount) => ({
-          user_firstName: (account.user as IUser).firstName,
-          user_lastName: (account.user as IUser).lastName,
-          user_email: (account.user as IUser).email,
-          user_city: account.city,
-          user_country: account.country
+    const get_user_list = users.map((user:IUser) => ({
+          user_firstName: user.firstName,
+          user_lastName: user.lastName,
+          user_email: user.email,
+          user_city: user.city,
+          user_country: user.country
       }));
 
 
     
     const response: APIResponse.ClientesResponse = {
       data: {
-        total_users: accounts.length,
+        total_users: users.length,
         user_list: get_user_list,
       }
     };
@@ -43,3 +42,4 @@ const doGetClients = apiWrapper.bind(
 );
 
 router.get('/:businessId/clientes', doGetClients);
+export default router;

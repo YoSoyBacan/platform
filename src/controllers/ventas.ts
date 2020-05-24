@@ -62,4 +62,5 @@ const doGetVouchers =  apiWrapper.bind(
 );
 
 
-router.get('/:businessId/ventas', doGetVouchers)
+router.get('/:businessId/ventas', doGetVouchers);
+export default router;

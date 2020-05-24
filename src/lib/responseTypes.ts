@@ -1,7 +1,15 @@
 // INTERFACES FROM BACKEND
-import { PercentageDiscount, VoucherOptionsValues, CountryOptions } from '../util/constants';
+import *  as Constants from '../util/constants';
 
 export namespace APIResponse {
+
+  export interface vouchersInOrder {
+    businessId: string;
+    amountPaid: string; 
+    amountToRedeem: string; 
+    discount: string;
+  }
+
   export interface BusinessInformationResponse {
     data: {
       business_information: {
@@ -56,8 +64,8 @@ export namespace APIResponse {
         lastOrders: Array<{
           clientName: string;
           clientCity: string;
-          voucherDiscount: PercentageDiscount;
-          voucherAmount: VoucherOptionsValues;
+          voucherDiscount: Constants.PercentageDiscount;
+          voucherAmount: Constants.VoucherOptionsValues;
           date: Date;
         }>
       }
@@ -71,8 +79,8 @@ export namespace APIResponse {
       total_amount_sold: number;
       total_redeemed_vouchers: number;
       voucher_list: Array<{
-        voucher_discount: PercentageDiscount;
-        voucher_amount_to_redeem: VoucherOptionsValues;
+        voucher_discount: Constants.PercentageDiscount;
+        voucher_amount_to_redeem: Constants.VoucherOptionsValues;
         voucher_amount_paid: number;
         totally_redeemed: boolean;
         voucher_order_id: string;
@@ -102,8 +110,20 @@ export namespace APIResponse {
         user_lastName: string,
         user_email: string,
         user_city: string,
-        user_country: CountryOptions,
+        user_country: Constants.CountryOptions,
       }>
+    }
+  }
+
+  export interface OrderInformationResponse {
+    data: {
+      status: Constants.OrderStatus,
+      currency: Constants.Currency,
+      checkoutId: string,
+      transactionProviderId: string, 
+      userId: string, 
+      vouchersInOrder: Array<vouchersInOrder>,
+      notification: string
     }
   }
 }

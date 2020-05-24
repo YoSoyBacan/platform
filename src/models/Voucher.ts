@@ -10,7 +10,7 @@ export interface IVoucher extends Document {
     totallyRedeemed: boolean;
     order: (string | IOrder), 
     transactions?: string[];
-    accountId: string;
+    userId: string;
     business: string;
     notification?: string[]; 
 }
@@ -47,9 +47,9 @@ VoucherSchema.add({
         ref: 'Transaction',
         required: false
     }], 
-    accountId: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Account', 
+        ref: 'User', 
         required: true
     },
     business: {

@@ -2,20 +2,13 @@ import { ContainerTypes, ValidatedRequest, ValidatedRequestSchema, createValidat
 import * as Constants from '../util/constants';
 import { Order, Business, Voucher } from "../models";
 import { apiWrapper, RequestFailure, ResponseCode } from './common';
-import { Response, Router, response } from 'express';
+import { Response, Router, Request } from 'express';
 import BuenPlanAPI from '../lib/clients/buenplan';
 import { CreateOrderValidator } from '../validators/order';
-import { Transaction } from '@google-cloud/firestore';
+import { APIResponse } from '../lib/responseTypes';
 
 const router = Router({ mergeParams: true });
 const validator = createValidator({ passError: true });
-
-interface vouchersInOrder {
-    businessId: string;
-    amountPaid: string; 
-    amountToRedeem: string; 
-    discount: string;
-}
 
 interface CreateOrderSchema extends ValidatedRequestSchema {
     [ContainerTypes.Body]: {
@@ -24,8 +17,8 @@ interface CreateOrderSchema extends ValidatedRequestSchema {
         currency: Constants.Currency;
         token: string;
         checkoutId: string;
-        accountId: string;
-        vouchersInOrder: Array<vouchersInOrder>;
+        userId: string;
+        vouchersInOrder: Array<APIResponse.vouchersInOrder>;
         notification?: string;
         buenPlanBody: Array<{
             businessId: string;
@@ -65,7 +58,7 @@ const doCreateOrder = apiWrapper.bind(
                 token: req.body.token, 
                 checkoutId: req.body.checkoutId,
                 transactionProviderId: "Orden Rechazada",
-                accoutId: req.body.accountId,
+                accoutId: req.body.userId,
                 notification: req.body.notification
             });
 
@@ -88,7 +81,7 @@ const doCreateOrder = apiWrapper.bind(
                 token: req.body.token, 
                 checkoutId: req.body.checkoutId,
                 transactionProviderId: data.id,
-                accountId: req.body.accountId,
+                userId: req.body.userId,
                 notification: req.body.notification
             });
 
@@ -107,7 +100,7 @@ const doCreateOrder = apiWrapper.bind(
                 totallyRedeemed: false, 
                 order: orderId,
                 business: voucher.businessId,
-                accountId: req.body.accountId
+                userId: req.body.userId
             });
 
             try {
@@ -133,6 +126,28 @@ const doCreateOrder = apiWrapper.bind(
     }
 );
 
+const doGetOrder = apiWrapper.bind(
+    apiWrapper, 
+    "GET:/api/order/:orderId",
+    async (req: Request, res: Response) => {
+        const order = await Order.findById(req.params.orderId);
 
+        const response: APIResponse.OrderInformationResponse = {
+            data: {
+                status: order.status,
+                currency: order.currency,
+                checkoutId: order.checkoutId,
+                transactionProviderId: order.transactionProviderId,
+                userId: order.userId,
+                vouchersInOrder: order.vouchersInOrder,
+                notification: order.notification
+            }
+        }
+
+        return res.json(response);
+    }
+);
+
+router.get('/:orderId', doGetOrder);
 router.post('/', validator.body(CreateOrderValidator), doCreateOrder);
 export  default router;

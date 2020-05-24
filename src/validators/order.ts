@@ -8,7 +8,7 @@ export const CreateOrderValidator = Joi.object({
     currency: Joi.string().allow(Constants.Currency.USD, Constants.Currency.COP).required(),
     token: Joi.string().required(),
     checkoutId: Joi.string().required(),
-    accountId: Joi.string().required(),
+    userId: Joi.string().required(),
     vouchersInOrder: Joi.array().items(
         Joi.object({
             businessId: Joi.string().required(),

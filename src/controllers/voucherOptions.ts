@@ -4,6 +4,7 @@ import { Business } from '../models';
 import * as Constants from '../util/constants';
 import { APIResponse } from '../lib/responseTypes';
 import { ValidatedRequestSchema , ValidatedRequest, createValidator, ContainerTypes } from 'express-joi-validation';
+import { ChangeVoucherOption } from '../validators/voucherOption';
 
 const router = Router({ mergeParams: true});
 const validator = createValidator();
@@ -75,6 +76,6 @@ const doChangeVoucherOption = apiWrapper.bind(
 )
 
 router.get('/:businessId', doGetVoucherOptions);
-router.put('/:businessId', doChangeVoucherOption); //TODO dani create validator for put 
+router.put('/:businessId', validator.body(ChangeVoucherOption), doChangeVoucherOption); //TODO dani create validator for put 
 
 export default router;
