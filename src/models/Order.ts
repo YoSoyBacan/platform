@@ -1,5 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose';
-
+import { APIResponse } from '../lib/responseTypes';
 import * as Constants from '../util/constants';
 
 const OrderSchema = new Schema({}, {
@@ -11,10 +11,11 @@ export interface IOrder extends Document {
   status: Constants.OrderStatus;
   currency: Constants.Currency;
   token: string;
+  checkoutId: string;
+  transactionProviderId: string;
   /* Relationships */
-  account: string
-  business: string;
-  vouchers: string[]
+  userId: string;
+  vouchersInOrder?: APIResponse.vouchersInOrder[];
   notification: string;
 };
 
@@ -35,24 +36,26 @@ OrderSchema.add({
   },
   token: {
     type: String,
-    required: false,
+    required: true,
     trim: true
   },
+  checkoutId: {
+    type: String, 
+    required: true
+  },
+  transactionProviderId: {
+    type: String, 
+    required: true
+  },
   /* Relationships */
-  account: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Account', 
+    ref: 'User', 
     required: true
   },
-  business: {
+  vouchersInOrder: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Business', 
-    required: true
-  },
-  vouchers: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Voucher',
-    required: false
+    ref: 'Voucher'
   }],
   notification: {
     type: mongoose.Schema.Types.ObjectId,

@@ -4,7 +4,7 @@ import { ContainerTypes, createValidator, ValidatedRequest, ValidatedRequestSche
 import firebase from '../initializers/firebase';
 import { Account, Business, User } from '../models';
 import * as Constants from '../util/constants';
-import * as AuthValidators from '../validators/user';
+import { CreateUserValidator } from '../validators/user';
 import { apiWrapper, RequestFailure, ResponseCode } from './common';
 
 const router = Router({ mergeParams: true });
@@ -17,6 +17,8 @@ interface CreateUserSchema extends ValidatedRequestSchema {
     lastName: string;
     email: string;
     countryCode: string;
+    city: string;
+    country: Constants.CountryOptions;
     phoneNumber: string;
     type: Constants.UserType;
     authMethod: Constants.AuthMethods;
@@ -60,46 +62,51 @@ const doCreateUser = apiWrapper.bind(
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,
       countryCode: req.body.countryCode,
+      country: req.body.country,
       authMethod: req.body.authMethod,
     });
     await newUser.save();
     const id = newUser._id.toString();
-    // Save the firebase user
-    try {
-      const firebaseUser = await firebase.auth().createUser({
-        uid: id,
-        displayName: `${req.body.firstName} ${req.body.lastName}`,
-        email: req.body.email,
-        emailVerified: false,
-        password: req.body.password,
-        disabled: false,
-      });
-      return res.status(200).json(firebaseUser);
-    } catch(firebaseError) {
 
-      let error_message = firebaseError.errorInfo.message;
-      if (firebaseError.errorInfo.message == "The email address is already in use by another account.") {
-        error_message = "La cuenta vinculada a este email y telefono ya está registrada."
-      } else if (firebaseError.errorInfo.message == "The password must be a string with at least 6 characters.") {
-        error_message = "Tu contraseña debe tener mínimo 6 caracteres."
+    // If the user is business type we save the firebase user 
+    if (req.body.type == Constants.UserType.BUSINESS){
+      try {
+        const firebaseUser = await firebase.auth().createUser({
+          uid: id,
+          displayName: `${req.body.firstName} ${req.body.lastName}`,
+          email: req.body.email,
+          emailVerified: false,
+          password: req.body.password,
+          disabled: false,
+        });
+        return res.status(200).json(firebaseUser);
+      } catch(firebaseError) {
+
+        let error_message = firebaseError.errorInfo.message;
+        if (firebaseError.errorInfo.message == "The email address is already in use by another account.") {
+          error_message = "La cuenta vinculada a este email y telefono ya está registrada."
+        } else if (firebaseError.errorInfo.message == "The password must be a string with at least 6 characters.") {
+          error_message = "Tu contraseña debe tener mínimo 6 caracteres."
+        }
+
+        
+        const err: RequestFailure = {
+          code: ResponseCode.ERROR_UNKNOWN,
+          error: true,
+          referenceId: res.locals.sequenceId,
+          message: (error_message),
+        };
+
+        // Delete user
+        await User.findOneAndDelete({
+          _id: newUser._id,
+        });
+        return res.status(400).json(err);
       }
-
-      
-      const err: RequestFailure = {
-        code: ResponseCode.ERROR_UNKNOWN,
-        error: true,
-        referenceId: res.locals.sequenceId,
-        message: (error_message),
-      };
-
-      // Delete user
-      await User.findOneAndDelete({
-        _id: newUser._id,
-      });
-      return res.status(400).json(err);
     }
   }
 );
+
 const doGetUser = apiWrapper.bind(
   apiWrapper,
   "GET:/api/user/:userId",
@@ -121,13 +128,7 @@ const doGetUser = apiWrapper.bind(
       return res.json(response);
     }
     if (user.type === Constants.UserType.CONSUMER) {
-      const account = await Account.findOne({
-        user: req.params.userId,
-      });
       const response = {
-        account: {
-          ...account,
-        },
         user: {
           ...user,
         },
@@ -141,6 +142,6 @@ const doGetUser = apiWrapper.bind(
 );
 
 
-router.post("/", validator.body(AuthValidators.CreateUserValidator), doCreateUser);
+router.post("/", validator.body(CreateUserValidator), doCreateUser);
 router.get("/:userId", doGetUser);
 export default router;

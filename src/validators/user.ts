@@ -9,6 +9,8 @@ export const CreateUserValidator = Joi.object({
   email: Joi.string().required(),
   phoneNumber: Joi.string().required(),
   countryCode: Joi.string().required(),
+  city: Joi.string().required(),
+  country: Joi.string().allow(Constants.CountryOptions.COLOMBIA, Constants.CountryOptions.ECUADOR),
   authMethod: Joi.string().allow(
     Constants.AuthMethods.EMAIL,
     Constants.AuthMethods.TELEFONO,

@@ -7,13 +7,19 @@ import lusca from 'lusca';
 import passport from 'passport';
 import path from 'path';
 import winston from 'winston';
+import { assignReferenceId } from './controllers/common';
+import { decodeFirebaseToken, isAuthorized } from './middlewares/authentication';
 
 import businessController from './controllers/business';
-import { assignReferenceId } from './controllers/common';
+import clientsController from './controllers/clientes';
 import homeController from './controllers/home';
+import miNegocioController from './controllers/miNegocio';
+import orderController  from './controllers/order';
 import userController from './controllers/user';
-import vouchersController from './controllers/voucherOptions';
-import { decodeFirebaseToken, isAuthorized } from './middlewares/authentication';
+import ventasController from './controllers/ventas';
+import voucherOptionsController from './controllers/voucherOptions';
+import { decode } from 'punycode';
+
 
 // Create Express server
 const app = express();
@@ -63,10 +69,15 @@ app.use(expressWinston.logger({
 /**
  * Primary app routes.
  */
-app.use("/api/user", userController);
 app.use("/api/business", decodeFirebaseToken, isAuthorized, businessController);
-app.use("/api/vouchers", decodeFirebaseToken, isAuthorized, vouchersController);
+app.use("/api/clientes", decodeFirebaseToken, isAuthorized, clientsController);
 app.use("/api/home", decodeFirebaseToken, isAuthorized, homeController);
+app.use("/api/miNegocio", decodeFirebaseToken, isAuthorized, miNegocioController);
+app.use("/api/order", decodeFirebaseToken, isAuthorized, orderController);
+app.use("/api/user", decodeFirebaseToken, isAuthorized,  userController);
+app.use("/api/ventas", decodeFirebaseToken, isAuthorized, ventasController);
+app.use("/api/misTarjetas", decodeFirebaseToken, isAuthorized, voucherOptionsController);
+
 /**
  * OAuth authentication routes. (Sign in)
  */

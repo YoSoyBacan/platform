@@ -13,7 +13,9 @@ export interface IUser extends Document {
   email: string;
   phoneNumber: string;
   countryCode: string;
-  authMethod: Constants.AuthMethods
+  city: string;
+  country: Constants.CountryOptions;
+  authMethod: Constants.AuthMethods;
 };
 
 UserSchema.add({
@@ -48,6 +50,15 @@ UserSchema.add({
     type: String,
     required: true,
     trim: true,
+  },
+  city: {
+    type: String,
+    required: true, 
+    trim: true
+  },
+  country: {
+    type: Constants.CountryOptions,
+    required: true,
   },
   authMethod: {
     type: Constants.AuthMethods,

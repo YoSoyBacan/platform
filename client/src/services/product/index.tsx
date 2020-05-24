@@ -1,15 +1,12 @@
-// Mock data
-import products, { Product } from 'data/products';
+import { APIClient } from "lib/fetch";
+import { BusinessVoucherOptionsResponse } from "../../lib/models";
 
-type getProductsType = { products: Product[]; productsTotal: number };
-
-export const getProducts = (limit: number = 6): Promise<getProductsType> => {
-  return new Promise<getProductsType>(resolve => {
-    setTimeout(() => {
-      resolve({
-        products: products.slice(0, limit),
-        productsTotal: products.length
-      });
-    }, 700);
-  });
+export const getProducts = async (authToken: string, businessId: string): Promise<BusinessVoucherOptionsResponse> => {
+  const client = new APIClient(authToken || "");
+  try {
+    const response = await client.get<BusinessVoucherOptionsResponse>(`misTarjetas/${businessId}`);
+    return response.data;
+  } catch(error) {
+    throw(error);
+  }
 };

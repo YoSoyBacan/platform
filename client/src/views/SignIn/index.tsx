@@ -120,9 +120,9 @@ const SignIn = (props: SignInProps) => {
 
       // Get the business info
       const client = new APIClient(token || "");
-      // console.log(client);
+      console.log(client);
       const response = await client.get<UserResponse>(`user/${userId}`);
-      // console.log(response);
+      console.log(response);
       setAuthBody({
         legalName: response.data.business.legalName,
         businessId: response.data.business._id,
@@ -131,9 +131,12 @@ const SignIn = (props: SignInProps) => {
         userId: response.data.user._id,
       });
       //TODO CHANGE THIS 
-      history.push("/in-construction");
+      console.log("here");
+      setLoading(false);
+      history.push("/dashboard");
       return;
     } catch (error) {
+      console.log("error");
       const { history } = props;
       // TODO handle multiple errors! 
       // console.log("ERROR");
@@ -147,10 +150,16 @@ const SignIn = (props: SignInProps) => {
           },
         },
       });
-      history.push("/in-construction");
       setLoading(false);
     }
   };
+
+  const handleRedeem = async () => {
+    const { history } = props;
+
+    history.push("/redime");
+  };
+
   const { classes } = props;
   const { values, touched, errors, isValid, submitError } = state;
   const showEmailError =
@@ -165,13 +174,7 @@ const SignIn = (props: SignInProps) => {
           </div>
         </Grid>
         <Grid className={classes.content} item lg={7} xs={12}>
-          <InConstruction/>
-          {/* <div className={classes.content}>
-            <div className={classes.contentHeader}>
-              <IconButton className={classes.backButton} onClick={handleBack}>
-                <ArrowBackIcon />
-              </IconButton>
-            </div>
+          <div className={classes.content}>
             <div className={classes.contentBody}>
               <form className={classes.form}>
                 <Typography className={classes.title} variant="h2">
@@ -241,12 +244,21 @@ const SignIn = (props: SignInProps) => {
                   </a>
                 </Typography>
               </form>
+              <Button
+                    className={classes.redeemButton}
+                    color="secondary"
+                    disabled={!isValid}
+                    onClick={handleRedeem}
+                    size="large"
+                    variant="contained"
+                  >
+                    Redimir
+                  </Button>
             </div>
-          </div> */}
+          </div>
         </Grid>
       </Grid> 
     </div>
   );
 };
-
-export default compose(withRouter, withStyles(styles as any))(SignIn as any);
+ export default compose(withRouter, withStyles(styles as any))(SignIn as any);

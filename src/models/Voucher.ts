@@ -5,11 +5,12 @@ import { IOrder } from './Order';
 
 export interface IVoucher extends Document {
     discount: Constants.PercentageDiscount;
-    amount: Constants.VoucherOptionsValues;
-    totally_redeemed: boolean;
+    amountPaid: number;
+    amountToRedeem: Constants.VoucherOptionsValues;
+    totallyRedeemed: boolean;
     order: (string | IOrder), 
     transactions?: string[];
-    account: string;
+    userId: string;
     business: string;
     notification?: string[]; 
 }
@@ -23,11 +24,15 @@ VoucherSchema.add({
         type: Constants.PercentageDiscount,
         required: true
     },
-    amount: {
+    amountPaid: {
+        type: Number,
+        required: true
+    },
+    amountToRedeem: {
         type: Constants.VoucherOptionsValues,
         required: true
     },
-    totally_redeemed: {
+    totallyRedeemed: {
         type: Boolean,
         required: true
     },
@@ -42,9 +47,9 @@ VoucherSchema.add({
         ref: 'Transaction',
         required: false
     }], 
-    account: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Account', 
+        ref: 'User', 
         required: true
     },
     business: {

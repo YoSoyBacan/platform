@@ -5,9 +5,9 @@ import * as Constants from '../util/constants';
 
 export interface IRedeemTransaction extends Document {
     amount: number;
-    business: string;
     voucher: string;
-    account: string;
+    business: string;
+    userId: string;
     notification: string;
 }
 
@@ -32,9 +32,9 @@ RedeemTransactionSchema.add({
         ref: 'Business',
         required: true
     },
-    account: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Account', 
+        ref: 'User', 
         required: true
     },
     notification: {

@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 // Shared services
-import { getProducts } from 'services/product';
+// import { getProducts } from 'services/product';
 
 // Material helpers
 import { withStyles } from '@material-ui/core';
@@ -48,35 +48,35 @@ class ProductList extends Component {
     error: null
   };
 
-  async getProducts() {
-    try {
-      this.setState({ isLoading: true });
+  // async getProducts() {
+  //   try {
+  //     this.setState({ isLoading: true });
 
-      const { limit } = this.state;
+  //     const { limit } = this.state;
 
-      const { products, productsTotal } = await getProducts(limit);
+  //     const { products, productsTotal } = await getProducts(limit);
 
-      if (this.signal) {
-        this.setState({
-          isLoading: false,
-          products,
-          productsTotal
-        });
-      }
-    } catch (error) {
-      if (this.signal) {
-        this.setState({
-          isLoading: false,
-          error
-        });
-      }
-    }
-  }
+  //     if (this.signal) {
+  //       this.setState({
+  //         isLoading: false,
+  //         products,
+  //         productsTotal
+  //       });
+  //     }
+  //   } catch (error) {
+  //     if (this.signal) {
+  //       this.setState({
+  //         isLoading: false,
+  //         error
+  //       });
+  //     }
+  //   }
+  // }
 
   componentWillMount() {
     this.signal = true;
 
-    this.getProducts();
+    // this.getProducts();
   }
 
   componentWillUnmount() {

@@ -11,7 +11,7 @@ import { withStyles } from '@material-ui/core';
 import { Typography, LinearProgress } from '@material-ui/core';
 
 // Material icons
-import { InsertChartOutlined as InsertChartIcon } from '@material-ui/icons';
+import { EmojiSymbols as MathIcons } from '@material-ui/icons';
 
 // Shared components
 import { Paper } from 'components';
@@ -46,7 +46,7 @@ class Progress extends Component {
             </Typography>
           </div>
           <div className={classes.iconWrapper}>
-            <InsertChartIcon className={classes.icon} />
+            <MathIcons className={classes.icon} />
           </div>
         </div>
         <div className={classes.footer}>

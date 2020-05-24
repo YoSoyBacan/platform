@@ -4,6 +4,7 @@ import { Business } from '../models';
 import * as Constants from '../util/constants';
 import { APIResponse } from '../lib/responseTypes';
 import { ValidatedRequestSchema , ValidatedRequest, createValidator, ContainerTypes } from 'express-joi-validation';
+import { ChangeVoucherOption } from '../validators/voucherOption';
 
 const router = Router({ mergeParams: true});
 const validator = createValidator();
@@ -18,7 +19,7 @@ interface UpdateVoucherOptions extends ValidatedRequestSchema {
 
 const doGetVoucherOptions = apiWrapper.bind(
   apiWrapper,
-  'GET:/api/:businessId/voucherOptions',
+  'GET:/api/misTarjetas/:businessId',
   async (req: Request, res: Response) => {
     const business = await Business.findById(req.params.businessId);
     const businessVoucherOptions = business.voucherOptions; //Array values discount createdAt
@@ -57,7 +58,7 @@ const doGetVoucherOptions = apiWrapper.bind(
 
 const doChangeVoucherOption = apiWrapper.bind(
   apiWrapper,
-  'PUT:/api/:businessId/voucherOptions',
+  'PUT:/api/misTarjetas/:businessId',
   async (req: ValidatedRequest<UpdateVoucherOptions>, res: Response) => {
     const business = await Business.findById(req.params.businessId).populate("voucherOptions");
 
@@ -74,7 +75,7 @@ const doChangeVoucherOption = apiWrapper.bind(
   }
 )
 
-router.get('/:businessId/voucherOptions', doGetVoucherOptions);
-router.put('/:businessId/voucherOptions', doChangeVoucherOption);
+router.get('/:businessId', doGetVoucherOptions);
+router.put('/:businessId', validator.body(ChangeVoucherOption), doChangeVoucherOption); //TODO dani create validator for put 
 
 export default router;

@@ -21,6 +21,7 @@ export interface IBusiness extends Document {
   businessPhone: string;
   businessLink: string;
   rawBusinessLink: string;
+  depositedAmount: number;
   /* Extra */
   industry?: Constants.Industries;
   businessRegisteredAt?: Date;
@@ -28,10 +29,12 @@ export interface IBusiness extends Document {
   coordinates?: number[];
   avatarImageUrl?: string;
   images?: string[];
-  voucherOptions?: Array<{ 
+  voucherOptions?: Array<{
     value: Constants.VoucherOptionsValues, 
     discount: Constants.PercentageDiscount, 
-    createdAt: Date}>;
+    variantId: string,
+    createdAt: Date
+  }>;
   /* Bank Info*/
   bankName: Constants.BankOptions;
   bankAccountNumber: string;
@@ -40,9 +43,8 @@ export interface IBusiness extends Document {
   /* Relationships */
   owner: string | IUser;
   vouchers?: (string | IVoucher)[];
-  transactions?: string[];
+  transactions?: string[]; // REDIMIIIIIR 
   notifications?:  string[];
-
   /* External Relationships */
   buenPlanProviderId: string;
   shopProviderId: string;
@@ -121,6 +123,10 @@ BusinessSchema.add({
   rawBusinessLink: {
     type: String,
     trim: true,
+  },
+  depositedAmount:{
+    type: Number, 
+    required: false,
   },
   /* Extra */
   industry: {
