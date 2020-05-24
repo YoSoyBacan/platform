@@ -72,7 +72,8 @@ export namespace APIResponse {
       total_redeemed_vouchers: number;
       voucher_list: Array<{
         voucher_discount: PercentageDiscount;
-        voucher_amount: VoucherOptionsValues;
+        voucher_amount_to_redeem: VoucherOptionsValues;
+        voucher_amount_paid: number;
         totally_redeemed: boolean;
         voucher_order_id: string;
       }>

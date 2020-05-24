@@ -33,8 +33,8 @@ export enum OrderStatus {
 };
 
 export enum Currency {
-    USD = 'Dolares',
-    COP = 'Pesos Colombianos',
+    USD = 'USD',
+    COP = 'COP',
 };
 // TODO: Finish indutry list
 export enum Industries {

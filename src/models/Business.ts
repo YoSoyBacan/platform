@@ -43,9 +43,8 @@ export interface IBusiness extends Document {
   /* Relationships */
   owner: string | IUser;
   vouchers?: (string | IVoucher)[];
-  transactions?: string[];
+  transactions?: string[]; // REDIMIIIIIR 
   notifications?:  string[];
-
   /* External Relationships */
   buenPlanProviderId: string;
   shopProviderId: string;

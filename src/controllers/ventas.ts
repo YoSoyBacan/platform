@@ -32,17 +32,18 @@ const doGetVouchers =  apiWrapper.bind(
 
     const totalNumberOfVouchers = (business.vouchers).length;
     const redeemedVouchers = (business.vouchers).filter((voucher:IVoucher) => {
-      return (voucher.totally_redeemed === true);
+      return (voucher.totallyRedeemed === true);
     });
     const totalRedeemedVouchers = redeemedVouchers.length;
     const totalAmountOfVouchers = (business.vouchers).reduce((prev, voucher:IVoucher) => {
-      return voucher.amount + prev
+      return voucher.amountPaid + prev
     }, 0);
   
     const allVouchers = business.vouchers.map((voucher:IVoucher) => ({  
         voucher_discount: voucher.discount,
-        voucher_amount: voucher.amount,
-        totally_redeemed: voucher.totally_redeemed,
+        voucher_amount_to_redeem: voucher.amountToRedeem,
+        voucher_amount_paid: voucher.amountPaid,
+        totally_redeemed: voucher.totallyRedeemed,
         voucher_order_id: voucher.order as string,
       }));
     

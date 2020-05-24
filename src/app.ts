@@ -14,6 +14,7 @@ import homeController from './controllers/home';
 import miNegocioController from './controllers/miNegocio';
 import userController from './controllers/user';
 import voucherOptionsController from './controllers/voucherOptions';
+import orderController  from './controllers/order';
 import { decodeFirebaseToken, isAuthorized } from './middlewares/authentication';
 
 // Create Express server
@@ -69,6 +70,7 @@ app.use("/api/business", decodeFirebaseToken, isAuthorized, businessController);
 app.use("/api/misTarjetas", decodeFirebaseToken, isAuthorized, voucherOptionsController);
 app.use("/api/home", decodeFirebaseToken, isAuthorized, homeController);
 app.use("/api/miNegocio", decodeFirebaseToken, isAuthorized, miNegocioController);
+app.use("/api/order", decodeFirebaseToken, isAuthorized, orderController);
 
 /**
  * OAuth authentication routes. (Sign in)
