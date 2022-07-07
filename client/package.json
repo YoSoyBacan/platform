@@ -45,7 +45,7 @@
     "firebase": "^7.13.1",
     "formik": "^2.1.4",
     "history": "^4.9.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "qrcode.react": "^1.0.0",
