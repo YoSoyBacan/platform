@@ -122,7 +122,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jest": "24.7.1",
     "nodemon": "^1.19.2",
     "shelljs": "^0.8.3",
